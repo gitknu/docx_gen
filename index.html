@@ -52,6 +52,8 @@
         <input type="text" id="ddyr_end" placeholder="Рік">
         <h3>Номер мобільного</h3>
         <input type="text" id="mobile_num" placeholder="+380...">
+        <h3>Як звати наукового керівника</h3>
+        <input type="text" id="name_advisor" placeholder="Ім'я ПРІЗВИЩЕ">
         <br><br>
         <button onclick="generate()">Згенерувати договір</button>
     </body>
@@ -70,6 +72,7 @@
             const dday_end = document.getElementById("dday_end").value;
             const ddmon_end = document.getElementById("ddmon_end").value;
             const ddyr_end = document.getElementById("ddyr_end").value;
+            const name_advisor = document.getElementById("name_advisor").value;
             const mobile_num = document.getElementById("mobile_num").value;
 if (isNaN(parseInt(arg_num)) && arg_num !== "") {
     alert("Номер договору повинен бути числом!");
@@ -85,6 +88,10 @@ if (isNaN(parseInt(mobile_num)) && mobile_num !== "") {
 }
 if (parseInt(mobile_num).toString().length < 9) {
     alert("Вкажіть мобільний номер телефону!");
+    return;
+}
+if (!isNaN(parseInt(name_advisor)) || name_advisor === "" || !name_advisor.includes(" ")) {
+    alert("Напишіть ім'я та прізвище людини!!");
     return;
 }
             loadFile(
@@ -122,7 +129,7 @@ if (parseInt(mobile_num).toString().length < 9) {
                         tax_num: "123456789",
                         bank_info: "123456789",
                         unified_code: "1234567",
-                        name_advisor: "Леся УКРАЇНКА",
+                        name_advisor: name_advisor,
                         mobile_num: mobile_num,
                     });
                     const blob = doc.getZip().generate({
