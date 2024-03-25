@@ -2,9 +2,9 @@
     <body>
         <h3>Номер договору</h3>
         <input type="text" id="arg_num_input" placeholder="Номер договору">
-        <h3>Дата договору</h3>
+        <h3>Строк договору</h3>
         <select id="dday_start">
-            <option value="___"> </option>
+            <option value="___">дд</option>
             <script>
                 for (let i = 1; i <= 31; i++) {
                     document.write(`<option value="${i}">${i}</option>`);
@@ -12,7 +12,7 @@
             </script>
         </select>
         <select id="ddmon_start">
-            <option value="____________"> </option>
+            <option value="____________">мм</option>
             <option value="січня">січня</option>
             <option value="лютого">лютого</option>
             <option value="березня">березня</option>
@@ -28,7 +28,6 @@
         </select><span> 2024</span>
         <br><br>
         <select id="dday_end">
-            <option value="___"> </option>
             <script>
                 for (let i = 1; i <= 31; i++) {
                     document.write(`<option value="${i}">${i}</option>`);
@@ -36,7 +35,6 @@
             </script>
         </select>
         <select id="ddmon_end">
-            <option value="____________"> </option>
             <option value="січня">січня</option>
             <option value="лютого">лютого</option>
             <option value="березня">березня</option>
@@ -49,7 +47,9 @@
             <option value="жовтня">жовтня</option>
             <option value="листопада">листопада</option>
             <option value="грудня">грудня</option>
-        </select><span> 2024</span>
+        </select>
+        <span> 20</span>
+        <input type="text" id="ddyr_end" placeholder="Рік">
         <br><br>
         <button onclick="generate()">Generate</button>
     </body>
@@ -67,12 +67,18 @@
             const ddmon_start = document.getElementById("ddmon_start").value;
             const dday_end = document.getElementById("dday_end").value;
             const ddmon_end = document.getElementById("ddmon_end").value;
-            
-              // Check if arg_num is a number
+            const ddyr_end = document.getElementById("ddyr_end").value;
+              
 if (isNaN(arg_num) && arg_num !== "") {
     alert("Номер договору повинен бути числом!");
     return;
 }
+
+if (isNaN(parseInt(ddyr_end)) || ddyr_end < 24 || ddyr_end > 99) {
+    alert("Зазначте актуальний рік - між (20)24 і 20(99)!");
+    return;
+}
+
             
             loadFile(
                 "https://gitknu.github.io/docx_gen/input.docx",
@@ -91,7 +97,7 @@ if (isNaN(arg_num) && arg_num !== "") {
                         ddmon_start: ddmon_start,
                         dday_end: dday_end,
                         ddmon_end:  ddmon_end,
-                        ddyr_end: "2099",
+                        ddyr_end: ddyr_end,
                         client_company: "Компанія ''Шевченко і партнери''",
                         client_position_rid: "директора",
                         client_person_rid: "Тараса ШЕВЧЕНКА",
