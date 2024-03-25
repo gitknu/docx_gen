@@ -3,7 +3,7 @@
         <h3>Номер договору</h3>
         <input type="text" id="arg_num_input" placeholder="Номер договору">
         <h3>Дата договору</h3>
-        <select id="date_day_input">
+        <select id="dday_start">
             <option value="___"> </option>
             <script>
                 for (let i = 1; i <= 31; i++) {
@@ -11,7 +11,7 @@
                 }
             </script>
         </select>
-        <select id="date_month_input">
+        <select id="ddmon_start">
             <option value="____________"> </option>
             <option value="січня">січня</option>
             <option value="лютого">лютого</option>
@@ -39,14 +39,14 @@
         }
         window.generate = function generate() {
             const arg_num = document.getElementById("arg_num_input").value;
-            const date_day = document.getElementById("date_day_input").value;
-            const date_month = document.getElementById("date_month_input").value;
+            const dday_start = document.getElementById("dday_start").value;
+            const ddmon_start = document.getElementById("ddmon_start").value;
             
               // Check if arg_num is a number
-            if (isNaN(arg_num) || arg_num === "") {
-                alert("Номер договору повинен бути числом!");
-                return;
-            }
+if (isNaN(arg_num) && arg_num !== "") {
+    alert("Номер договору повинен бути числом!");
+    return;
+}
             
             loadFile(
                 "https://gitknu.github.io/docx_gen/input.docx",
@@ -61,8 +61,9 @@
                     });
                     doc.render({
                         agr_num: arg_num,
-                        date_day: date_day,
-                        date_month: date_month,
+                        dday_start: dday_start,
+                        ddmon_start: ddmon_start,
+                        date_end: "2099",
                         client_company: "Компанія ''Шевченко і партнери''",
                         client_position_rid: "директора",
                         client_person_rid: "Тараса ШЕВЧЕНКА",
@@ -74,7 +75,6 @@
                         val_num_small: "123",
                         fee_num_large: "23,000",
                         fee_num_small: "23",
-                        yr_end: "2099",
                         postal_code: "12345",
                         city_name: "м. Харків",
                         street_else: "вул. Петра Петриченка, 1",
