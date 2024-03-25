@@ -1,6 +1,6 @@
 <html>
     <body>
-        <button onclick="generate()">Generate document</button>
+        <button onclick="generate()">Згенерувати</button>
     </body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.45.0/docxtemplater.js"></script>
     <script src="https://unpkg.com/pizzip@3.1.6/dist/pizzip.js"></script>
@@ -22,8 +22,6 @@
                         paragraphLoop: true,
                         linebreaks: true,
                     });
-
-                    // Render the document (Replace {first_name} by John, {last_name} by Doe, ...)
                     doc.render({
                         agr_num: "12345",
                         date_day: "20",
