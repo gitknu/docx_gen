@@ -28,13 +28,16 @@
         </select><span> 2024</span>
         <br><br>
         <select id="dday_end">
+            <option value="___">дд</option>
             <script>
                 for (let i = 1; i <= 31; i++) {
                     document.write(`<option value="${i}">${i}</option>`);
                 }
             </script>
         </select>
+        
         <select id="ddmon_end">
+            <option value="7">мм</option>
             <option value="січня">січня</option>
             <option value="лютого">лютого</option>
             <option value="березня">березня</option>
@@ -77,6 +80,11 @@
             const postal_code = document.getElementById("postal_code").value;
             const name_advisor = document.getElementById("name_advisor").value;
             const mobile_num = document.getElementById("mobile_num").value;
+if (isNaN(parseInt(dday_end)) || !isNaN(parseInt(ddmon_end))) {
+  alert("Оберіть дату завернення договору!");
+  return;
+}
+
 if (isNaN(parseInt(arg_num)) && arg_num !== "") {
     alert("Номер договору повинен бути числом!");
     return;
