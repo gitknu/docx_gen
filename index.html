@@ -1,13 +1,30 @@
 <html>
     <body>
+        <h3>Номер договору</h3>
         <input type="text" id="arg_num_input" placeholder="Номер договору">
-        <br><br>
+        <h3>Дата договору</h3>
         <select id="date_day_input">
+            <option value="___"> </option>
             <script>
                 for (let i = 1; i <= 31; i++) {
                     document.write(`<option value="${i}">${i}</option>`);
                 }
             </script>
+        </select>
+        <select id="date_month_input">
+            <option value="____________"> </option>
+            <option value="січня">січня</option>
+            <option value="лютого">лютого</option>
+            <option value="березня">березня</option>
+            <option value="квітня">квітня</option>
+            <option value="травня">травня</option>
+            <option value="червня">червня</option>
+            <option value="липня">липня</option>
+            <option value="серпня">серпня</option>
+            <option value="вересня">вересня</option>
+            <option value="жовтня">жовтня</option>
+            <option value="листопада">листопада</option>
+            <option value="грудня">грудня</option>
         </select>
         <br><br>
         <button onclick="generate()">Generate</button>
@@ -23,6 +40,7 @@
         window.generate = function generate() {
             const arg_num = document.getElementById("arg_num_input").value;
             const date_day = document.getElementById("date_day_input").value;
+            const date_month = document.getElementById("date_month_input").value;
             loadFile(
                 "https://gitknu.github.io/docx_gen/input.docx",
                 function (error, content) {
@@ -37,7 +55,7 @@
                     doc.render({
                         agr_num: arg_num,
                         date_day: date_day,
-                        date_month: "січня",
+                        date_month: date_month,
                         client_company: "Компанія ''Шевченко і партнери''",
                         client_position_rid: "директора",
                         client_person_rid: "Тараса ШЕВЧЕНКА",
