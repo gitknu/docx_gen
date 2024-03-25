@@ -1,0 +1,73 @@
+<html>
+    <body>
+        <input type="text" id="arg_num_input" placeholder="Номер договору">
+        <br><br>
+        <select id="date_day_input">
+            <script>
+                for (let i = 1; i <= 31; i++) {
+                    document.write(`<option value="${i}">${i}</option>`);
+                }
+            </script>
+        </select>
+        <br><br>
+        <button onclick="generate()">Generate</button>
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.45.0/docxtemplater.js"></script>
+    <script src="https://unpkg.com/pizzip@3.1.6/dist/pizzip.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
+    <script src="https://unpkg.com/pizzip@3.1.6/dist/pizzip-utils.js"></script>
+    <script>
+        function loadFile(url, callback) {
+            PizZipUtils.getBinaryContent(url, callback);
+        }
+        window.generate = function generate() {
+            const arg_num = document.getElementById("arg_num_input").value;
+            const date_day = document.getElementById("date_day_input").value;
+            loadFile(
+                "https://gitknu.github.io/docx_gen/input.docx",
+                function (error, content) {
+                    if (error) {
+                        throw error;
+                    }
+                    const zip = new PizZip(content);
+                    const doc = new window.docxtemplater(zip, {
+                        paragraphLoop: true,
+                        linebreaks: true,
+                    });
+                    doc.render({
+                        agr_num: arg_num,
+                        date_day: date_day,
+                        date_month: "січня",
+                        client_company: "Компанія ''Шевченко і партнери''",
+                        client_position_rid: "директора",
+                        client_person_rid: "Тараса ШЕВЧЕНКА",
+                        client_position: "Директор",
+                        client_person: "Тарас ШЕВЧЕНКО",
+                        doc_reason: "договору про нерозголошення",
+                        services_list: "зважити пісок, пересипати сніг",
+                        val_num_large: "123,000",
+                        val_num_small: "123",
+                        fee_num_large: "23,000",
+                        fee_num_small: "23",
+                        yr_end: "2099",
+                        postal_code: "12345",
+                        city_name: "м. Харків",
+                        street_else: "вул. Петра Петриченка, 1",
+                        tax_num: "123456789",
+                        bank_info: "123456789",
+                        unified_code: "1234567",
+                        name_advisor: "Леся УКРАЇНКА",
+                        mobile_num: "0660000000",
+                    });
+                    const blob = doc.getZip().generate({
+                        type: "blob",
+                        mimeType:
+                            "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                        compression: "DEFLATE",
+                    });
+                    saveAs(blob, "Договір.docx");
+                }
+            );
+        };
+    </script>
+</html>
