@@ -50,10 +50,12 @@
         </select>
         <span> 20</span>
         <input type="text" id="ddyr_end" placeholder="Рік">
+        <h3>Поштовий індекс</h3>
+        <input type="text" id="postal_code" placeholder="П'ять цифр">
+        <h3>Науковий керівник</h3>
+        <input type="text" id="name_advisor" placeholder="Ім'я ПРІЗВИЩЕ">
         <h3>Номер мобільного</h3>
         <input type="text" id="mobile_num" placeholder="+380...">
-        <h3>Як звати наукового керівника</h3>
-        <input type="text" id="name_advisor" placeholder="Ім'я ПРІЗВИЩЕ">
         <br><br>
         <button onclick="generate()">Згенерувати договір</button>
     </body>
@@ -72,6 +74,7 @@
             const dday_end = document.getElementById("dday_end").value;
             const ddmon_end = document.getElementById("ddmon_end").value;
             const ddyr_end = document.getElementById("ddyr_end").value;
+            const postal_code = document.getElementById("postal_code").value;
             const name_advisor = document.getElementById("name_advisor").value;
             const mobile_num = document.getElementById("mobile_num").value;
 if (isNaN(parseInt(arg_num)) && arg_num !== "") {
@@ -82,16 +85,24 @@ if (isNaN(parseInt(ddyr_end)) || ddyr_end < 24 || ddyr_end > 99) {
     alert("Зазначте актуальний рік - між (20)24 і 20(99)!");
     return;
 }
+if (isNaN(parseInt(postal_code)) && postal_code !== "") { 
+    alert("Вкажіть поштовий індекс!"); 
+    return;
+}
+if (postal_code.length !== 5 || isNaN(parseInt(postal_code))) {
+    alert("Вкажіть поштовий індекс!");
+    return;
+}
+if (!isNaN(parseInt(name_advisor)) || name_advisor === "" || !name_advisor.includes(" ")) {
+    alert("Напишіть ім'я та прізвище людини!");
+    return;
+}
 if (isNaN(parseInt(mobile_num)) && mobile_num !== "") {
     alert("Вкажіть мобільний номер телефону!");
     return;
 }
-if (parseInt(mobile_num).toString().length < 9) {
+if (parseInt(mobile_num).toString().length < 9 || parseInt(mobile_num).toString().length > 12) {
     alert("Вкажіть мобільний номер телефону!");
-    return;
-}
-if (!isNaN(parseInt(name_advisor)) || name_advisor === "" || !name_advisor.includes(" ")) {
-    alert("Напишіть ім'я та прізвище людини!!");
     return;
 }
             loadFile(
@@ -123,7 +134,7 @@ if (!isNaN(parseInt(name_advisor)) || name_advisor === "" || !name_advisor.inclu
                         val_num_small: "123",
                         fee_num_large: "23,000",
                         fee_num_small: "23",
-                        postal_code: "12345",
+                        postal_code: postal_code,
                         city_name: "м. Харків",
                         street_else: "вул. Петра Петриченка, 1",
                         tax_num: "123456789",
