@@ -97,6 +97,13 @@ if (!isNaN(parseInt(name_advisor)) || name_advisor === "" || !name_advisor.inclu
     alert("Напишіть ім'я та прізвище людини!");
     return;
 }
+var nameParts = name_advisor.split(" ");
+if (nameParts.length < 2 || 
+    (nameParts[0][0] !== nameParts[0][0].toUpperCase() || 
+    nameParts[1][0] !== nameParts[1][0].toUpperCase())) {
+    alert("Напишіть відповідно до чинного правопису!");
+    return;
+}
 if (isNaN(parseInt(mobile_num)) && mobile_num !== "") {
     alert("Вкажіть мобільний номер телефону!");
     return;
