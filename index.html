@@ -48,16 +48,14 @@
                         mobile_num: "0660000000",
                        
                     });
-
                     const blob = doc.getZip().generate({
                         type: "blob",
                         mimeType:
                             "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
                         // compression: DEFLATE adds a compression step.
-                        // For a 50MB output document, expect 500ms additional CPU time
+                        // For a 50MB output, expect 500ms+CPU time
                         compression: "DEFLATE",
                     });
-                    // Output the document using Data-URI
                     saveAs(blob, "Договір.docx");
                 }
             );
