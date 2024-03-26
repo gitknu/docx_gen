@@ -175,26 +175,6 @@ background: linear-gradient(coral, rebeccapurple);
           <br><br>
         </td>
       </tr>
-      <script>
-        let container = document.getElementById('container');
-        let counter = 2;
-        function createInputField() {
-          let input = document.createElement('input');
-          input.type = 'text';
-          input.name = 'name_' + counter;
-          input.placeholder = 'Назва послуги';
-          container.appendChild(document.createElement('br'));
-          container.appendChild(document.createElement('br'));
-          container.appendChild(input);
-          counter++;
-        }
-        container.addEventListener('input', function(e) {
-          let lastInput = container.lastElementChild;
-          if (e.target === lastInput && lastInput.value.trim() !== '') {
-            createInputField();
-          }
-        });
-      </script>
       <tr>
         <td>
           <br>
