@@ -26,7 +26,7 @@
             const hoverImg = document.getElementById('hover_img');
             const img = document.querySelector('#hover_img>img');
         title.addEventListener('mouseover', function(e) {
-                const x = e.pageX;
+                const x = e.pageX + 300;
                 const y = e.pageY;
                 img.style.display = 'block';
                 img.style.left = x + 'px';
