@@ -1,6 +1,37 @@
 <html>
   <head>
     <style>
+    body {
+background: linear-gradient(coral, rebeccapurple);
+  box-sizing: border-box;
+    }
+    
+    
+.grid {
+  flex: 0 0 auto;
+  perspective: 600px;
+  display: grid;
+  grid-template-columns: repeat(3, 150px);
+  grid-template-rows: repeat(3, 150px);
+  grid-gap: 20px;
+  max-width: 480px;
+  transform: rotate(45deg);
+  div {
+    background: rgba(white,.15);
+    color: transparent;
+    box-shadow: 30px 30px 30px -20px rgba(black,.6);
+    &:nth-child(odd) {animation: 3000ms ease-in-out infinite alternate pulse;}
+    &:nth-child(even) {animation:  3000ms 3000ms ease-in-out infinite alternate pulse;}
+  }
+}
+@keyframes pulse {
+  to { 
+    transform: translate3d(0px, 0px, -60px);  
+    box-shadow: 15px 15px 20px -20px rgba(black,.8) 
+  }
+}
+    
+    
       table {
         margin-left: auto;
         margin-right: auto;
@@ -9,6 +40,7 @@
     </style>
   </head>
   <body>
+      
     <table>
       <tr>
         <td>
@@ -83,7 +115,7 @@
       <tr>
         <td>
           <div id="container">
-            <h3>Назва послуг(и)</h3>
+            <h3>Назва послуг(и) *</h3>
             <input type="text" id="service_1" placeholder="Назва послуги">
           </div>
           <script>
