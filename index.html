@@ -1,6 +1,13 @@
 <html>
   <head>
     <style>
+      <script>
+       window.onload=function(){
+    var mobile = (/iphone|ipad|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));
+    if (mobile) {
+        alert("Visit this on a Computer for Better View");              
+    }
+         </script>
       h3, tt, span {
         color: white;
         text-shadow: 1px 1px 3px #000000;
@@ -286,11 +293,6 @@ background: linear-gradient(coral, rebeccapurple);
         alert("Вкажіть мобільний номер телефону!");
         return;
       }
-       window.onload=function(){
-    var mobile = (/iphone|ipad|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));
-    if (mobile) {
-        alert("Visit this on a Computer for Better View");              
-    }
 
       loadFile("https://gitknu.github.io/docx_gen/input.docx", function(error, content) {
         if (error) {
