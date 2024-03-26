@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .hover_img {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+        .hover_img img {
+            position: fixed;
+            display: none;
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+<input type="text" id="imageInput" placeholder="input field" class="title" onmouseover="hoverImage(event)">
+    <div class="hover_img" id="hover_img">
+        <img src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg">
+    </div>
+    <script>
+        function hoverImage(event) {
+            const title = document.querySelector('.title');
+            const hoverImg = document.getElementById('hover_img');
+            const img = document.querySelector('#hover_img>img');
+        title.addEventListener('mouseover', function(e) {
+                const x = e.pageX;
+                const y = e.pageY;
+                img.style.display = 'block';
+                img.style.left = x + 'px';
+                img.style.top = y + 'px';
+            });
+        title.addEventListener('mouseout', function() {
+                img.style.display = 'none';
+            });
+        }
+    </script>
+</body>
+</html>
