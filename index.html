@@ -35,6 +35,7 @@
                 }
             </script>
         </select>
+        
         <select id="ddmon_end">
             <option value="7">мм</option>
             <option value="січня">січня</option>
@@ -53,6 +54,7 @@
         <span> 20</span>
         <input type="text" id="ddyr_end" placeholder="Рік">
         <div id="container">
+            
 <h3>Назва послуг(и)</h3>
     <input type="text" id="service_1" placeholder="Назва послуги">
 </div>
@@ -160,7 +162,7 @@ if (!isNaN(parseInt(name_advisor)) || name_advisor === "" || !name_advisor.inclu
     return;
 }
 var nameParts = name_advisor.split(" ");
-if (nameParts.length < 2 || 
+if (nameParts.length < 1 || 
     (nameParts[0][0] !== nameParts[0][0].toUpperCase() || 
     nameParts[1][0] !== nameParts[1][0].toUpperCase())) {
     alert("Напишіть відповідно до чинного правопису!");
