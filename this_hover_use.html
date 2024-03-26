@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+    .hover_img {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        display: flex;
+    }
+    .hover_img img {
+        position: fixed;
+        display: none;
+        height: 300px;
+        width: 300px;
+    }
+    .additional_div {
+        width: 300px;
+        height: 300px;
+        border: 1px solid black;
+        position: absolute;
+        right: 0; /* Align to the right */
+        z-index: -999;
+        flex: auto auto 0;
+    }
+</style>
+</head>
+<body>
+    <input type="text" id="imageInput" placeholder="input field" class="title" onmouseover="hoverImage(event)">
+    <div class="hover_img" id="hover_img">
+        <img src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg">
+    </div>
+    <div class="additional_div" id="additional_div"></div>
+    <script>
+        function hoverImage(event) {
+            const title = document.querySelector('.title');
+            const hoverImg = document.getElementById('hover_img');
+            const img = document.querySelector('#hover_img>img');
+            const additionalDiv = document.getElementById('additional_div');
+            title.addEventListener('mouseover', function(e) {
+                const x = additionalDiv.offsetLeft + (additionalDiv.offsetWidth / 2) - (img.width / 2);
+                const y = additionalDiv.offsetTop + (additionalDiv.offsetHeight / 2) - (img.height / 2);
+                img.style.display = 'block';
+                img.style.left = x + 'px';
+                img.style.top = y + 'px';
+            });
+            title.addEventListener('mouseout', function() {
+                img.style.display = 'none';
+            });
+        }
+    </script>
+</body>
+</html>
