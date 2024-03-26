@@ -1,12 +1,15 @@
 <html>
   <head>
     <style>
+          table {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
     body {
 background: linear-gradient(coral, rebeccapurple);
   box-sizing: border-box;
     }
-    
-    
 .grid {
   flex: 0 0 auto;
   perspective: 600px;
@@ -17,9 +20,8 @@ background: linear-gradient(coral, rebeccapurple);
   max-width: 480px;
   transform: rotate(45deg);
   div {
-    background: rgba(white,.15);
-    color: transparent;
-    box-shadow: 30px 30px 30px -20px rgba(black,.6);
+    background-color: rgba(255, 255, 255, 0.35);
+    box-shadow: 30px 30px 30px -20px rgba(0, 0, 0, 0.35);
     &:nth-child(odd) {animation: 3000ms ease-in-out infinite alternate pulse;}
     &:nth-child(even) {animation:  3000ms 3000ms ease-in-out infinite alternate pulse;}
   }
@@ -30,17 +32,20 @@ background: linear-gradient(coral, rebeccapurple);
     box-shadow: 15px 15px 20px -20px rgba(black,.8) 
   }
 }
-    
-    
-      table {
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-      }
     </style>
   </head>
   <body>
-      
+          <div class="grid">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
     <table>
       <tr>
         <td>
