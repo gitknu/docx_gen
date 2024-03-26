@@ -129,26 +129,6 @@ background: linear-gradient(coral, rebeccapurple);
             <h3>Назва послуг(и)</h3>
             <input type="text" id="service_1" placeholder="Назва послуги">
           </div>
-          <script>
-            let container = document.getElementById('container');
-            let counter = 2;
-            function createInputField() {
-              let input = document.createElement('input');
-              input.type = 'text';
-              input.id = 'service_' + counter;
-              input.placeholder = 'Назва послуги';
-              container.appendChild(document.createElement('br'));
-              container.appendChild(document.createElement('br'));
-              container.appendChild(input);
-              counter++;
-            }
-            container.addEventListener('input', function(e) {
-              let lastInput = container.lastElementChild;
-              if (e.target === lastInput && lastInput.value.trim() !== '') {
-                createInputField();
-              }
-            });
-          </script>
           <br><br>
         </td>
       </tr>
@@ -199,7 +179,6 @@ background: linear-gradient(coral, rebeccapurple);
       const ddmon_end = document.getElementById("ddmon_end").value;
       const ddyr_end = document.getElementById("ddyr_end").value;
       const service_1 = document.getElementById("service_1").value;
-            const service_2 = document.getElementById("service_2").value;
       const postal_code = document.getElementById("postal_code").value;
       const name_advisor = document.getElementById("name_advisor").value;
       const mobile_num = document.getElementById("mobile_num").value;
@@ -292,8 +271,6 @@ background: linear-gradient(coral, rebeccapurple);
           client_position: "Директор",
           client_person: "Тарас ШЕВЧЕНКО",
           doc_reason: "договору про нерозголошення",
-          service_1: service_1,
-        service_2: service_2,
           val_num_large: "123,000",
           val_num_small: "123",
           fee_num_large: "23,000",
@@ -306,6 +283,7 @@ background: linear-gradient(coral, rebeccapurple);
           unified_code: "1234567",
           name_advisor: name_advisor,
           mobile_num: mobile_num,
+        service_1: service_1, 
         });
         const blob = doc.getZip().generate({
           type: "blob",
