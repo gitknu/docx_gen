@@ -55,7 +55,10 @@
         <input type="text" id="ddyr_end" placeholder="Рік">
         <h3>Поштовий індекс</h3>
         <input type="text" id="postal_code" placeholder="П'ять цифр">
-        <h3>Науковий керівник, його номер мобільного</h3>
+        <h3>Населений пункт і повна адреса організації</h3>
+        <input type="text" id="city_name" placeholder="Місто, селище тощо">
+        <input type="text" id="street_else" placeholder="Вулиця, проспект тощо">
+        <h3>Науковий керівник і його мобільний номер</h3>
         <input type="text" id="name_advisor" placeholder="Ім'я ПРІЗВИЩЕ">
         <input type="text" id="mobile_num" placeholder="+380...">
         <br><br>
@@ -79,6 +82,8 @@
             const postal_code = document.getElementById("postal_code").value;
             const name_advisor = document.getElementById("name_advisor").value;
             const mobile_num = document.getElementById("mobile_num").value;
+            const city_name = document.getElementById("city_name").value;
+            const street_else = document.getElementById("street_else").value;
 if (isNaN(parseInt(dday_end)) || !isNaN(parseInt(ddmon_end))) {
   alert("Оберіть дату завернення договору!");
   return;
@@ -98,6 +103,14 @@ if (isNaN(parseInt(postal_code)) && postal_code !== "") {
 }
 if (postal_code.length !== 5 || isNaN(parseInt(postal_code))) {
     alert("Вкажіть поштовий індекс!");
+    return;
+}
+if (!isNaN(parseInt(city_name)) || city_name === "" || !city_name.includes(" ")) {
+    alert("Зазначте місто реєстрації!");
+    return;
+}
+if (!isNaN(parseInt(street_else)) || street_else === "" || !street_else.includes(" ")) {
+    alert("Зазначте адресу реєстрації!");
     return;
 }
 if (!isNaN(parseInt(name_advisor)) || name_advisor === "" || !name_advisor.includes(" ")) {
@@ -149,8 +162,8 @@ if (parseInt(mobile_num).toString().length < 9 || parseInt(mobile_num).toString(
                         fee_num_large: "23,000",
                         fee_num_small: "23",
                         postal_code: postal_code,
-                        city_name: "м. Харків",
-                        street_else: "вул. Петра Петриченка, 1",
+                        city_name: city_name,
+                        street_else: street_else,
                         tax_num: "123456789",
                         bank_info: "123456789",
                         unified_code: "1234567",
