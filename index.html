@@ -171,8 +171,8 @@ if (isNaN(parseInt(ddyr_end)) || ddyr_end < 24 || ddyr_end > 99) {
     alert("Зазначте актуальний рік - між (20)24 і 20(99)!");
     return;
 }
-if (!isNaN(parseInt(service_1)) || service_1.trim() === "") {
-    alert("Зазначте свої послуги!");
+if (!isNaN(parseInt(service_1)) || service_1.trim() === "" || service_1.toLowerCase().includes('експертиз') || service_1.toLowerCase().includes('експиртиз') || service_1.toLowerCase().includes('дослідже')) {
+    alert("Зазначте свої послуги! Звертаємо увагу, що це не можуть бути експертиза або дослідження!");
     return;
 }
 if (isNaN(parseInt(postal_code)) && postal_code !== "") { 
