@@ -1,30 +1,38 @@
 <html>
-    <head>
-        <style>
-table {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-</style>
-    </head>
-    <body>
-        <table>
-        <tr>
-<td><h3>Номер договору</h3>
-<input type="text" id="arg_num_input" placeholder="Номер договору"></td>
-        </tr>
-        <tr>
-            <td><h3>Строк договору</h3>
-        <select id="dday_start">
+  <head>
+    <style>
+      table {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>
+          <h3>Номер договору</h3>
+          <input type="text" id="arg_num_input" placeholder="Номер договору">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h3>Строк договору</h3>
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align: left;">
+          <select id="dday_start">
             <option value="___">дд</option>
             <script>
-                for (let i = 1; i <= 31; i++) {
-                    document.write(`<option value="${i}">${i}</option>`);
-                }
+              for (let i = 1; i <= 31; i++) {
+                document.write(`
+								<option value="${i}">${i}</option>`);
+              }
             </script>
-        </select>
-        <select id="ddmon_start">
+          </select>
+          <select id="ddmon_start">
             <option value="____________">мм</option>
             <option value="січня">січня</option>
             <option value="лютого">лютого</option>
@@ -38,17 +46,22 @@ table {
             <option value="жовтня">жовтня</option>
             <option value="листопада">листопада</option>
             <option value="грудня">грудня</option>
-        </select><span> 2024</span>
-        <br><br>
-        <select id="dday_end">
+          </select>
+          <span> 2024</span>
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align: left;">
+          <select id="dday_end">
             <option value="___">дд</option>
             <script>
-                for (let i = 1; i <= 31; i++) {
-                    document.write(`<option value="${i}">${i}</option>`);
-                }
+              for (let i = 1; i <= 31; i++) {
+                document.write(`
+								<option value="${i}">${i}</option>`);
+              }
             </script>
-        </select>
-        <select id="ddmon_end">
+          </select>
+          <select id="ddmon_end">
             <option value="7">мм</option>
             <option value="січня">січня</option>
             <option value="лютого">лютого</option>
@@ -62,20 +75,64 @@ table {
             <option value="жовтня">жовтня</option>
             <option value="листопада">листопада</option>
             <option value="грудня">грудня</option>
-        </select>
-        <span> 20</span>
-        <input type="text" id="ddyr_end" placeholder="Рік" size="1" maxlength="2">
+          </select>
+          <span> 20</span>
+          <input type="text" id="ddyr_end" placeholder="Рік" size="1" maxlength="2">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div id="container">
+            <h3>Назва послуг(и)</h3>
+            <input type="text" id="service_1" placeholder="Назва послуги">
+          </div>
+          <script>
+            let container = document.getElementById('container');
+            let counter = 2;
 
-        </tr>
-        <tr>
-<td><div id="container">
-<h3>Назва послуг(и)</h3>
-    <input type="text" id="service_1" placeholder="Назва послуги">
-</div>
-<script>
+            function createInputField() {
+              let input = document.createElement('input');
+              input.type = 'text';
+              input.name = 'name_' + counter;
+              input.placeholder = 'Назва послуги';
+              container.appendChild(document.createElement('br'));
+              container.appendChild(document.createElement('br'));
+              container.appendChild(input);
+              counter++;
+            }
+            container.addEventListener('input', function(e) {
+              let lastInput = container.lastElementChild;
+              if (e.target === lastInput && lastInput.value.trim() !== '') {
+                createInputField();
+              }
+            });
+          </script>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h3>Поштовий індекс</h3>
+          <input type="text" id="postal_code" placeholder="П'ять цифр">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h3>Населений пункт і повна адреса організації</h3>
+          <input type="text" id="city_name" placeholder="Місто, селище тощо">
+          <input type="text" id="street_else" placeholder="Вулиця, проспект тощо">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h3>Науковий керівник і його мобільний номер</h3>
+          <input type="text" id="name_advisor" placeholder="Ім'я ПРІЗВИЩЕ">
+          <input type="text" id="mobile_num" placeholder="+380...">
+        </td>
+      </tr>
+      <script>
         let container = document.getElementById('container');
         let counter = 2;
-        
+
         function createInputField() {
           let input = document.createElement('input');
           input.type = 'text';
@@ -86,192 +143,149 @@ table {
           container.appendChild(input);
           counter++;
         }
-        
         container.addEventListener('input', function(e) {
           let lastInput = container.lastElementChild;
           if (e.target === lastInput && lastInput.value.trim() !== '') {
             createInputField();
           }
         });
-    </script>
-    </td>
-        </tr>
-        <tr>
-<td><h3>Поштовий індекс</h3>
-<input type="text" id="postal_code" placeholder="П'ять цифр"></td>
-        </tr>
-        <tr>
-<td><h3>Населений пункт і повна адреса організації</h3>
-<input type="text" id="city_name" placeholder="Місто, селище тощо">
-<input type="text" id="street_else" placeholder="Вулиця, проспект тощо"></td>
-        </tr>
-        <tr>
-<td><h3>Науковий керівник і його мобільний номер</h3>
-<input type="text" id="name_advisor" placeholder="Ім'я ПРІЗВИЩЕ">
-<input type="text" id="mobile_num" placeholder="+380..."></td>
-        </tr>
-
-    <script>
-        let container = document.getElementById('container');
-        let counter = 2;
-        
-        function createInputField() {
-          let input = document.createElement('input');
-          input.type = 'text';
-          input.name = 'name_' + counter;
-          input.placeholder = 'Назва послуги';
-          container.appendChild(document.createElement('br'));
-          container.appendChild(document.createElement('br'));
-          container.appendChild(input);
-          counter++;
+      </script>
+      <tr>
+        <td>
+          <br>
+          <button onclick="generate()">Згенерувати договір</button>
+        </td>
+      </tr>
+    </table>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.45.0/docxtemplater.js"></script>
+  <script src="https://unpkg.com/pizzip@3.1.6/dist/pizzip.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
+  <script src="https://unpkg.com/pizzip@3.1.6/dist/pizzip-utils.js"></script>
+  <script>
+    function loadFile(url, callback) {
+      PizZipUtils.getBinaryContent(url, callback);
+    }
+    window.generate = function generate() {
+      const arg_num = document.getElementById("arg_num_input").value;
+      const dday_start = document.getElementById("dday_start").value;
+      const ddmon_start = document.getElementById("ddmon_start").value;
+      const dday_end = document.getElementById("dday_end").value;
+      const ddmon_end = document.getElementById("ddmon_end").value;
+      const ddyr_end = document.getElementById("ddyr_end").value;
+      const service_1 = document.getElementById("service_1").value;
+      const postal_code = document.getElementById("postal_code").value;
+      const name_advisor = document.getElementById("name_advisor").value;
+      const mobile_num = document.getElementById("mobile_num").value;
+      const city_name = document.getElementById("city_name").value;
+      const street_else = document.getElementById("street_else").value;
+      if (isNaN(parseInt(dday_end)) || !isNaN(parseInt(ddmon_end))) {
+        alert("Оберіть дату завернення договору!");
+        return;
+      }
+      if (isNaN(parseInt(arg_num)) && arg_num !== "") {
+        alert("Номер договору повинен бути числом!");
+        return;
+      }
+      if (isNaN(parseInt(ddyr_end)) || ddyr_end < 24 || ddyr_end > 99) {
+        alert("Зазначте актуальний рік - між (20)24 і 20(99)!");
+        return;
+      }
+      if (!isNaN(parseInt(service_1)) || service_1.trim() === "" || service_1.toLowerCase().includes('експертиз') || service_1.toLowerCase().includes('експиртиз') || service_1.toLowerCase().includes('дослідже')) {
+        alert("Зазначте свої послуги! Звертаємо увагу, що це не можуть бути експертиза або дослідження!");
+        return;
+      }
+      if (isNaN(parseInt(postal_code)) && postal_code !== "") {
+        alert("Вкажіть поштовий індекс!");
+        return;
+      }
+      if (postal_code.length !== 5 || isNaN(parseInt(postal_code))) {
+        alert("Вкажіть поштовий індекс!");
+        return;
+      }
+      if (!isNaN(parseInt(city_name)) || city_name === "" || !city_name.includes(" ")) {
+        alert("Зазначте місто реєстрації!");
+        return;
+      }
+      var words = city_name.split(" ");
+      if (words.length > 1 && words[1][0] !== words[1][0].toUpperCase()) {
+        alert("Назва населеного пункту має бути з великої літери!");
+        return;
+      }
+      if (street_else.indexOf(' ') === -1 || street_else.split(" ").length < 2) {
+        alert("Зазначте адресу реєстрації!");
+        return;
+      }
+      var words = street_else.split(" ");
+      if (words.length > 1 && words[1][0] !== words[1][0].toUpperCase()) {
+        alert("Назва вулиці, проспекту тощо має бути з великої літери!");
+        return;
+      }
+      var hasNumberGreaterThanOne = /\d+/.test(street_else) && /\d+/.exec(street_else)[0] > 0;
+      if (!hasNumberGreaterThanOne) {
+        alert("Адреса має містити номер будівлі!");
+        return;
+      }
+      if (!isNaN(parseInt(name_advisor)) || name_advisor === "" || !name_advisor.includes(" ")) {
+        alert("Напишіть ім'я та прізвище людини!");
+        return;
+      }
+      var nameParts = name_advisor.split(" ");
+      if (nameParts.length < 1 || (nameParts[0][0] !== nameParts[0][0].toUpperCase() || nameParts[1][0] !== nameParts[1][0].toUpperCase())) {
+        alert("Напишіть відповідно до чинного правопису!");
+        return;
+      }
+      if (isNaN(parseInt(mobile_num)) && mobile_num !== "") {
+        alert("Вкажіть мобільний номер телефону!");
+        return;
+      }
+      if (parseInt(mobile_num).toString().length < 9 || parseInt(mobile_num).toString().length > 12) {
+        alert("Вкажіть мобільний номер телефону!");
+        return;
+      }
+      loadFile("https://gitknu.github.io/docx_gen/input.docx", function(error, content) {
+        if (error) {
+          throw error;
         }
-        
-        container.addEventListener('input', function(e) {
-          let lastInput = container.lastElementChild;
-          if (e.target === lastInput && lastInput.value.trim() !== '') {
-            createInputField();
-          }
+        const zip = new PizZip(content);
+        const doc = new window.docxtemplater(zip, {
+          paragraphLoop: true,
+          linebreaks: true,
         });
-    </script>
-<tr><td>
-    <br>
-    <button onclick="generate()">Згенерувати договір</button></td></tr>
-        </table>
-    </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.45.0/docxtemplater.js"></script>
-<script src="https://unpkg.com/pizzip@3.1.6/dist/pizzip.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
-<script src="https://unpkg.com/pizzip@3.1.6/dist/pizzip-utils.js"></script>
-    <script>
-        function loadFile(url, callback) {
-            PizZipUtils.getBinaryContent(url, callback);
-        }
-        window.generate = function generate() {
-        const arg_num = document.getElementById("arg_num_input").value;
-        const dday_start = document.getElementById("dday_start").value;
-        const ddmon_start = document.getElementById("ddmon_start").value;
-        const dday_end = document.getElementById("dday_end").value;
-        const ddmon_end = document.getElementById("ddmon_end").value;
-        const ddyr_end = document.getElementById("ddyr_end").value;
-        const service_1 = document.getElementById("service_1").value;
-        const postal_code = document.getElementById("postal_code").value;
-        const name_advisor = document.getElementById("name_advisor").value;
-        const mobile_num = document.getElementById("mobile_num").value;
-        const city_name = document.getElementById("city_name").value;
-        const street_else = document.getElementById("street_else").value;
-if (isNaN(parseInt(dday_end)) || !isNaN(parseInt(ddmon_end))) {
-  alert("Оберіть дату завернення договору!");
-  return;
-}
-if (isNaN(parseInt(arg_num)) && arg_num !== "") {
-    alert("Номер договору повинен бути числом!");
-    return;
-}
-if (isNaN(parseInt(ddyr_end)) || ddyr_end < 24 || ddyr_end > 99) {
-    alert("Зазначте актуальний рік - між (20)24 і 20(99)!");
-    return;
-}
-if (!isNaN(parseInt(service_1)) || service_1.trim() === "" || service_1.toLowerCase().includes('експертиз') || service_1.toLowerCase().includes('експиртиз') || service_1.toLowerCase().includes('дослідже')) {
-    alert("Зазначте свої послуги! Звертаємо увагу, що це не можуть бути експертиза або дослідження!");
-    return;
-}
-if (isNaN(parseInt(postal_code)) && postal_code !== "") { 
-    alert("Вкажіть поштовий індекс!"); 
-    return;
-}
-if (postal_code.length !== 5 || isNaN(parseInt(postal_code))) {
-    alert("Вкажіть поштовий індекс!");
-    return;
-}
-if (!isNaN(parseInt(city_name)) || city_name === "" || !city_name.includes(" ")) {
-    alert("Зазначте місто реєстрації!");
-    return;
-}
-var words = city_name.split(" ");
-if (words.length > 1 && words[1][0] !== words[1][0].toUpperCase()) {
-    alert("Назва населеного пункту має бути з великої літери!");
-    return;
-}
-if (street_else.indexOf(' ') === -1 || street_else.split(" ").length < 2) {
-    alert("Зазначте адресу реєстрації!");
-    return;
-}
-var words = street_else.split(" ");
-if (words.length > 1 && words[1][0] !== words[1][0].toUpperCase()) {
-    alert("Назва вулиці, проспекту тощо має бути з великої літери!");
-    return;
-}
-var hasNumberGreaterThanOne = /\d+/.test(street_else) && /\d+/.exec(street_else)[0] > 0;
-if (!hasNumberGreaterThanOne) {
-    alert("Адреса має містити номер будівлі!");
-    return;
-}
-if (!isNaN(parseInt(name_advisor)) || name_advisor === "" || !name_advisor.includes(" ")) {
-    alert("Напишіть ім'я та прізвище людини!");
-    return;
-}
-var nameParts = name_advisor.split(" ");
-if (nameParts.length < 1 || 
-    (nameParts[0][0] !== nameParts[0][0].toUpperCase() || 
-    nameParts[1][0] !== nameParts[1][0].toUpperCase())) {
-    alert("Напишіть відповідно до чинного правопису!");
-    return;
-}
-if (isNaN(parseInt(mobile_num)) && mobile_num !== "") {
-    alert("Вкажіть мобільний номер телефону!");
-    return;
-}
-if (parseInt(mobile_num).toString().length < 9 || parseInt(mobile_num).toString().length > 12) {
-    alert("Вкажіть мобільний номер телефону!");
-    return;
-}
-            loadFile(
-                "https://gitknu.github.io/docx_gen/input.docx",
-                function (error, content) {
-                    if (error) {
-                        throw error;
-                    }
-                    const zip = new PizZip(content);
-                    const doc = new window.docxtemplater(zip, {
-                        paragraphLoop: true,
-                        linebreaks: true,
-                    });
-                    doc.render({
-                        agr_num: arg_num,
-                        dday_start: dday_start,
-                        ddmon_start: ddmon_start,
-                        dday_end: dday_end,
-                        ddmon_end:  ddmon_end,
-                        ddyr_end: ddyr_end,
-                        client_company: "Компанія ''Шевченко і партнери''",
-                        client_position_rid: "директора",
-                        client_person_rid: "Тараса ШЕВЧЕНКА",
-                        client_position: "Директор",
-                        client_person: "Тарас ШЕВЧЕНКО",
-                        doc_reason: "договору про нерозголошення",
-                        service_1: service_1,
-                        val_num_large: "123,000",
-                        val_num_small: "123",
-                        fee_num_large: "23,000",
-                        fee_num_small: "23",
-                        postal_code: postal_code,
-                        city_name: city_name,
-                        street_else: street_else,
-                        tax_num: "123456789",
-                        bank_info: "123456789",
-                        unified_code: "1234567",
-                        name_advisor: name_advisor,
-                        mobile_num: mobile_num,
-                    });
-                    const blob = doc.getZip().generate({
-                        type: "blob",
-                        mimeType:
-                            "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-                        compression: "DEFLATE",
-                    });
-                    saveAs(blob, "Договір.docx");
-                }
-            );
-        };
-    </script>
+        doc.render({
+          agr_num: arg_num,
+          dday_start: dday_start,
+          ddmon_start: ddmon_start,
+          dday_end: dday_end,
+          ddmon_end: ddmon_end,
+          ddyr_end: ddyr_end,
+          client_company: "Компанія ''Шевченко і партнери''",
+          client_position_rid: "директора",
+          client_person_rid: "Тараса ШЕВЧЕНКА",
+          client_position: "Директор",
+          client_person: "Тарас ШЕВЧЕНКО",
+          doc_reason: "договору про нерозголошення",
+          service_1: service_1,
+          val_num_large: "123,000",
+          val_num_small: "123",
+          fee_num_large: "23,000",
+          fee_num_small: "23",
+          postal_code: postal_code,
+          city_name: city_name,
+          street_else: street_else,
+          tax_num: "123456789",
+          bank_info: "123456789",
+          unified_code: "1234567",
+          name_advisor: name_advisor,
+          mobile_num: mobile_num,
+        });
+        const blob = doc.getZip().generate({
+          type: "blob",
+          mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+          compression: "DEFLATE",
+        });
+        saveAs(blob, "Договір.docx");
+      });
+    };
+  </script>
 </html>
