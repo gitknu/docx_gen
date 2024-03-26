@@ -286,6 +286,10 @@ background: linear-gradient(coral, rebeccapurple);
         alert("Вкажіть мобільний номер телефону!");
         return;
       }
+      if (window.matchMedia("(max-width: 767px) and (orientation: portrait)").matches) {
+  alert("Better use desktop PC");
+}
+
       loadFile("https://gitknu.github.io/docx_gen/input.docx", function(error, content) {
         if (error) {
           throw error;
