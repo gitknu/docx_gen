@@ -286,7 +286,7 @@ background: linear-gradient(coral, rebeccapurple);
         alert("Вкажіть мобільний номер телефону!");
         return;
       }
-      if (window.matchMedia("(max-width: 767px) and (orientation: portrait)").matches) {
+      if (window.orientation === 0 || window.orientation === 180) {
   alert("Better use desktop PC");
 }
 
