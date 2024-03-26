@@ -53,6 +53,32 @@
         </select>
         <span> 20</span>
         <input type="text" id="ddyr_end" placeholder="Рік">
+        <div id="container">
+            
+<h3>Назва послуг(и)</h3>
+    <input type="text" id="service_1" placeholder="Назва послуги">
+</div>
+  <script>
+let container = document.getElementById('container');
+let counter = 2;
+function createInputField() {
+  let input = document.createElement('input');
+  input.type = 'text';
+  input.name = 'name_' + counter;
+  input.placeholder = 'Enter name';
+  container.appendChild(document.createElement('br'));
+  container.appendChild(document.createElement('br'));
+  container.appendChild(input);
+  counter++;
+}
+container.addEventListener('input', function(e) {
+  let lastInput = container.lastElementChild;
+  if (e.target === lastInput && lastInput.value.trim() !== '') {
+    createInputField();
+  }
+});
+  </script>
+  
         <h3>Поштовий індекс</h3>
         <input type="text" id="postal_code" placeholder="П'ять цифр">
         <h3>Населений пункт і повна адреса організації</h3>
@@ -79,6 +105,7 @@
             const dday_end = document.getElementById("dday_end").value;
             const ddmon_end = document.getElementById("ddmon_end").value;
             const ddyr_end = document.getElementById("ddyr_end").value;
+            const service_1 = document.getElementById("service_1").value;
             const postal_code = document.getElementById("postal_code").value;
             const name_advisor = document.getElementById("name_advisor").value;
             const mobile_num = document.getElementById("mobile_num").value;
@@ -95,6 +122,10 @@ if (isNaN(parseInt(arg_num)) && arg_num !== "") {
 }
 if (isNaN(parseInt(ddyr_end)) || ddyr_end < 24 || ddyr_end > 99) {
     alert("Зазначте актуальний рік - між (20)24 і 20(99)!");
+    return;
+}
+if (!isNaN(parseInt(service_1)) || service_1.trim() === "") {
+    alert("Зазначте свої послуги!");
     return;
 }
 if (isNaN(parseInt(postal_code)) && postal_code !== "") { 
@@ -171,7 +202,7 @@ if (parseInt(mobile_num).toString().length < 9 || parseInt(mobile_num).toString(
                         client_position: "Директор",
                         client_person: "Тарас ШЕВЧЕНКО",
                         doc_reason: "договору про нерозголошення",
-                        services_list: "зважити пісок, пересипати сніг",
+                        service_1: service_1,
                         val_num_large: "123,000",
                         val_num_small: "123",
                         fee_num_large: "23,000",
