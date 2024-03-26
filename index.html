@@ -114,13 +114,18 @@ if (words.length > 1 && words[1][0] !== words[1][0].toUpperCase()) {
     alert("Назва населеного пункту має бути з великої літери!");
     return;
 }
-if (!isNaN(parseInt(street_else)) || street_else === "" || !street_else.includes(" ")) {
+if (street_else.indexOf(' ') === -1 || street_else.split(" ").length < 2) {
     alert("Зазначте адресу реєстрації!");
     return;
 }
 var words = street_else.split(" ");
 if (words.length > 1 && words[1][0] !== words[1][0].toUpperCase()) {
-    alert("Назва вулиця, проспекту тощо має бути з великої літери!");
+    alert("Назва вулиці, проспекту тощо має бути з великої літери!");
+    return;
+}
+var hasNumberGreaterThanOne = /\d+/.test(street_else) && /\d+/.exec(street_else)[0] > 0;
+if (!hasNumberGreaterThanOne) {
+    alert("Адреса має містити номер будівлі!");
     return;
 }
 if (!isNaN(parseInt(name_advisor)) || name_advisor === "" || !name_advisor.includes(" ")) {
