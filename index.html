@@ -14,6 +14,8 @@
         <td>
           <h3>Номер договору</h3>
           <input type="text" id="arg_num_input" placeholder="Номер договору">
+          <br>
+          <br>
         </td>
       </tr>
       <tr>
@@ -28,7 +30,8 @@
             <script>
               for (let i = 1; i <= 31; i++) {
                 document.write(`
-								<option value="${i}">${i}</option>`);
+								
+										<option value="${i}">${i}</option>`);
               }
             </script>
           </select>
@@ -57,7 +60,8 @@
             <script>
               for (let i = 1; i <= 31; i++) {
                 document.write(`
-								<option value="${i}">${i}</option>`);
+								
+										<option value="${i}">${i}</option>`);
               }
             </script>
           </select>
@@ -78,6 +82,8 @@
           </select>
           <span> 20</span>
           <input type="text" id="ddyr_end" placeholder="Рік" size="1" maxlength="2">
+          <br>
+          <br>
         </td>
       </tr>
       <tr>
@@ -107,12 +113,16 @@
               }
             });
           </script>
+          <br>
+          <br>
         </td>
       </tr>
       <tr>
         <td>
           <h3>Поштовий індекс</h3>
           <input type="text" id="postal_code" placeholder="П'ять цифр">
+          <br>
+          <br>
         </td>
       </tr>
       <tr>
@@ -120,6 +130,8 @@
           <h3>Населений пункт і повна адреса організації</h3>
           <input type="text" id="city_name" placeholder="Місто, селище тощо">
           <input type="text" id="street_else" placeholder="Вулиця, проспект тощо">
+          <br>
+          <br>
         </td>
       </tr>
       <tr>
@@ -127,6 +139,8 @@
           <h3>Науковий керівник і його мобільний номер</h3>
           <input type="text" id="name_advisor" placeholder="Ім'я ПРІЗВИЩЕ">
           <input type="text" id="mobile_num" placeholder="+380...">
+          <br>
+          <br>
         </td>
       </tr>
       <script>
