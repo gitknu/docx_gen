@@ -115,7 +115,7 @@ button:hover {
       <tr>
         <td>
             <h1>ГЕНЕРАТОР ДОГОВОРУ</h1>
-          <h3 onclick="hoverImage(event, 'hover_img_1')">Номер договору</h3>
+          <h3>Номер договору</h3>
           <input type="text" id="arg_num_input" placeholder="Номер договору" onclick="hoverImage(event, 'hover_img_1')">
           <br><br>
         </td>
@@ -126,8 +126,8 @@ button:hover {
         </td>
       </tr>
       <tr>
-        <td style="text-align: left;" onclick="hoverImage(event, 'hover_img_2')"><tt>Укладення<span> - </span></tt>
-          <select id="dday_start">
+        <td style="text-align: left;"><tt>Укладення<span> - </span></tt>
+          <select id="dday_start" onclick="hoverImage(event, 'hover_img_2')">
             <option value="___">дд</option>
             <script>
               for (let i = 1; i <= 31; i++) {
@@ -231,19 +231,31 @@ button:hover {
     </div>
     </div>
 <script>
-        function hoverImage(event, id) {
-            const hoverImg = document.getElementById(id);
-            const img = document.querySelector(`#${id}>img`);
-            const additionalDiv = document.getElementById('additional_div');
-            img.style.opacity = 1; // Change opacity to 1 on click
-        }
-        const title = document.getElementById('title');
-        title.addEventListener('click', function(e) {
-            const img = document.querySelector(`#hover_img>img`);
-            img.style.opacity = 1; // Change opacity to 1 on click
-            hoverImage(e, 'hover_img');
-        });
-    </script>
+    function hoverImagePair(inputId, hoverImgId) {
+        const inputField = document.getElementById(inputId);
+        const hoverImg = document.getElementById(hoverImgId);
+        const img = hoverImg.querySelector('img');
+        const additionalDiv = document.getElementById('additional_div');
+
+        inputField.onmouseover = function(event) {
+            img.style.opacity = 1; // Change opacity to 1 on mouseover
+        };
+
+        hoverImg.onmouseout = function(event) {
+            img.style.opacity = 0; // Change opacity back to 0 on mouseout
+        };
+    }
+
+    const pairs = [
+        { inputId: 'arg_num_input', hoverImgId: 'hover_img_1' },
+        { inputId: 'dday_start', hoverImgId: 'hover_img_2' },
+    ];
+
+    for (const pair of pairs) {
+        hoverImagePair(pair.inputId, pair.hoverImgId);
+    }
+</script>
+
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.45.0/docxtemplater.js"></script>
   <script src="https://unpkg.com/pizzip@3.1.6/dist/pizzip.js"></script>
