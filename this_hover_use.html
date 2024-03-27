@@ -2,18 +2,32 @@
 <html lang="en">
 <head>
 <style>
-    .hover_img {
+    .hover_img_1 {
         position: relative;
         height: 100%;
         width: 100%;
         display: flex;
     }
-    .hover_img img {
+        .hover_img_2 {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        display: flex;
+    }
+    .hover_img_1 img {
         position: fixed;
         display: none;
         height: 300px;
         width: 300px;
     }
+    
+        .hover_img_2 img {
+        position: fixed;
+        display: none;
+        height: 300px;
+        width: 300px;
+    }
+    
     .additional_div {
         width: 300px;
         height: 300px;
@@ -26,16 +40,39 @@
 </style>
 </head>
 <body>
-    <input type="text" id="imageInput" placeholder="input field" class="title" onmouseover="hoverImage(event)">
-    <div class="hover_img" id="hover_img">
+    <input id="imageInput1" placeholder="input field 1" onmouseover="hoverImage1(event)">
+    <br><br>
+    <input id="imageInput2" placeholder="input field 2" onmouseover="hoverImage2(event)">
+    <div class="hover_img_1" id="hover_img_1">
         <img src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg">
+    </div>
+    <div class="hover_img_2" id="hover_img_2">
+        <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg">
     </div>
     <div class="additional_div" id="additional_div"></div>
     <script>
-        function hoverImage(event) {
-            const title = document.querySelector('.title');
-            const hoverImg = document.getElementById('hover_img');
-            const img = document.querySelector('#hover_img>img');
+        function hoverImage1(event) {
+            const title = document.querySelector('#imageInput1');
+            const hoverImg = document.getElementById('hover_img_1');
+            const img = document.querySelector('#hover_img_1>img');
+            const additionalDiv = document.getElementById('additional_div');
+            title.addEventListener('mouseover', function(e) {
+                const x = additionalDiv.offsetLeft + (additionalDiv.offsetWidth / 2) - (img.width / 2);
+                const y = additionalDiv.offsetTop + (additionalDiv.offsetHeight / 2) - (img.height / 2);
+                img.style.display = 'block';
+                img.style.left = x + 'px';
+                img.style.top = y + 'px';
+            });
+            title.addEventListener('mouseout', function() {
+                img.style.display = 'none';
+            });
+        }
+    </script>
+        <script>
+        function hoverImage2(event) {
+            const title = document.querySelector('#imageInput2');
+            const hoverImg = document.getElementById('hover_img_2');
+            const img = document.querySelector('#hover_img_2>img');
             const additionalDiv = document.getElementById('additional_div');
             title.addEventListener('mouseover', function(e) {
                 const x = additionalDiv.offsetLeft + (additionalDiv.offsetWidth / 2) - (img.width / 2);
