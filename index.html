@@ -72,10 +72,22 @@ button:hover {
     background-color: rgba(255, 255, 255, 0.2);
   }
 }
+.additional_div {
+    width: 450px;
+    height: 450px;
+    border-radius: 15%;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    z-index: -999;
+    flex: auto auto 0;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+}
 
     </style>
   </head>
   <body>
+       <div class="additional_div" id="additional_div"></div>
           <div class="grid">
   <div></div>
   <div></div>
@@ -165,14 +177,14 @@ button:hover {
             <h3>Назва послуг(и)</h3>
             <input type="text" id="service_1" placeholder="Назва послуги">
           </div>
-          <br><br>
+          <br>
         </td>
       </tr>
       <tr>
         <td>
           <h3>Поштовий індекс</h3>
           <input type="text" id="postal_code" placeholder="П'ять цифр">
-          <br><br><br>
+          <br><br>
         </td>
       </tr>
       <tr>
@@ -180,7 +192,7 @@ button:hover {
           <h3>Населений пункт і повна адреса організації</h3>
           <input type="text" id="city_name" placeholder="Місто, селище тощо">
           <input type="text" id="street_else" placeholder="Вулиця, проспект тощо">
-          <br><br><br>
+          <br><br>
         </td>
       </tr>
       <tr>
@@ -188,7 +200,7 @@ button:hover {
           <h3>Науковий керівник і його мобільний номер</h3>
           <input type="text" id="name_advisor" placeholder="Ім'я ПРІЗВИЩЕ">
           <input type="text" id="mobile_num" placeholder="+380...">
-          <br><br>
+          <br>
         </td>
       </tr>
       <tr>
