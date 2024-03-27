@@ -266,8 +266,10 @@ button:hover {
                 const prevHoverImg = document.getElementById(selectedPair.hoverImgId);
                 const prevImg = prevHoverImg.querySelector('img');
                 prevImg.style.opacity = 0;
+                prevImg.style.transition = 'opacity 0.75s ease-in-out';
             }
-            img.style.opacity = 1;
+            img.style.opacity = 0.5;
+            img.style.transition = 'opacity 0.75s ease-in-out';
             selectedPair = { inputId, hoverImgId };
         };
     }
@@ -290,6 +292,7 @@ button:hover {
         hoverImagePair(pair.inputId, pair.hoverImgId);
     }
 </script>
+
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.45.0/docxtemplater.js"></script>
   <script src="https://unpkg.com/pizzip@3.1.6/dist/pizzip.js"></script>
