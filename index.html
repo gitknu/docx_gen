@@ -223,6 +223,8 @@ button:hover {
     </div>
     </div>
 <script>
+    let selectedPair = null;
+
     function hoverImagePair(inputId, hoverImgId) {
         const inputField = document.getElementById(inputId);
         const hoverImg = document.getElementById(hoverImgId);
@@ -230,8 +232,14 @@ button:hover {
         const additionalDiv = document.getElementById('additional_div');
 
         inputField.onclick = function(event) {
-        img.style.opacity = 1; 
-    };
+            if (selectedPair !== null) {
+                const prevHoverImg = document.getElementById(selectedPair.hoverImgId);
+                const prevImg = prevHoverImg.querySelector('img');
+                prevImg.style.opacity = 0;
+            }
+            img.style.opacity = 1;
+            selectedPair = { inputId, hoverImgId };
+        };
     }
     const pairs = [
         { inputId: 'arg_num_input', hoverImgId: 'arg_num_input_img' },
@@ -252,7 +260,6 @@ button:hover {
         hoverImagePair(pair.inputId, pair.hoverImgId);
     }
 </script>
-
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.45.0/docxtemplater.js"></script>
   <script src="https://unpkg.com/pizzip@3.1.6/dist/pizzip.js"></script>
