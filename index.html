@@ -93,22 +93,16 @@ button:hover {
   </head>
   <body>
           <div class="grid">
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
+  <div></div><div></div><div></div>
+  <div></div><div></div><div></div>
+  <div></div><div></div><div></div>
 </div>
     <table>
       <tr>
         <td>
             <h1>ГЕНЕРАТОР ДОГОВОРУ</h1>
           <h3>Номер договору</h3>
-          <input type="text" id="arg_num_input" placeholder="Номер договору" onclick="hoverImage(event, 'hover_img_1')">
+          <input type="text" id="arg_num_input" placeholder="Номер договору" onclick="hoverImage(event, 'arg_num_input_img')">
           <br><br>
         </td>
       </tr>
@@ -119,7 +113,7 @@ button:hover {
       </tr>
       <tr>
         <td style="text-align: left;"><tt>Укладення<span> - </span></tt>
-          <select id="dday_start" onclick="hoverImage(event, 'hover_img_2')">
+          <select id="dday_start" onclick="hoverImage(event, 'dday_start_img')">
             <option value="___">дд</option>
             <script>
               for (let i = 1; i <= 31; i++) {
@@ -142,12 +136,12 @@ button:hover {
             <option value="листопада">листопада</option>
             <option value="грудня">грудня</option>
           </select>
-          <span onclick="hoverImage(event, 'hover_img_2')"> 2024</span>
+          <span> 2024</span>
         </td>
       </tr>
       <tr>
         <td style="text-align: left;"><tt>Завершення -</tt>
-          <select id="dday_end">
+          <select id="dday_end" onclick="hoverImage(event, 'dday_end_img')">
             <option value="___">дд</option>
             <script>
               for (let i = 1; i <= 31; i++) {
@@ -155,7 +149,7 @@ button:hover {
               }
             </script>
           </select>
-          <select id="ddmon_end">
+          <select id="ddmon_end" onclick="hoverImage(event, 'ddmon_end_img')">
             <option value="7">мм</option>
             <option value="січня">січня</option>
             <option value="лютого">лютого</option>
@@ -171,7 +165,7 @@ button:hover {
             <option value="грудня">грудня</option>
           </select>
           <span> 20</span>
-          <input type="text" id="ddyr_end" placeholder="Рік" size="1" maxlength="2">
+          <input type="text" id="ddyr_end" placeholder="Рік" size="1" maxlength="2" onclick="hoverImage(event, 'ddyr_end_img')">
           <br><br>
         </td>
       </tr>
@@ -179,7 +173,7 @@ button:hover {
         <td>
           <div id="container">
             <h3>Назва послуг(и)</h3>
-            <input type="text" id="service_1" placeholder="Назва послуги">
+            <input type="text" id="service_1" placeholder="Назва послуги" onclick="hoverImage(event, 'service_1_img')">
           </div>
           <br>
         </td>
@@ -187,23 +181,23 @@ button:hover {
       <tr>
         <td>
           <h3>Поштовий індекс</h3>
-          <input type="text" id="postal_code" placeholder="П'ять цифр">
+          <input type="text" id="postal_code" placeholder="П'ять цифр" onclick="hoverImage(event, 'postal_code_img')">
           <br><br>
         </td>
       </tr>
       <tr>
         <td>
           <h3>Населений пункт і повна адреса організації</h3>
-          <input type="text" id="city_name" placeholder="Місто, селище тощо">
-          <input type="text" id="street_else" placeholder="Вулиця, проспект тощо">
+          <input type="text" id="city_name" placeholder="Місто, селище тощо" onclick="hoverImage(event, 'city_name_img')">
+          <input type="text" id="street_else" placeholder="Вулиця, проспект тощо" onclick="hoverImage(event, 'street_else_img')">
           <br><br>
         </td>
       </tr>
       <tr>
         <td>
           <h3>Науковий керівник і його мобільний номер</h3>
-          <input type="text" id="name_advisor" placeholder="Ім'я ПРІЗВИЩЕ">
-          <input type="text" id="mobile_num" placeholder="+380...">
+          <input type="text" id="name_advisor" placeholder="Ім'я ПРІЗВИЩЕ" onclick="hoverImage(event, 'name_advisor_img')">
+          <input type="text" id="mobile_num" placeholder="+380..." onclick="hoverImage(event, 'mobile_num_img')">
           <br>
         </td>
       </tr>
@@ -220,6 +214,42 @@ button:hover {
     </div>
     <div class="hover_img" id="dday_start_img">
         <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg">
+    </div>
+    <div class="hover_img" id="ddmon_start_img">
+        <img src="https://examplecom/img.jpg">
+    </div>
+        <div class="hover_img" id="dday_end_img">
+        <img src="https://examplecom/img.jpg">
+    </div>
+        <div class="hover_img" id="ddmon_end_img">
+        <img src="https://examplecom/img.jpg">
+    </div>
+        <div class="hover_img" id="ddyr_end_img">
+        <img src="https://examplecom/img.jpg">
+    </div>
+        <div class="hover_img" id="service_1_img">
+        <img src="https://examplecom/img.jpg">
+    </div>
+        <div class="hover_img" id="postal_code_img">
+        <img src="https://examplecom/img.jpg">
+    </div>
+        <div class="hover_img" id="name_advisor_img">
+        <img src="https://examplecom/img.jpg">
+    </div>
+        <div class="hover_img" id="mobile_num">
+        <img src="https://examplecom/img.jpg">
+    </div>
+        <div class="hover_img" id="city_name_img">
+        <img src="https://examplecom/img.jpg">
+    </div>
+        <div class="hover_img" id="street_else">
+        <img src="https://examplecom/img.jpg">
+    </div>
+            <div class="hover_img" id="NAME_img">
+        <img src="https://examplecom/img.jpg">
+    </div>
+            <div class="hover_img" id="NAME_img">
+        <img src="https://examplecom/img.jpg">
     </div>
     </div>
 <script>
