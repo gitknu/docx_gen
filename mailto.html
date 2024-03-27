@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Send Email</title>
+  <script>
+    function sendEmail() {
+      var message = "Не забудьте прикріпити файл договору!";
+      var encodedMessage = encodeURIComponent(message);
+      var emailLink = "https://mail.google.com/mail/?view=cm&fs=1&to=patent.ndch@knu.ua&su=Договір%20про%20надання%20послуг%20(ваша%20організація)&body=" + encodedMessage;
+      window.open(emailLink, "_blank");
+    }
+  </script>
+</head>
+<body>
+  <button onclick="sendEmail()">Send Email</button>
+</body>
+</html>
