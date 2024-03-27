@@ -90,7 +90,7 @@ button:hover {
     }
     .hover_img img {
         position: fixed;
-        display: none;
+        opacity: 0;
         height: 450px;
         width: 450px;
         border-radius: 15%;
@@ -222,33 +222,28 @@ button:hover {
         </td>
       </tr>
     </table>
-           <div class="additional_div" id="additional_div"></div>
+           <div class="additional_div" id="additional_div">
            <div class="hover_img" id="hover_img_1">
         <img src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg">
     </div>
     <div class="hover_img" id="hover_img_2">
         <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg">
     </div>
+    </div>
 <script>
-function hoverImage(event, id) {
-    const hoverImg = document.getElementById(id);
-    const img = document.querySelector(`#${id}>img`);
-    const additionalDiv = document.getElementById('additional_div');
-    
-    const x = additionalDiv.offsetLeft + (additionalDiv.offsetWidth / 2) - (img.width / 2);
-    const y = additionalDiv.offsetTop + (additionalDiv.offsetHeight / 2) - (img.height / 2);
-
-    img.style.left = x + 'px';
-    img.style.top = y + 'px';
-    img.style.display = 'block';
-}
-
-const title = document.getElementById('title');
-title.addEventListener('click', function(e) {
-    hoverImage(e, 'hover_img');
-});
-
-</script>
+        function hoverImage(event, id) {
+            const hoverImg = document.getElementById(id);
+            const img = document.querySelector(`#${id}>img`);
+            const additionalDiv = document.getElementById('additional_div');
+            img.style.opacity = 1; // Change opacity to 1 on click
+        }
+        const title = document.getElementById('title');
+        title.addEventListener('click', function(e) {
+            const img = document.querySelector(`#hover_img>img`);
+            img.style.opacity = 1; // Change opacity to 1 on click
+            hoverImage(e, 'hover_img');
+        });
+    </script>
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.45.0/docxtemplater.js"></script>
   <script src="https://unpkg.com/pizzip@3.1.6/dist/pizzip.js"></script>
