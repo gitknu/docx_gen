@@ -84,10 +84,9 @@ button:hover {
 }
 
     .hover_img {
-        position: relative;
+        position: absolute;
         height: 100%;
         width: 100%;
-        display: flex;
     }
     .hover_img img {
         position: fixed;
@@ -116,8 +115,8 @@ button:hover {
       <tr>
         <td>
             <h1>ГЕНЕРАТОР ДОГОВОРУ</h1>
-          <h3>Номер договору</h3>
-          <input type="text" id="arg_num_input" placeholder="Номер договору" onmouseover="hoverImage(event, 'hover_img_1')">
+          <h3 onclick="hoverImage(event, 'hover_img_1')">Номер договору</h3>
+          <input type="text" id="arg_num_input" placeholder="Номер договору" onclick="hoverImage(event, 'hover_img_1')">
           <br><br>
         </td>
       </tr>
@@ -127,8 +126,8 @@ button:hover {
         </td>
       </tr>
       <tr>
-        <td style="text-align: left;"><tt>Укладення<span> - </span></tt>
-          <select id="dday_start" onmouseover="hoverImage(event, 'hover_img_2')">
+        <td style="text-align: left;" onclick="hoverImage(event, 'hover_img_2')"><tt>Укладення<span> - </span></tt>
+          <select id="dday_start">
             <option value="___">дд</option>
             <script>
               for (let i = 1; i <= 31; i++) {
@@ -136,7 +135,7 @@ button:hover {
               }
             </script>
           </select>
-          <select id="ddmon_start" onmouseover="hoverImage(event, 'hover_img_2')">
+          <select id="ddmon_start">
             <option value="____________">мм</option>
             <option value="січня">січня</option>
             <option value="лютого">лютого</option>
@@ -151,7 +150,7 @@ button:hover {
             <option value="листопада">листопада</option>
             <option value="грудня">грудня</option>
           </select>
-          <span onmouseover="hoverImage(event, 'hover_img_2')"> 2024</span>
+          <span onclick="hoverImage(event, 'hover_img_2')"> 2024</span>
         </td>
       </tr>
       <tr>
@@ -230,24 +229,26 @@ button:hover {
     <div class="hover_img" id="hover_img_2">
         <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg">
     </div>
-     <script>
-       function hoverImage(event, id) {
-    const title = event.target;
+<script>
+function hoverImage(event, id) {
     const hoverImg = document.getElementById(id);
     const img = document.querySelector(`#${id}>img`);
     const additionalDiv = document.getElementById('additional_div');
-    title.addEventListener('mouseover', function(e) {
-        const x = additionalDiv.offsetLeft + (additionalDiv.offsetWidth / 2) - (img.width / 2);
-        const y = additionalDiv.offsetTop + (additionalDiv.offsetHeight / 2) - (img.height / 2);
-        img.style.display = 'block';
-        img.style.left = x + 'px';
-        img.style.top = y + 'px';
-    });
-    title.addEventListener('mouseout', function() {
-        img.style.display = 'none';
-    });
+    
+    const x = additionalDiv.offsetLeft + (additionalDiv.offsetWidth / 2) - (img.width / 2);
+    const y = additionalDiv.offsetTop + (additionalDiv.offsetHeight / 2) - (img.height / 2);
+
+    img.style.left = x + 'px';
+    img.style.top = y + 'px';
+    img.style.display = 'block';
 }
-    </script>
+
+const title = document.getElementById('title');
+title.addEventListener('click', function(e) {
+    hoverImage(e, 'hover_img');
+});
+
+</script>
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.45.0/docxtemplater.js"></script>
   <script src="https://unpkg.com/pizzip@3.1.6/dist/pizzip.js"></script>
