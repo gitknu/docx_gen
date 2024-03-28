@@ -193,6 +193,13 @@ button:hover {
           <br><br>
         </td>
       </tr>
+            <tr>
+        <td>
+       <h3>Індивідуальний податковий номер</h3>
+          <input type="text" id="tax_num" placeholder="ІПН" onclick="hoverImage(event, 'tax_num')">
+          <br><br>
+           </td>
+      </tr>
       <tr>
         <td>
           <h3>Науковий керівник і його мобільний номер</h3>
@@ -315,6 +322,7 @@ button:hover {
       const mobile_num = document.getElementById("mobile_num").value;
       const city_name = document.getElementById("city_name").value;
       const street_else = document.getElementById("street_else").value;
+            const tax_num = document.getElementById("tax_num").value;
       if (isNaN(parseInt(dday_end)) || !isNaN(parseInt(ddmon_end))) {
         alert("Оберіть дату завернення договору!");
         return;
@@ -360,6 +368,10 @@ button:hover {
       var hasNumberGreaterThanOne = /\d+/.test(street_else) && /\d+/.exec(street_else)[0] > 0;
       if (!hasNumberGreaterThanOne) {
         alert("Адреса має містити номер будівлі!");
+        return;
+      }
+      if (isNaN(parseInt(tax_num)) && tax_num !== "") {
+        alert("Індивідуальний податковий номер повинен бути числом!");
         return;
       }
       if (!isNaN(parseInt(name_advisor)) || name_advisor === "" || !name_advisor.includes(" ")) {
@@ -409,7 +421,7 @@ button:hover {
           postal_code: postal_code,
           city_name: city_name,
           street_else: street_else,
-          tax_num: "123456789",
+          tax_num: tax_num,
           bank_info: "123456789",
           unified_code: "1234567",
           name_advisor: name_advisor,
