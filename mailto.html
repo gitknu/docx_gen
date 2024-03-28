@@ -11,11 +11,15 @@
       background-image: url('https://is2-ssl.mzstatic.com/image/thumb/Purple118/v4/c4/0b/24/c40b24f8-442d-a440-3828-29d54114ebe5/source/512x512bb.jpg'); 
     }
     
-        .meta-logo {
+    .meta-logo {
       background-image: url('https://upload.wikimedia.org/wikipedia/uk/6/62/Meta.jpg'); 
     }
-      
-    .gmail-logo, .ukr-logo, .meta-logo {
+    
+    .iua-logo {
+      background-image: url('https://i.lb.ua/009/00/e788d93cacdc.jpg');
+    }
+    
+    .gmail-logo, .ukr-logo, .meta-logo, .iua-logo {
       width: 30px;
       height: 30px;
       display: inline-block;
@@ -26,36 +30,44 @@
     }
 
   </style>
-   <script>
+  <script>
     function sendEmail() {
       var gmailCheckbox = document.getElementById("tickField");
       var ukrCheckbox = document.getElementById("ukrTickField");
       var metaCheckbox = document.getElementById("metaTickField");
-      
-      if ((gmailCheckbox.checked ? 1 : 0) + (ukrCheckbox.checked ? 1 : 0) + (metaCheckbox.checked ? 1 : 0) > 1) {
-  alert("Оберіть одну пошту для відправки!");
-  return;
-}
+      var iuaCheckbox = document.getElementById("iuaTickField");
+
+      if ((gmailCheckbox.checked ? 1 : 0) + (ukrCheckbox.checked ? 1 : 0) + (metaCheckbox.checked ? 1 : 0) + (iuaCheckbox.checked ? 1 : 0) > 1) {
+        alert("Choose only one email service to send the email!");
+        return;
+      }
 
       if (gmailCheckbox.checked) {
-        var gmailMessage = "Не забудьте прикріпити файл договору для Gmail!";
+        var gmailMessage = "Don't forget to attach the contract file for Gmail!";
         var encodedGmailMessage = encodeURIComponent(gmailMessage);
-        var gmailEmailLink = "https://mail.google.com/mail/?view=cm&fs=1&to=patent.ndch@knu.ua&su=Договір%20про%20надання%20послуг%20(ваша%20організація)&body=" + encodedGmailMessage;
+        var gmailEmailLink = "https://mail.google.com/mail/?view=cm&fs=1&to=patent.ndch@knu.ua&su=Contract%20for%20services%20(your%20organization)&body=" + encodedGmailMessage;
         window.open(gmailEmailLink, "_blank");
       }
-      
+
       if (ukrCheckbox.checked) {
-        var ukrMessage = "Не забудьте прикріпити файл договору для ukr.net!";
+        var ukrMessage = "Don't forget to attach the contract file for ukr.net!";
         var encodedUkrMessage = encodeURIComponent(ukrMessage);
-        var ukrEmailLink = "https://mail.ukr.net/compose?to=patent.ndch@knu.ua&subject=Договір%20про%20надання%20послуг%20(ваша%20організація)&body=" + encodedUkrMessage;
+        var ukrEmailLink = "https://mail.ukr.net/compose?to=patent.ndch@knu.ua&subject=Contract%20for%20services%20(your%20organization)&body=" + encodedUkrMessage;
         window.open(ukrEmailLink, "_blank");
       }
-      
+
       if (metaCheckbox.checked) {
-        var metaMessage = "Не забудьте прикріпити файл договору для Meta!";
+        var metaMessage = "Don't forget to attach the contract file for Meta!";
         var encodedMetaMessage = encodeURIComponent(metaMessage);
-        var metaEmailLink = "https://mail.meta.ua/compose?to=patent.ndch@knu.ua&subject=Договір%20про%20надання%20послуг%20(ваша%20організація)&body=" + encodedMetaMessage;
+        var metaEmailLink = "https://mail.meta.ua/compose?to=patent.ndch@knu.ua&subject=Contract%20for%20services%20(your%20organization)&body=" + encodedMetaMessage;
         window.open(metaEmailLink, "_blank");
+      }
+
+      if (iuaCheckbox.checked) {
+        var iuaMessage = "Don't forget to attach the contract file for i.ua!";
+        var encodedIuaMessage = encodeURIComponent(iuaMessage);
+        var iuaEmailLink = "https://mail.i.ua/compose?to=patent.ndch@knu.ua&subject=Contract%20for%20services%20(your%20organization)&body=" + encodedIuaMessage;
+        window.open(iuaEmailLink, "_blank");
       }
     }
   </script>
@@ -69,9 +81,13 @@
   <label for="ukrTickField">
     <span class="ukr-logo"></span> ukrnet
   </label>
-    <input type="checkbox" id="metaTickField">
-   <label for="metaTickField">
+  <input type="checkbox" id="metaTickField">
+  <label for="metaTickField">
     <span class="meta-logo"></span> meta
+  </label>
+  <input type="checkbox" id="iuaTickField">
+  <label for="iuaTickField">
+    <span class="iua-logo"></span> i.ua
   </label>
   <br><br>
   <button onclick="sendEmail()">Send Email</button>
