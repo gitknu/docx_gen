@@ -171,6 +171,14 @@ button:hover {
       </tr>
       <tr>
         <td>
+        <h3>Представник (називний і родовий відмінки)</h3>
+          <input type="text" id="client_person" placeholder="Ім'я ПРІЗВИЩЕ (називний)" onclick="hoverImage(event, 'client_person_img')">
+          <input type="text" id="client_person_rid" placeholder="Імені ПРІЗВИЩА (родовий)" onclick="hoverImage(event, 'client_person_rid_img')">
+          <br><br>
+            </td>
+      </tr>
+      <tr>
+        <td>
           <div id="container">
             <h3>Назва послуг(и)</h3>
             <input type="text" id="service_1" placeholder="Назва послуги" onclick="hoverImage(event, 'service_1_img')">
@@ -279,6 +287,13 @@ button:hover {
     <div class="hover_img" id="unified_code_img">
         <img src="https://pbs.twimg.com/profile_images/378800000293116108/7d88dc26976e96cf4ca15491d7a38043_400x400.png">
     </div>
+                <div class="hover_img" id="client_person_rid_img">
+        <img src="https://icon-library.com/images/person-icon-free/person-icon-free-9.jpg">
+    </div>
+     <div class="hover_img" id="client_person_img">
+        <img src="https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg">
+    </div>
+    </div>
             <div class="hover_img" id="NAME_img">
         <img src="https://examplecom/img.jpg">
     </div>
@@ -323,6 +338,8 @@ button:hover {
         { inputId: 'tax_num', hoverImgId: 'tax_num_img' },
         { inputId: 'bank_info', hoverImgId: 'bank_info_img' },
         { inputId: 'unified_code', hoverImgId: 'unified_code_img' },
+    { inputId: 'client_person_rid', hoverImgId: 'client_person_rid_img' },
+    { inputId: 'client_person', hoverImgId: 'client_person_img' },
     ];
 
     for (const pair of pairs) {
@@ -409,6 +426,8 @@ if (iuaCheckbox.checked) {
       const tax_num = document.getElementById("tax_num").value;
       const bank_info = document.getElementById("bank_info").value;
       const unified_code = document.getElementById("unified_code").value;
+      const client_person_rid = document.getElementById("client_person_rid").value;
+      const client_person = document.getElementById("client_person").value;
       if (isNaN(parseInt(dday_end)) || !isNaN(parseInt(ddmon_end))) {
         alert("Оберіть дату завернення договору!");
         return;
@@ -419,6 +438,24 @@ if (iuaCheckbox.checked) {
       }
       if (isNaN(parseInt(ddyr_end)) || ddyr_end < 24 || ddyr_end > 99) {
         alert("Зазначте актуальний рік - між (20)24 і 20(99)!");
+        return;
+      }
+            if (!isNaN(parseInt(client_person)) || client_person === "" || !client_person.includes(" ")) {
+        alert("Напишіть ім'я та прізвище людини у називному відмінку!");
+        return;
+      }
+      var nameParts = client_person.split(" ");
+      if (nameParts.length < 1 || (nameParts[0][0] !== nameParts[0][0].toUpperCase() || nameParts[1][0] !== nameParts[1][0].toUpperCase())) {
+        alert("Напишіть відповідно до чинного правопису!");
+        return;
+      }
+      if (!isNaN(parseInt(client_person_rid)) || client_person_rid === "" || !client_person_rid.includes(" ")) {
+        alert("Напишіть ім'я та прізвище людини у родовому відмінку!");
+        return;
+      }
+      var nameParts = client_person_rid.split(" ");
+      if (nameParts.length < 1 || (nameParts[0][0] !== nameParts[0][0].toUpperCase() || nameParts[1][0] !== nameParts[1][0].toUpperCase())) {
+        alert("Напишіть відповідно до чинного правопису!");
         return;
       }
       if (!isNaN(parseInt(service_1)) || service_1.trim() === "" || service_1.toLowerCase().includes('експертиз') || service_1.toLowerCase().includes('експиртиз') || service_1.toLowerCase().includes('дослідже')) {
@@ -504,9 +541,9 @@ if (iuaCheckbox.checked) {
           ddyr_end: ddyr_end,
           client_company: "Компанія ''Шевченко і партнери''",
           client_position_rid: "директора",
-          client_person_rid: "Тараса ШЕВЧЕНКА",
+          client_person_rid: client_person_rid,
           client_position: "Директор",
-          client_person: "Тарас ШЕВЧЕНКО",
+          client_person: client_person,
           doc_reason: "договору про нерозголошення",
           val_num_large: "123,000",
           val_num_small: "123",
