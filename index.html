@@ -531,9 +531,9 @@ if (nameParts.length < 1 || (nameParts[0][0] !== nameParts[0][0].toUpperCase() |
         return;
       }
       var nameParts = name_advisor.split(" ");
-      if (nameParts.length < 1 || (nameParts[0][0] !== nameParts[0][0].toUpperCase() || nameParts[1][0] !== nameParts[1][0].toUpperCase())) {
-        alert("Напишіть відповідно до чинного правопису!");
-        return;
+ if (nameParts.length < 1 || (nameParts[0][0] !== nameParts[0][0].toUpperCase() || nameParts[1].toUpperCase() !== nameParts[1])) {
+  alert("Напишіть як звати наукового керівника відповідно до чинного правопису!");
+  return;
       }
       if (isNaN(parseInt(mobile_num)) && mobile_num !== "") {
         alert("Вкажіть мобільний номер телефону!");
