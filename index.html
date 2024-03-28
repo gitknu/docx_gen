@@ -196,7 +196,7 @@ button:hover {
             <tr>
         <td>
        <h3>Індивідуальний податковий номер</h3>
-          <input type="text" id="tax_num" placeholder="ІПН" onclick="hoverImage(event, 'tax_num')">
+          <input type="text" id="tax_num" placeholder="ІПН" onclick="hoverImage(event, 'tax_num_img')">
           <br><br>
            </td>
       </tr>
@@ -374,7 +374,7 @@ button:hover {
         alert("Адреса має містити номер будівлі!");
         return;
       }
-      if (isNaN(parseInt(tax_num)) && tax_num !== "") {
+      if (isNaN(parseInt(tax_num)) || tax_num === "") {
         alert("Індивідуальний податковий номер повинен бути числом!");
         return;
       }
