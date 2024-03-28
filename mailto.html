@@ -12,20 +12,25 @@
     }
       
     .gmail-logo, .ukr-logo  {
-  width: 30px;
-  height: 30px;
-  display: inline-block;
-  vertical-align: middle;
-  background-repeat: no-repeat;
-  background-size: contain;
-  border-radius: 15%;
-}
+      width: 30px;
+      height: 30px;
+      display: inline-block;
+      vertical-align: middle;
+      background-repeat: no-repeat;
+      background-size: contain;
+      border-radius: 15%;
+    }
 
   </style>
    <script>
     function sendEmail() {
       var gmailCheckbox = document.getElementById("tickField");
       var ukrCheckbox = document.getElementById("ukrTickField");
+      
+      if (gmailCheckbox.checked && ukrCheckbox.checked) {
+        alert("Оберіть одну пошту для відправки!");
+        return;
+      }
       
       if (gmailCheckbox.checked) {
         var gmailMessage = "Не забудьте прикріпити файл договору для Gmail!";
