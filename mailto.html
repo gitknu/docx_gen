@@ -10,8 +10,12 @@
     .ukr-logo {
       background-image: url('https://is2-ssl.mzstatic.com/image/thumb/Purple118/v4/c4/0b/24/c40b24f8-442d-a440-3828-29d54114ebe5/source/512x512bb.jpg'); 
     }
+    
+        .meta-logo {
+      background-image: url('https://upload.wikimedia.org/wikipedia/uk/6/62/Meta.jpg'); 
+    }
       
-    .gmail-logo, .ukr-logo  {
+    .gmail-logo, .ukr-logo, .meta-logo {
       width: 30px;
       height: 30px;
       display: inline-block;
@@ -26,12 +30,13 @@
     function sendEmail() {
       var gmailCheckbox = document.getElementById("tickField");
       var ukrCheckbox = document.getElementById("ukrTickField");
+      var metaCheckbox = document.getElementById("metaTickField");
       
-      if (gmailCheckbox.checked && ukrCheckbox.checked) {
-        alert("Оберіть одну пошту для відправки!");
-        return;
-      }
-      
+      if ((gmailCheckbox.checked ? 1 : 0) + (ukrCheckbox.checked ? 1 : 0) + (metaCheckbox.checked ? 1 : 0) > 1) {
+  alert("Оберіть одну пошту для відправки!");
+  return;
+}
+
       if (gmailCheckbox.checked) {
         var gmailMessage = "Не забудьте прикріпити файл договору для Gmail!";
         var encodedGmailMessage = encodeURIComponent(gmailMessage);
@@ -45,6 +50,13 @@
         var ukrEmailLink = "https://mail.ukr.net/compose?to=patent.ndch@knu.ua&subject=Договір%20про%20надання%20послуг%20(ваша%20організація)&body=" + encodedUkrMessage;
         window.open(ukrEmailLink, "_blank");
       }
+      
+      if (metaCheckbox.checked) {
+        var metaMessage = "Не забудьте прикріпити файл договору для Meta!";
+        var encodedMetaMessage = encodeURIComponent(metaMessage);
+        var metaEmailLink = "https://mail.meta.ua/compose?to=patent.ndch@knu.ua&subject=Договір%20про%20надання%20послуг%20(ваша%20організація)&body=" + encodedMetaMessage;
+        window.open(metaEmailLink, "_blank");
+      }
     }
   </script>
 </head>
@@ -56,6 +68,10 @@
   <input type="checkbox" id="ukrTickField">
   <label for="ukrTickField">
     <span class="ukr-logo"></span> ukrnet
+  </label>
+    <input type="checkbox" id="metaTickField">
+   <label for="metaTickField">
+    <span class="meta-logo"></span> meta
   </label>
   <br><br>
   <button onclick="sendEmail()">Send Email</button>
