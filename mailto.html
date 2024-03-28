@@ -16,7 +16,7 @@
     }
     
     .iua-logo {
-      background-image: url('https://i.lb.ua/009/00/e788d93cacdc.jpg');
+      background-image: url('path-to-iua-logo.png'); /* Replace "path-to-iua-logo.png" with the actual path to your i.ua logo image */
     }
     
     .gmail-logo, .ukr-logo, .meta-logo, .iua-logo {
@@ -66,7 +66,7 @@
       if (iuaCheckbox.checked) {
         var iuaMessage = "Don't forget to attach the contract file for i.ua!";
         var encodedIuaMessage = encodeURIComponent(iuaMessage);
-        var iuaEmailLink = "https://mail.i.ua/compose?to=patent.ndch@knu.ua&subject=Contract%20for%20services%20(your%20organization)&body=" + encodedIuaMessage;
+        var iuaEmailLink = "https://mbox2.i.ua/compose?to=patent.ndch@knu.ua&subj=Contract%20for%20services%20(your%20organization)&body=forget" + encodedIuaMessage;
         window.open(iuaEmailLink, "_blank");
       }
     }
