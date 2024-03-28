@@ -2,22 +2,57 @@
 <html>
 <head>
   <title>Send Email</title>
-  <script>
+  <style>
+    .gmail-logo {
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/1024px-Gmail_icon_%282020%29.svg.png');
+    }
+    
+    .ukr-logo {
+      background-image: url('https://is2-ssl.mzstatic.com/image/thumb/Purple118/v4/c4/0b/24/c40b24f8-442d-a440-3828-29d54114ebe5/source/512x512bb.jpg'); 
+    }
+      
+    .gmail-logo, .ukr-logo  {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 15%;
+}
+
+  </style>
+   <script>
     function sendEmail() {
-      var checkbox = document.getElementById("tickField");
-      if (checkbox.checked) {
-        var message = "Не забудьте прикріпити файл договору!";
-        var encodedMessage = encodeURIComponent(message);
-        var emailLink = "https://mail.google.com/mail/?view=cm&fs=1&to=patent.ndch@knu.ua&su=Договір%20про%20надання%20послуг%20(ваша%20організація)&body=" + encodedMessage;
-        window.open(emailLink, "_blank");
+      var gmailCheckbox = document.getElementById("tickField");
+      var ukrCheckbox = document.getElementById("ukrTickField");
+      
+      if (gmailCheckbox.checked) {
+        var gmailMessage = "Не забудьте прикріпити файл договору для Gmail!";
+        var encodedGmailMessage = encodeURIComponent(gmailMessage);
+        var gmailEmailLink = "https://mail.google.com/mail/?view=cm&fs=1&to=patent.ndch@knu.ua&su=Договір%20про%20надання%20послуг%20(ваша%20організація)&body=" + encodedGmailMessage;
+        window.open(gmailEmailLink, "_blank");
+      }
+      
+      if (ukrCheckbox.checked) {
+        var ukrMessage = "Не забудьте прикріпити файл договору для ukr.net!";
+        var encodedUkrMessage = encodeURIComponent(ukrMessage);
+        var ukrEmailLink = "https://mail.ukr.net/compose?to=patent.ndch@knu.ua&subject=Договір%20про%20надання%20послуг%20(ваша%20організація)&body=" + encodedUkrMessage;
+        window.open(ukrEmailLink, "_blank");
       }
     }
   </script>
 </head>
 <body>
   <input type="checkbox" id="tickField">
-  <label for="tickField">Activate message sending</label>
-  <br>
+  <label for="tickField">
+    <span class="gmail-logo"></span> gmail
+  </label>
+  <input type="checkbox" id="ukrTickField">
+  <label for="ukrTickField">
+    <span class="ukr-logo"></span> ukrnet
+  </label>
+  <br><br>
   <button onclick="sendEmail()">Send Email</button>
 </body>
 </html>
