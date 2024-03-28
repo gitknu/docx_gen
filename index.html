@@ -4,11 +4,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Yanone+Kaffeesatz:wght@200..700&display=swap')
 </style>
     <style>
-      h3, tt, span, h1 {
+      h3, tt, span, h1, label {
         color: white;
         text-shadow: 1px 1px 3px #000000;
       }
-            h3, h1, button {
+            h3, h1, button, label {
   font-family: "Montserrat Alternates", sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -201,8 +201,28 @@ button:hover {
           <h3>Науковий керівник і його мобільний номер</h3>
           <input type="text" id="name_advisor" placeholder="Ім'я ПРІЗВИЩЕ" onclick="hoverImage(event, 'name_advisor_img')">
           <input type="text" id="mobile_num" placeholder="+380..." onclick="hoverImage(event, 'mobile_num_img')">
-          <br>
+          <br><br>
         </td>
+      </tr>
+      <tr>
+          <td>
+               <input type="checkbox" id="tickField">
+  <label for="tickField">
+    <span class="gmail-logo"></span> gmail
+  </label>
+  <input type="checkbox" id="ukrTickField">
+  <label for="ukrTickField">
+    <span class="ukr-logo"></span> ukrnet
+  </label>
+  <input type="checkbox" id="metaTickField">
+  <label for="metaTickField">
+    <span class="meta-logo"></span> meta
+  </label>
+  <input type="checkbox" id="iuaTickField">
+  <label for="iuaTickField">
+    <span class="iua-logo"></span> i.ua
+  </label>
+          </td>
       </tr>
       <tr>
         <td>
@@ -318,6 +338,60 @@ button:hover {
       PizZipUtils.getBinaryContent(url, callback);
     }
     window.generate = function generate() {
+          var gmailCheckbox = document.getElementById("tickField");
+      var ukrCheckbox = document.getElementById("ukrTickField");
+      var metaCheckbox = document.getElementById("metaTickField");
+      var iuaCheckbox = document.getElementById("iuaTickField");
+
+      if ((gmailCheckbox.checked ? 1 : 0) + (ukrCheckbox.checked ? 1 : 0) + (metaCheckbox.checked ? 1 : 0) + (iuaCheckbox.checked ? 1 : 0) > 1) {
+        alert("Choose only one email service to send the email!");
+        return;
+      }
+
+if (gmailCheckbox.checked) {
+  var gmailMessage = "Don't forget to attach the contract file for Gmail!";
+  var encodedGmailMessage = encodeURIComponent(gmailMessage);
+  var gmailEmailLink =
+    "https://mail.google.com/mail/?view=cm&fs=1&to=patent.ndch@knu.ua&su=Contract%20for%20services%20(your%20organization)&body=" +
+    encodedGmailMessage;
+  setTimeout(function () {
+    window.open(gmailEmailLink, "_blank");
+  }, 1500); 
+}
+
+if (ukrCheckbox.checked) {
+  var ukrMessage = "Don't forget to attach the contract file for ukr.net!";
+  var encodedUkrMessage = encodeURIComponent(ukrMessage);
+  var ukrEmailLink =
+    "https://mail.ukr.net/compose?to=patent.ndch@knu.ua&subject=Contract%20for%20services%20(your%20organization)&body=" +
+    encodedUkrMessage;
+  setTimeout(function () {
+    window.open(ukrEmailLink, "_blank");
+  }, 1500); 
+}
+
+if (metaCheckbox.checked) {
+  var metaMessage = "Don't forget to attach the contract file for Meta!";
+  var encodedMetaMessage = encodeURIComponent(metaMessage);
+  var metaEmailLink =
+    "https://mail.meta.ua/compose?to=patent.ndch@knu.ua&subject=Contract%20for%20services%20(your%20organization)&body=" +
+    encodedMetaMessage;
+  setTimeout(function () {
+    window.open(metaEmailLink, "_blank");
+  }, 1500);  
+}
+
+if (iuaCheckbox.checked) {
+  var iuaMessage = "Don't forget to attach the contract file for i.ua!";
+  var encodedIuaMessage = encodeURIComponent(iuaMessage);
+  var iuaEmailLink =
+    "https://mbox2.i.ua/compose?to=patent.ndch@knu.ua&subj=Contract%20for%20services%20(your%20organization)&body=forget" +
+    encodedIuaMessage;
+  setTimeout(function () {
+    window.open(iuaEmailLink, "_blank");
+  }, 1500);  
+}
+      
       const arg_num = document.getElementById("arg_num_input").value;
       const dday_start = document.getElementById("dday_start").value;
       const ddmon_start = document.getElementById("ddmon_start").value;
