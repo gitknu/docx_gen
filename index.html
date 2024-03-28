@@ -195,8 +195,9 @@ button:hover {
       </tr>
             <tr>
         <td>
-       <h3>Індивідуальний податковий номер</h3>
-          <input type="text" id="tax_num" placeholder="ІПН" onclick="hoverImage(event, 'tax_num_img')">
+       <h3>ІПН та банківські реквізити</h3>
+          <input type="text" id="tax_num" placeholder="Податковий номер" onclick="hoverImage(event, 'tax_num_img')">
+        <input type="text" id="bank_info" placeholder="Банківські реквізити" onclick="hoverImage(event, 'bank_info_img')">
           <br><br>
            </td>
       </tr>
@@ -255,7 +256,10 @@ button:hover {
     <div class="hover_img" id="tax_num_img">
         <img src="https://www.bottega7.com/media/filer_public_thumbnails/filer_public/f5/98/f5986e4f-b733-4ab8-aa3b-0d474d257464/copertina_img-theme-park_v2.jpg__1200x700_q100_crop_subsampling-2_upscale.jpg">
     </div>
-            <div class="hover_img" id="NAME_img">
+        <div class="hover_img" id="bank_info_img">
+        <img src="https://cdn5.vectorstock.com/i/1000x1000/45/39/local-banks-vector-7404539.jpg">
+    </div>
+    <div class="hover_img" id="NAME_img">
         <img src="https://examplecom/img.jpg">
     </div>
             <div class="hover_img" id="NAME_img">
@@ -296,7 +300,8 @@ button:hover {
         { inputId: 'mobile_num', hoverImgId: 'mobile_num_img' },
         { inputId: 'city_name', hoverImgId: 'city_name_img' },
         { inputId: 'street_else', hoverImgId: 'street_else_img' },
-                { inputId: 'tax_num', hoverImgId: 'tax_num_img' },
+        { inputId: 'tax_num', hoverImgId: 'tax_num_img' },
+        { inputId: 'bank_info', hoverImgId: 'bank_info_img' },
     ];
 
     for (const pair of pairs) {
@@ -327,6 +332,7 @@ button:hover {
       const city_name = document.getElementById("city_name").value;
       const street_else = document.getElementById("street_else").value;
             const tax_num = document.getElementById("tax_num").value;
+            const bank_info = document.getElementById("bank_info").value;
       if (isNaN(parseInt(dday_end)) || !isNaN(parseInt(ddmon_end))) {
         alert("Оберіть дату завернення договору!");
         return;
@@ -378,6 +384,10 @@ button:hover {
         alert("Індивідуальний податковий номер повинен бути числом!");
         return;
       }
+            if (isNaN(parseInt(bank_info)) || bank_info === "") {
+        alert("Банківські реквізити повинні бути числом! Частина UA вводиться автоматично!");
+        return;
+      }
       if (!isNaN(parseInt(name_advisor)) || name_advisor === "" || !name_advisor.includes(" ")) {
         alert("Напишіть ім'я та прізвище людини!");
         return;
@@ -426,7 +436,7 @@ button:hover {
           city_name: city_name,
           street_else: street_else,
           tax_num: tax_num,
-          bank_info: "123456789",
+          bank_info: bank_info,
           unified_code: "1234567",
           name_advisor: name_advisor,
           mobile_num: mobile_num,
