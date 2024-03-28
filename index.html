@@ -1,5 +1,10 @@
 <html>
   <head>
+<title>Doc.gen</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="imgs/favicon.ico" type="image/x-icon">
       <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Yanone+Kaffeesatz:wght@200..700&display=swap')
 </style>
@@ -483,14 +488,10 @@ if (nameParts.length < 1 || (nameParts[0][0] !== nameParts[0][0].toUpperCase() |
         alert("Зазначте свої послуги! Звертаємо увагу, що це не можуть бути експертиза або дослідження!");
         return;
       }
-      if (isNaN(parseInt(postal_code)) && postal_code !== "") {
-        alert("Вкажіть поштовий індекс!");
-        return;
-      }
-      if (postal_code.length !== 5 || isNaN(parseInt(postal_code))) {
-        alert("Вкажіть поштовий індекс!");
-        return;
-      }
+if (isNaN(parseInt(postal_code)) || postal_code === "" || postal_code.length !== 5) {
+  alert("Вкажіть поштовий індекс!");
+  return;
+}
       if (!isNaN(parseInt(city_name)) || city_name === "" || !city_name.includes(" ")) {
         alert("Зазначте місто реєстрації!");
         return;
