@@ -40,6 +40,10 @@ button {
 button:hover {
   box-shadow: 0 0 10px rgba(255, 255, 255, 1);
 }
+
+.unncsr {
+}
+
 .grid {
   position: absolute;
   z-index: -999;
@@ -104,27 +108,27 @@ button:hover {
       <tr>
         <td>
             <h1>ГЕНЕРАТОР ДОГОВОРУ</h1>
-          <h3>Номер договору</h3>
-          <input type="text" id="arg_num_input" placeholder="Номер договору" onclick="hoverImage(event, 'arg_num_input_img')">
+          <h3 class="unncsr">Номер договору</h3>
+          <input type="text" id="arg_num_input" class="unncsr" placeholder="Номер договору" onclick="hoverImage(event, 'arg_num_input_img')">
           <br><br>
         </td>
       </tr>
       <tr>
         <td>
-          <h3>Строк договору</h3>
+          <h3 class="unncsr">Строк договору</h3>
         </td>
       </tr>
       <tr>
-        <td style="text-align: left;"><tt>Укладення<span> - </span></tt>
-          <select id="dday_start" onclick="hoverImage(event, 'dday_start_img')">
-            <option value="___">дд</option>
+        <td style="text-align: left;" class="unncsr"><tt>Укладення<span> - </span></tt>
+          <select id="dday_start" onclick="hoverImage(event, 'dday_start_img')" class="unncsr">
+            <option value="___" class="unncsr">дд</option>
             <script>
               for (let i = 1; i <= 31; i++) {
                 document.write(`<option value="${i}">${i}</option>`);
               }
             </script>
           </select>
-          <select id="ddmon_start">
+          <select id="ddmon_start" class="unncsr">
             <option value="____________">мм</option>
             <option value="січня">січня</option>
             <option value="лютого">лютого</option>
@@ -139,7 +143,7 @@ button:hover {
             <option value="листопада">листопада</option>
             <option value="грудня">грудня</option>
           </select>
-          <span> 2024</span>
+          <span class="unncsr"> 2024</span>
         </td>
       </tr>
       <tr>
@@ -174,9 +178,16 @@ button:hover {
       </tr>
       <tr>
         <td>
-        <h3>Представник (називний і родовий відмінки)</h3>
+        <h3>Представник (у двох відмінках)</h3>
           <input type="text" id="client_person" placeholder="Ім'я ПРІЗВИЩЕ (називний)" onclick="hoverImage(event, 'client_person_img')">
           <input type="text" id="client_person_rid" placeholder="Імені ПРІЗВИЩА (родовий)" onclick="hoverImage(event, 'client_person_rid_img')">
+          <br><br>
+            </td>
+      </tr>
+      <tr>
+        <td>
+        <h3>На підставі документа (у родовому відмінку)</h3>
+          <input type="text" id="doc_reason" placeholder="У родовому відмінку" onclick="hoverImage(event, 'doc_reason_img')">
           <br><br>
             </td>
       </tr>
@@ -296,6 +307,9 @@ button:hover {
         <img src="https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg">
     </div>
     </div>
+    <div class="hover_img" id="doc_reason_img">
+        <img src="https://t4.ftcdn.net/jpg/02/71/07/33/360_F_271073385_A6geLjwkrty3xkDPxaf7lcaEiNMtMwjN.jpg">
+    </div>
             <div class="hover_img" id="NAME_img">
         <img src="https://examplecom/img.jpg">
     </div>
@@ -342,6 +356,7 @@ button:hover {
         { inputId: 'unified_code', hoverImgId: 'unified_code_img' },
     { inputId: 'client_person_rid', hoverImgId: 'client_person_rid_img' },
     { inputId: 'client_person', hoverImgId: 'client_person_img' },
+        { inputId: 'doc_reason', hoverImgId: 'doc_reason_img' },
     ];
 
     for (const pair of pairs) {
@@ -428,6 +443,7 @@ if (iuaCheckbox.checked) {
       const tax_num = document.getElementById("tax_num").value;
       const bank_info = document.getElementById("bank_info").value;
       const unified_code = document.getElementById("unified_code").value;
+      const doc_reason = document.getElementById("doc_reason").value;
       const client_person_rid = document.getElementById("client_person_rid").value;
       const client_person = document.getElementById("client_person").value;
       if (isNaN(parseInt(dday_end)) || !isNaN(parseInt(ddmon_end))) {
@@ -458,6 +474,10 @@ if (iuaCheckbox.checked) {
       var nameParts = client_person_rid.split(" ");
       if (nameParts.length < 1 || (nameParts[0][0] !== nameParts[0][0].toUpperCase() || nameParts[1][0] !== nameParts[1][0].toUpperCase())) {
         alert("Напишіть відповідно до чинного правопису!");
+        return;
+      }
+       if (!isNaN(parseInt(doc_reason)) || doc_reason === "") {
+        alert("Напишіть назву документу в родовому відмінку!");
         return;
       }
       if (!isNaN(parseInt(service_1)) || service_1.trim() === "" || service_1.toLowerCase().includes('експертиз') || service_1.toLowerCase().includes('експиртиз') || service_1.toLowerCase().includes('дослідже')) {
@@ -546,7 +566,7 @@ if (iuaCheckbox.checked) {
           client_person_rid: client_person_rid,
           client_position: "Директор",
           client_person: client_person,
-          doc_reason: "договору про нерозголошення",
+          doc_reason: doc_reason,
           val_num_large: "123,000",
           val_num_small: "123",
           fee_num_large: "23,000",
