@@ -189,9 +189,10 @@ button:hover {
       </tr>
             <tr>
         <td>
-       <h3>ІПН та банківські реквізити</h3>
+       <h3>ІПН, реквізити та код ЄДРПОУ</h3>
           <input type="text" id="tax_num" placeholder="Податковий номер" onclick="hoverImage(event, 'tax_num_img')">
         <input type="text" id="bank_info" placeholder="Банківські реквізити" onclick="hoverImage(event, 'bank_info_img')">
+        <input type="text" id="unified_code" placeholder="Код ЄДРПОУ" onclick="hoverImage(event, 'unified_code_img')">
           <br><br>
            </td>
       </tr>
@@ -253,10 +254,13 @@ button:hover {
         <div class="hover_img" id="bank_info_img">
         <img src="https://cdn5.vectorstock.com/i/1000x1000/45/39/local-banks-vector-7404539.jpg">
     </div>
-    <div class="hover_img" id="NAME_img">
-        <img src="https://examplecom/img.jpg">
+    <div class="hover_img" id="unified_code_img">
+        <img src="https://pbs.twimg.com/profile_images/378800000293116108/7d88dc26976e96cf4ca15491d7a38043_400x400.png">
     </div>
             <div class="hover_img" id="NAME_img">
+        <img src="https://examplecom/img.jpg">
+    </div>
+     <div class="hover_img" id="NAME_img">
         <img src="https://examplecom/img.jpg">
     </div>
     </div>
@@ -296,6 +300,7 @@ button:hover {
         { inputId: 'street_else', hoverImgId: 'street_else_img' },
         { inputId: 'tax_num', hoverImgId: 'tax_num_img' },
         { inputId: 'bank_info', hoverImgId: 'bank_info_img' },
+        { inputId: 'unified_code', hoverImgId: 'unified_code_img' },
     ];
 
     for (const pair of pairs) {
@@ -325,8 +330,9 @@ button:hover {
       const mobile_num = document.getElementById("mobile_num").value;
       const city_name = document.getElementById("city_name").value;
       const street_else = document.getElementById("street_else").value;
-            const tax_num = document.getElementById("tax_num").value;
-            const bank_info = document.getElementById("bank_info").value;
+      const tax_num = document.getElementById("tax_num").value;
+      const bank_info = document.getElementById("bank_info").value;
+      const unified_code = document.getElementById("unified_code").value;
       if (isNaN(parseInt(dday_end)) || !isNaN(parseInt(ddmon_end))) {
         alert("Оберіть дату завернення договору!");
         return;
@@ -382,6 +388,10 @@ button:hover {
         alert("Банківські реквізити повинні бути числом! Частина UA вводиться автоматично!");
         return;
       }
+      if (isNaN(parseInt(unified_code)) || unified_code === "") {
+        alert("Код ЄДРПОУ повинен бути числом!");
+        return;
+      }
       if (!isNaN(parseInt(name_advisor)) || name_advisor === "" || !name_advisor.includes(" ")) {
         alert("Напишіть ім'я та прізвище людини!");
         return;
@@ -431,7 +441,7 @@ button:hover {
           street_else: street_else,
           tax_num: tax_num,
           bank_info: bank_info,
-          unified_code: "1234567",
+          unified_code: unified_code,
           name_advisor: name_advisor,
           mobile_num: mobile_num,
         service_1: service_1, 
