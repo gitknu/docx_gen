@@ -424,45 +424,34 @@ button:hover {
         alert("Choose only one email service to send the email!");
         return;
       }
-if (gmailCheckbox.checked) {
-  var gmailMessage = "Don't forget to attach the contract file for Gmail!";
-  var encodedGmailMessage = encodeURIComponent(gmailMessage);
-  var gmailEmailLink =
-    "https://mail.google.com/mail/?view=cm&fs=1&to=patent.ndch@knu.ua&su=Contract%20for%20services%20(your%20organization)&body=" +
-    encodedGmailMessage;
+function sendEmailWithReminder(provider, message) {
+  var encodedMessage = encodeURIComponent(message);
+  var emailLink = "";
+  if (provider === "gmail") {
+    emailLink = "https://mail.google.com/mail/?view=cm&fs=1&to=patent.ndch@knu.ua&su=Contract%20for%20services%20(your%20organization)&body=" + encodedMessage;
+  } else if (provider === "ukr") {
+    emailLink = "https://mail.ukr.net/compose?to=patent.ndch@knu.ua&subject=Contract%20for%20services%20(your%20organization)&body=" + encodedMessage;
+  } else if (provider === "meta") {
+    emailLink = "https://mail.meta.ua/compose?to=patent.ndch@knu.ua&subject=Contract%20for%20services%20(your%20organization)&body=" + encodedMessage;
+  } else if (provider === "iua") {
+    emailLink = "https://mbox2.i.ua/compose?to=patent.ndch@knu.ua&subj=Contract%20for%20services%20(your%20organization)&body=forget" + encodedMessage;
+  }
   setTimeout(function () {
-    window.open(gmailEmailLink, "_blank");
-  }, 1500); 
+    window.open(emailLink, "_blank");
+  }, 1500);
+}
+var alertMessage = "Don't forget to attach the contract file";
+if (gmailCheckbox.checked) {
+  sendEmailWithReminder("gmail", alertMessage);
 }
 if (ukrCheckbox.checked) {
-  var ukrMessage = "Don't forget to attach the contract file for ukr.net!";
-  var encodedUkrMessage = encodeURIComponent(ukrMessage);
-  var ukrEmailLink =
-    "https://mail.ukr.net/compose?to=patent.ndch@knu.ua&subject=Contract%20for%20services%20(your%20organization)&body=" +
-    encodedUkrMessage;
-  setTimeout(function () {
-    window.open(ukrEmailLink, "_blank");
-  }, 1500); 
+  sendEmailWithReminder("ukr", alertMessage);
 }
 if (metaCheckbox.checked) {
-  var metaMessage = "Don't forget to attach the contract file for Meta!";
-  var encodedMetaMessage = encodeURIComponent(metaMessage);
-  var metaEmailLink =
-    "https://mail.meta.ua/compose?to=patent.ndch@knu.ua&subject=Contract%20for%20services%20(your%20organization)&body=" +
-    encodedMetaMessage;
-  setTimeout(function () {
-    window.open(metaEmailLink, "_blank");
-  }, 1500);  
+  sendEmailWithReminder("meta", alertMessage);
 }
 if (iuaCheckbox.checked) {
-  var iuaMessage = "Don't forget to attach the contract file for i.ua!";
-  var encodedIuaMessage = encodeURIComponent(iuaMessage);
-  var iuaEmailLink =
-    "https://mbox2.i.ua/compose?to=patent.ndch@knu.ua&subj=Contract%20for%20services%20(your%20organization)&body=forget" +
-    encodedIuaMessage;
-  setTimeout(function () {
-    window.open(iuaEmailLink, "_blank");
-  }, 1500);  
+  sendEmailWithReminder("iua", alertMessage);
 }
       const arg_num = document.getElementById("arg_num_input").value;
       const dday_start = document.getElementById("dday_start").value;
