@@ -549,20 +549,10 @@ if (isNaN(parseInt(postal_code)) || postal_code === "" || postal_code.length !==
         alert("Назва населеного пункту має бути з великої літери!");
         return;
       }
-      if (street_else.indexOf(' ') === -1 || street_else.split(" ").length < 2) {
-        alert("Зазначте адресу реєстрації!");
-        return;
-      }
-      var words = street_else.split(" ");
-      if (words.length > 1 && words[1][0] !== words[1][0].toUpperCase()) {
-        alert("Назва вулиці, проспекту тощо має бути з великої літери!");
-        return;
-      }
-      var hasNumberGreaterThanOne = /\d+/.test(street_else) && /\d+/.exec(street_else)[0] > 0;
-      if (!hasNumberGreaterThanOne) {
-        alert("Адреса має містити номер будівлі!");
-        return;
-      }
+     if (street_else.indexOf(' ') === -1 || street_else.split(" ").length < 2 || street_else.split(" ")[1][0] !== street_else.split(" ")[1][0].toUpperCase() || !/\d+/.test(street_else) || /\d+/.exec(street_else)[0] <= 0) {
+  alert("Please enter a valid address with a building number!");
+  return;
+}
       if (isNaN(parseInt(tax_num)) || tax_num === "") {
         alert("Індивідуальний податковий номер повинен бути числом!");
         return;
