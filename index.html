@@ -549,15 +549,10 @@ if (isNaN(parseInt(postal_code)) || postal_code === "" || postal_code.length !==
         alert("Код ЄДРПОУ повинен бути числом!");
         return;
       }
-      if (!isNaN(parseInt(name_advisor)) || name_advisor === "" || !name_advisor.includes(" ")) {
-        alert("Напишіть ім'я та прізвище людини!");
-        return;
-      }
-      var nameParts = name_advisor.split(" ");
- if (nameParts.length < 1 || (nameParts[0][0] !== nameParts[0][0].toUpperCase() || nameParts[1].toUpperCase() !== nameParts[1])) {
-  alert("Напишіть як звати наукового керівника відповідно до чинного правопису!");
+      if (!isNaN(parseInt(name_advisor)) || name_advisor === "" || !name_advisor.includes(" ") || name_advisor.split(" ").length < 1 || (name_advisor.split(" ")[0][0] !== name_advisor.split(" ")[0][0].toUpperCase() || name_advisor.split(" ")[1].toUpperCase() !== name_advisor.split(" ")[1])) {
+  alert("Write name of advisor as it should be written!");
   return;
-      }
+}
       if (isNaN(parseInt(mobile_num)) || mobile_num.length < 9 || mobile_num.length > 12) {
   alert("Please enter a valid mobile phone number!");
   return;
