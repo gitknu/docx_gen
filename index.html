@@ -1,10 +1,57 @@
 <html>
   <head>
+      <link rel="shortcut icon" href="https://uc.knu.ua/images/logo.png" width="32px">
+    <script>
+onload = function() {
+    var cv = document.querySelector('#cvl'),
+        ctx = cv.getContext('2d'),
+        tc, pct = 0,
+        lnk = document.querySelector('link[rel*="icon"]');
+    if (!!ctx) {
+        var C3qπ = 1.5 * Math.PI;
+        ctx.lineWidth = 5;
+        ctx.strokeStyle = '#b72026';
+        tc = setInterval(updateLoader, 5);
+    }
+    function updateLoader() {
+        if (!document.hidden) {
+            lnk.href = 'https://uc.knu.ua/images/logo.png';
+        } else {
+            with(ctx) {
+                clearRect(0, 0, 16, 16);
+                beginPath();
+                arc(8, 8, 6, C3qπ, (pct * 2 * Math.PI / 100 + C3qπ));
+                stroke();
+                fillStyle = 'white';
+                fill();
+            }
+            lnk.href = cv.toDataURL('image/png');
+            pct = (pct + 1) % 100;
+
+            if (pct === 0) {
+                clearInterval(tc);
+                setTimeout(function() {
+                    tc = setInterval(updateLoader, 5);
+                }, 1000);
+            }
+        }
+    }
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            tc = setInterval(updateLoader, 5);  
+        } else {
+            clearInterval(tc);  
+            lnk.href = 'https://uc.knu.ua/images/logo.png';
+        }
+    });
+};
+    </script>
+    
 <title>Doc.gen</title>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="imgs/favicon.ico" type="image/x-icon">
+
       <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Yanone+Kaffeesatz:wght@200..700&display=swap')
 </style>
@@ -104,6 +151,7 @@ button:hover {
     </style>
   </head>
   <body>
+      <canvas id=cvl width=16 height=16 style="opacity: 0;"></canvas>
           <div class="grid">
   <div></div><div></div><div></div>
   <div></div><div></div><div></div>
