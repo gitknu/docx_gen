@@ -574,15 +574,10 @@ if (isNaN(parseInt(postal_code)) || postal_code === "" || postal_code.length !==
   alert("Напишіть як звати наукового керівника відповідно до чинного правопису!");
   return;
       }
-      if (isNaN(parseInt(mobile_num)) && mobile_num !== "") {
-        alert("Вкажіть мобільний номер телефону!");
-        return;
-      }
-      if (parseInt(mobile_num).toString().length < 9 || parseInt(mobile_num).toString().length > 12) {
-        alert("Вкажіть мобільний номер телефону!");
-        return;
-      }
-
+      if (isNaN(parseInt(mobile_num)) || mobile_num.length < 9 || mobile_num.length > 12) {
+  alert("Please enter a valid mobile phone number!");
+  return;
+}
       loadFile("https://gitknu.github.io/docx_gen/input.docx", function(error, content) {
         if (error) {
           throw error;
