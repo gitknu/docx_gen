@@ -501,66 +501,66 @@ if (iuaCheckbox.checked) {
         return;
       }
             if (!isNaN(parseInt(client_person)) || client_person === "" || !client_person.includes(" ")) {
-        alert("Напишіть ім'я та прізвище людини у називному відмінку!");
+        alert("Напишіть як звати представника у називному відмінку відповідно до чинного правопису (Ім'я ПРІЗВИЩЕ)");
         return;
       }
       var nameParts = client_person.split(" ");
 if (nameParts.length < 1 || (nameParts[0][0] !== nameParts[0][0].toUpperCase() || nameParts[1].toUpperCase() !== nameParts[1])) {
-  alert("Напишіть у називному відповідно до чинного правопису!");
+  alert("Напишіть як звати представника у називному відмінку відповідно до чинного правопису (Ім'я ПРІЗВИЩЕ)");
   return;
 }
       if (!isNaN(parseInt(client_person_rid)) || client_person_rid === "" || !client_person_rid.includes(" ")) {
-        alert("Напишіть ім'я та прізвище людини у родовому відмінку!");
+        alert(""Напишіть як звати представника у родовому відмінку відповідно до чинного правопису (Імені ПРІЗВИЩА)");
         return;
       }
       var nameParts = client_person_rid.split(" ");
  if (nameParts.length < 1 || (nameParts[0][0] !== nameParts[0][0].toUpperCase() || nameParts[1].toUpperCase() !== nameParts[1])) {
-  alert("Напишіть у родовому відповідно до чинного правопису!");
+  alert("Напишіть як звати представника у родовому відмінку відповідно до чинного правопису (Імені ПРІЗВИЩА)");
   return;
 }
        if (!isNaN(parseInt(doc_reason)) || doc_reason === "") {
-        alert("Напишіть назву документу в родовому відмінку!");
+        alert("Напишіть назву документу в родовому відмінку");
         return;
       }
       if (!isNaN(parseInt(service_1)) || service_1.trim() === "" || service_1.toLowerCase().includes('експертиз') || service_1.toLowerCase().includes('експиртиз') || service_1.toLowerCase().includes('дослідже')) {
-        alert("Зазначте свої послуги! Звертаємо увагу, що це не можуть бути експертиза або дослідження!");
+        alert("Зазначте свої послуги. Звертаємо увагу, що це не можуть бути експертиза або дослідження");
         return;
       }
 if (isNaN(parseInt(postal_code)) || postal_code === "" || postal_code.length !== 5) {
-  alert("Вкажіть поштовий індекс!");
+  alert("Вкажіть поштовий індекс відповідно до норм (п'ятизначне число)");
   return;
 }
       if (!isNaN(parseInt(city_name)) || city_name === "" || !city_name.includes(" ")) {
-        alert("Зазначте місто реєстрації!");
+        alert("Зазначте місто реєстрації");
         return;
       }
       var words = city_name.split(" ");
       if (words.length > 1 && words[1][0] !== words[1][0].toUpperCase()) {
-        alert("Назва населеного пункту має бути з великої літери!");
+        alert("Назва населеного пункту має бути з великої літери");
         return;
       }
      if (street_else.indexOf(' ') === -1 || street_else.split(" ").length < 2 || street_else.split(" ")[1][0] !== street_else.split(" ")[1][0].toUpperCase() || !/\d+/.test(street_else) || /\d+/.exec(street_else)[0] <= 0) {
-  alert("Please enter a valid address with a building number!");
+  alert("Вкажіть повну адресу (із номером будинку)");
   return;
 }
       if (isNaN(parseInt(tax_num)) || tax_num === "") {
-        alert("Індивідуальний податковий номер повинен бути числом!");
+        alert("Індивідуальний податковий номер повинен бути числом");
         return;
       }
             if (isNaN(parseInt(bank_info)) || bank_info === "") {
-        alert("Банківські реквізити повинні бути числом! Частина UA вводиться автоматично!");
+        alert("Банківські реквізити повинні бути числом. Частина UA вводиться автоматично");
         return;
       }
       if (isNaN(parseInt(unified_code)) || unified_code === "") {
-        alert("Код ЄДРПОУ повинен бути числом!");
+        alert("Код ЄДРПОУ повинен бути числом");
         return;
       }
       if (!isNaN(parseInt(name_advisor)) || name_advisor === "" || !name_advisor.includes(" ") || name_advisor.split(" ").length < 1 || (name_advisor.split(" ")[0][0] !== name_advisor.split(" ")[0][0].toUpperCase() || name_advisor.split(" ")[1].toUpperCase() !== name_advisor.split(" ")[1])) {
-  alert("Write name of advisor as it should be written!");
+  alert("Напишіть як звати наукового керівника відповідно до чинного правопису");
   return;
 }
       if (isNaN(parseInt(mobile_num)) || mobile_num.length < 9 || mobile_num.length > 12) {
-  alert("Please enter a valid mobile phone number!");
+  alert("Введіть мобільний номер телефону наукового керівника (формат не принциповий: 0ХХ... або +380...");
   return;
 }
       loadFile("https://gitknu.github.io/docx_gen/input.docx", function(error, content) {
