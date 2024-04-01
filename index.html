@@ -448,7 +448,7 @@ function sendEmailWithReminder(provider, message) {
   if (provider === "gmail") {
     emailLink = "https://mail.google.com/mail/?view=cm&fs=1&to=patent.ndch@knu.ua&su=Contract%20for%20services%20(your%20organization)&body=" + encodedMessage;
   } else if (provider === "ukr") {
-    emailLink = "https://mail.ukr.net/compose?to=patent.ndch@knu.ua&subject=Contract%20for%20services%20(your%20organization)&body=" + encodedMessage;
+    emailLink = "https://mail.ukr.net/desktop#sendmsg?to=patent.ndch@knu.ua&subject=Contract%20for%20services%20(your%20organization)&body=" + encodedMessage;
   } else if (provider === "meta") {
     emailLink = "https://mail.meta.ua/compose?to=patent.ndch@knu.ua&subject=Contract%20for%20services%20(your%20organization)&body=" + encodedMessage;
   } else if (provider === "iua") {
