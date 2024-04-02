@@ -54,6 +54,17 @@ onload = function() {
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Yanone+Kaffeesatz:wght@200..700&display=swap')
 </style>
     <style>
+    input, select {
+  border-radius: 15px;
+  border: 1px solid grey;
+  height: 20px;
+}
+    input {
+  padding-left: 5px;
+}
+    select {
+  padding-left: 2px;
+}
     .wide_input {
     width: 65%;
     }
@@ -451,21 +462,13 @@ document.addEventListener('DOMContentLoaded', function() {
           <td>
                      <h3>Ваша пошта для відправки документа</h3>
                <input type="checkbox" id="tickField">
-  <label for="tickField">
-    <span class="gmail-logo"></span> gmail
-  </label>
+  <label for="tickField">gmail</label>
   <input type="checkbox" id="ukrTickField">
-  <label for="ukrTickField">
-    <span class="ukr-logo"></span> ukr.net
-  </label>
+  <label for="ukrTickField">ukr.net</label>
   <input type="checkbox" id="metaTickField">
-  <label for="metaTickField">
-    <span class="meta-logo"></span> meta.ua
-  </label>
+  <label for="metaTickField">meta.ua</label>
   <input type="checkbox" id="iuaTickField">
-  <label for="iuaTickField">
-    <span class="iua-logo"></span> i.ua
-  </label>
+  <label for="iuaTickField">i.ua</label>
   <h5 style="opacity: 0.3;">( <i>для вказаних сервісів є можливість<br>автоматично створити чернетку</i> )</h5>
           </td>
       </tr>
