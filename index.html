@@ -148,19 +148,16 @@ button:hover {
         border-radius: 15%;
         box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
     }
-    
-    
-   @media screen and (max-width: 1280px) {
+   @media screen and (max-width: 1279px) {
   .additional_div {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
   }
   .hover_img img {
-    height: 300px;
-    width: 300px;
+    height: 250px;
+    width: 250px;
   }
-}
-    
+}   
     @media screen and (max-width: 1644px) and (orientation: portrait) {
   #mobile {
     display: block;
@@ -172,7 +169,6 @@ button:hover {
    display: none;
 }
 }
-
 .percent {
   border: none;
   background: none;
@@ -180,7 +176,6 @@ button:hover {
   pointer-events: none;
   font-size: 0.6em;
 }
-
 .slider {
   -webkit-appearance: none;
   appearance: none;
@@ -551,7 +546,6 @@ document.addEventListener('DOMContentLoaded', function() {
       var ukrCheckbox = document.getElementById("ukrTickField");
       var metaCheckbox = document.getElementById("metaTickField");
       var iuaCheckbox = document.getElementById("iuaTickField");
-
       if ((gmailCheckbox.checked ? 1 : 0) + (ukrCheckbox.checked ? 1 : 0) + (metaCheckbox.checked ? 1 : 0) + (iuaCheckbox.checked ? 1 : 0) > 1) {
         alert("Choose only one email service to send the email!");
         return;
@@ -643,7 +637,6 @@ if (client_person === client_person_rid) {
   alert("Текст має бути вказаний у різниї відмінках (а саме - називний та родовий)");
   return
 }
-
        if (!isNaN(parseInt(doc_reason)) || doc_reason === "") {
         alert("Напишіть назву документу в родовому відмінку");
         return;
@@ -669,7 +662,6 @@ if (isNaN(parseInt(postal_code)) || postal_code === "" || postal_code.length !==
   alert("Вкажіть повну адресу (із номером будинку та комою)");
   return;
 }
-
       if (isNaN(parseInt(tax_num)) || tax_num === "") {
         alert("Індивідуальний податковий номер повинен бути числом");
         return;
