@@ -298,7 +298,7 @@ button:hover {
       <tr>
           <td>
               <script>
-   document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
   var projectBars = document.querySelectorAll('.project .bar');
   projectBars.forEach(function(projectBar) {
     var projectPercent = projectBar.parentNode.querySelector('.percent');
@@ -318,9 +318,10 @@ button:hover {
       var projectRange = event.target.parentNode.querySelector('.ui-slider-range');
       var percent = value;
     });
-    projectPercent.value = "Без передплати";
+    projectPercent.value = "50%";
   });
 });
+
 </script>
 <div class="container">
   <div class="row">
@@ -328,13 +329,13 @@ button:hover {
        <h3>Розмір передплати</h3>
       <h1>
         <input class="percent" readonly />
-      </h1>
       <div class="bar">
-        <input type="range" min="0" max="100" value="0" class="slider" step="5" id="prepay" onclick="hoverImage(event, 'prepay_img')">
+        <input type="range" min="0" max="100" value="50" class="slider" step="5" id="prepay" onclick="hoverImage(event, 'prepay_img')">
       </div>
     </div>
   </div>
 </div>
+      </h1>
           </td>
       </tr>
       <tr>
