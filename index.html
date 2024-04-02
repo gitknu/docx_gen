@@ -339,7 +339,27 @@ button:hover {
           <div id="container">
             <h3>Назва послуг(и)</h3>
             <input type="text" id="service_1" placeholder="Назва послуги" onclick="hoverImage(event, 'service_1_img')" class="wide_input">
+            <br><br>
+            <input type="text" id="service_2" placeholder="Назва послуги #2" onclick="hoverImage(event, 'service_2_img')" class="wide_input" style="display: none">
+            <br><br>
+            <input type="text" id="service_3" placeholder="Назва послуги #3" onclick="hoverImage(event, 'service_3_img')" class="wide_input" style="display: none">
+            <br><br>
+            <input type="text" id="service_4" placeholder="Назва послуги #4" onclick="hoverImage(event, 'service_4_img')" class="wide_input" style="display: none">
+            <br><br>
+            <input type="text" id="service_5" placeholder="Назва послуги #5" onclick="hoverImage(event, 'service_5_img')" class="wide_input" style="display: none">
           </div>
+                      <script>
+                document.getElementById("service_1").addEventListener("input", function() {
+  var service1Value = document.getElementById("service_1").value;
+  var service2Input = document.getElementById("service_2");
+  
+  if (service1Value.trim().length > 0) {
+    service2Input.style.display = "block";
+  } else {
+    service2Input.style.display = "none";
+  }
+});
+            </script>
           <br>
         </td>
       </tr>
@@ -608,6 +628,7 @@ if (iuaCheckbox.checked) {
       const ddyr_end = document.getElementById("ddyr_end").value;
       const client_company = document.getElementById("client_company").value;
       const service_1 = document.getElementById("service_1").value;
+      const service_2 = document.getElementById("service_2").value;
       const postal_code = document.getElementById("postal_code").value;
       const name_advisor = document.getElementById("name_advisor").value;
       const mobile_num = document.getElementById("mobile_num").value;
@@ -738,6 +759,7 @@ if (isNaN(parseInt(postal_code)) || postal_code === "" || postal_code.length !==
           name_advisor: name_advisor,
           mobile_num: mobile_num,
         service_1: service_1, 
+        service_2: service_2, 
         prepay: prepay,
         });
         const blob = doc.getZip().generate({
