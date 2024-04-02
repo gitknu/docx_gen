@@ -671,12 +671,12 @@ if (isNaN(parseInt(postal_code)) || postal_code === "" || postal_code.length !==
   return;
 }
       if (!isNaN(parseInt(city_name)) || city_name === "" || !city_name.includes(" ")) {
-        alert("Зазначте місто реєстрації");
+        alert("Зазначте назву населеного пункту (з великої літери)");
         return;
       }
       var words = city_name.split(" ");
       if (words.length > 1 && words[1][0] !== words[1][0].toUpperCase()) {
-        alert("Назва населеного пункту має бути з великої літери");
+        alert("Зазначте назву населеного пункту (з великої літери)");
         return;
       }
     if (street_else.indexOf(' ') === -1 || street_else.split(" ").length < 2 || street_else.split(" ")[1][0] !== street_else.split(" ")[1][0].toUpperCase() || !/\d+/.test(street_else) || /\d+/.exec(street_else)[0] <= 0 || !street_else.includes(',')) {
