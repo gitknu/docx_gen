@@ -709,18 +709,18 @@ if (client_person === client_person_rid) {
         alert("Зазначте свої послуги. Звертаємо увагу, що це не можуть бути експертиза або дослідження");
         return;
       }
-            if (!isNaN(parseInt(service_2)) || service_2.toLowerCase().includes('експертиз') || service_2.toLowerCase().includes('експиртиз') || service_2.toLowerCase().includes('дослідже')) {
-        alert("Зазначте свої послуги. Звертаємо увагу, що це не можуть бути експертиза або дослідження");
-        return;
-      }
-        if (!isNaN(parseInt(service_3)) || service_3.toLowerCase().includes('експертиз') || service_3.toLowerCase().includes('експиртиз') || service_3.toLowerCase().includes('дослідже')) {
-        alert("Зазначте свої послуги. Звертаємо увагу, що це не можуть бути експертиза або дослідження");
-        return;
-      }
-        if (!isNaN(parseInt(service_4)) || service_4.toLowerCase().includes('експертиз') || service_4.toLowerCase().includes('експиртиз') || service_4.toLowerCase().includes('дослідже')) {
-        alert("Зазначте свої послуги. Звертаємо увагу, що це не можуть бути експертиза або дослідження");
-        return;
-      }
+          function checkServices(service) {
+  if (!isNaN(parseInt(service)) || service.toLowerCase().includes('експертиз') || service.toLowerCase().includes('експиртиз') || service.toLowerCase().includes('дослідже')) {
+    alert("Зазначте свої послуги. Звертаємо увагу, що це не можуть бути експертиза або дослідження");
+    return true;
+  }
+  return false;
+}
+
+if (checkServices(service_2) || checkServices(service_3) || checkServices(service_4) || checkServices(service_5) || checkServices(service_6) || checkServices(service_7) || checkServices(service_8) || checkServices(service_9)) {
+  return;
+}
+
 if (isNaN(parseInt(postal_code)) || postal_code === "" || postal_code.length !== 5) {
   alert("Вкажіть поштовий індекс відповідно до норм (п'ятизначне число)");
   return;
