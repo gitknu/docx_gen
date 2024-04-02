@@ -54,6 +54,9 @@ onload = function() {
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Yanone+Kaffeesatz:wght@200..700&display=swap')
 </style>
     <style>
+    .wide_input {
+    width: 65%;
+    }
     #mobile {
         display: none;
     }
@@ -281,6 +284,13 @@ button:hover {
           <br><br>
         </td>
       </tr>
+       <tr>
+        <td>
+        <h3>Компанія</h3>
+          <input type="text" id="client_company" placeholder="У називному відмінку" onclick="hoverImage(event, 'client_company_img')" class="wide_input">
+          <br><br>
+            </td>
+      </tr>
       <tr>
         <td>
         <h3>Представник (у двох відмінках)</h3>
@@ -292,7 +302,7 @@ button:hover {
       <tr>
         <td>
         <h3>На підставі документа (у родовому відмінку)</h3>
-          <input type="text" id="doc_reason" placeholder="У родовому відмінку" onclick="hoverImage(event, 'doc_reason_img')">
+          <input type="text" id="doc_reason" placeholder="У родовому відмінку" onclick="hoverImage(event, 'doc_reason_img')" class="wide_input">
           <br><br>
             </td>
       </tr>
@@ -300,7 +310,7 @@ button:hover {
         <td>
           <div id="container">
             <h3>Назва послуг(и)</h3>
-            <input type="text" id="service_1" placeholder="Назва послуги" onclick="hoverImage(event, 'service_1_img')">
+            <input type="text" id="service_1" placeholder="Назва послуги" onclick="hoverImage(event, 'service_1_img')" class="wide_input">
           </div>
           <br>
         </td>
@@ -460,6 +470,9 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="hover_img" id="prepay_img">
         <img src="https://m.media-amazon.com/images/I/71oKfL5MPvL._AC_UF894,1000_QL80_.jpg">
     </div>
+         <div class="hover_img" id="client_company_img">
+        <img src="https://mapacademy.io/wp-content/uploads/2022/04/company-painting-hoopoe-citrustree-1s.jpg">
+    </div>
      <div class="hover_img" id="NAME_img">
         <img src="https://examplecom/img.jpg">
     </div>
@@ -506,6 +519,7 @@ document.addEventListener('DOMContentLoaded', function() {
     { inputId: 'client_person', hoverImgId: 'client_person_img' },
         { inputId: 'doc_reason', hoverImgId: 'doc_reason_img' },
         { inputId: 'prepay', hoverImgId: 'prepay_img' },
+        { inputId: 'client_company', hoverImgId: 'client_company_img' },
     ];
     for (const pair of pairs) {
         hoverImagePair(pair.inputId, pair.hoverImgId);
@@ -565,6 +579,7 @@ if (iuaCheckbox.checked) {
       const dday_end = document.getElementById("dday_end").value;
       const ddmon_end = document.getElementById("ddmon_end").value;
       const ddyr_end = document.getElementById("ddyr_end").value;
+      const client_company = document.getElementById("client_company").value;
       const service_1 = document.getElementById("service_1").value;
       const postal_code = document.getElementById("postal_code").value;
       const name_advisor = document.getElementById("name_advisor").value;
@@ -588,6 +603,10 @@ if (iuaCheckbox.checked) {
       }
       if (isNaN(parseInt(ddyr_end)) || ddyr_end < 24 || ddyr_end > 99) {
         alert("Зазначте актуальний рік - між (20)24 і 20(99)!");
+        return;
+      }
+      if (!isNaN(parseInt(client_company)) || client_company === "") {
+        alert("Напишіть назву компанії, організації тощо в називному відмінку");
         return;
       }
             if (!isNaN(parseInt(client_person)) || client_person === "" || !client_person.includes(" ")) {
@@ -675,7 +694,7 @@ if (isNaN(parseInt(postal_code)) || postal_code === "" || postal_code.length !==
           dday_end: dday_end,
           ddmon_end: ddmon_end,
           ddyr_end: ddyr_end,
-          client_company: "Компанія ''Шевченко і партнери''",
+          client_company: client_company,
           client_position_rid: "директора",
           client_person_rid: client_person_rid,
           client_position: "Директор",
