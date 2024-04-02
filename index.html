@@ -646,6 +646,11 @@ if (iuaCheckbox.checked) {
       const service_2 = document.getElementById("service_2").value;
       const service_3 = document.getElementById("service_3").value;
       const service_4 = document.getElementById("service_4").value;
+      const service_5 = document.getElementById("service_5").value;
+      const service_6 = document.getElementById("service_6").value;
+      const service_7 = document.getElementById("service_7").value;
+      const service_8 = document.getElementById("service_8").value;
+      const service_9 = document.getElementById("service_9").value;
       const postal_code = document.getElementById("postal_code").value;
       const name_advisor = document.getElementById("name_advisor").value;
       const mobile_num = document.getElementById("mobile_num").value;
@@ -791,6 +796,11 @@ if (isNaN(parseInt(postal_code)) || postal_code === "" || postal_code.length !==
         service_2: service_2, 
         service_3: service_3, 
         service_4: service_4,
+        service_5: service_5,
+        service_6: service_6,
+        service_7: service_7,
+        service_8: service_8,
+        service_9: service_9,
         prepay: prepay,
         });
         const blob = doc.getZip().generate({
