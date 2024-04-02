@@ -357,43 +357,25 @@ button:hover {
             <input type="text" id="service_9" placeholder="Назва послуги #9" class="wide_input" style="display: none">
             </h3>
           </div>
-                      <script>
-                document.getElementById("service_1").addEventListener("input", function() {
-  var service1Value = document.getElementById("service_1").value;
-  var service2Input = document.getElementById("service_2");
-  
-  if (service1Value.trim().length > 0) {
-    service2Input.style.display = "block";
-  } else {
-    service2Input.style.display = "none";
+                    <script>
+  function handleInputChange(serviceNumber) {
+    var currentServiceInput = document.getElementById("service_" + serviceNumber);
+    var nextServiceInput = document.getElementById("service_" + (serviceNumber + 1));
+
+    if (currentServiceInput.value.trim().length > 0) {
+      nextServiceInput.style.display = "block";
+    } else {
+      nextServiceInput.style.display = "none";
+    }
   }
-});
-            </script>
-                                  <script>
-                document.getElementById("service_2").addEventListener("input", function() {
-  var service2Value = document.getElementById("service_2").value;
-  var service3Input = document.getElementById("service_3");
-  
-  if (service2Value.trim().length > 0) {
-    service3Input.style.display = "block";
-  } else {
-    service3Input.style.display = "none";
+
+  for (var i = 1; i <= 9; i++) {
+    document.getElementById("service_" + i).addEventListener("input", function() {
+      var serviceNumber = parseInt(this.id.split("_")[1]);
+      handleInputChange(serviceNumber);
+    });
   }
-});
-            </script>
-             <script>
-                document.getElementById("service_3").addEventListener("input", function() {
-  var service3Value = document.getElementById("service_3").value;
-  var service4Input = document.getElementById("service_4");
-  
-  if (service3Value.trim().length > 0) {
-    service4Input.style.display = "block";
-  } else {
-    service4Input.style.display = "none";
-  }
-});
-            </script>
-          <br>
+</script>
         </td>
       </tr>
       <tr>
