@@ -46,7 +46,7 @@ onload = function() {
     });
 };
     </script>
-<title>Doc.gen</title>
+<title>Gen.doc</title>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -793,14 +793,14 @@ if (isNaN(parseInt(postal_code)) || postal_code === "" || postal_code.length !==
           name_advisor: name_advisor,
           mobile_num: mobile_num,
         service_1: service_1, 
-        service_2: service_2, 
-        service_3: service_3, 
-        service_4: service_4,
-        service_5: service_5,
-        service_6: service_6,
-        service_7: service_7,
-        service_8: service_8,
-        service_9: service_9,
+   service_2: service_2 || "",
+  service_3: service_3 || "",
+  service_4: service_4 || "",
+  service_5: service_5 || "",
+  service_6: service_6 || "",
+  service_7: service_7 || "",
+  service_8: service_8 || "",
+  service_9: service_9 || "",
         prepay: prepay,
         });
         const blob = doc.getZip().generate({
