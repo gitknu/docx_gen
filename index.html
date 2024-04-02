@@ -647,8 +647,8 @@ if (isNaN(parseInt(postal_code)) || postal_code === "" || postal_code.length !==
         alert("Банківські реквізити повинні бути числом. Частина UA вводиться автоматично");
         return;
       }
-      if (isNaN(parseInt(unified_code)) || unified_code === "") {
-        alert("Код ЄДРПОУ повинен бути числом");
+      if (isNaN(parseInt(unified_code)) || unified_code === "" || unified_code.length !== 8) {
+        alert("Код ЄДРПОУ повинен бути числом та містити 8 символів");
         return;
       }
       if (!isNaN(parseInt(name_advisor)) || name_advisor === "" || !name_advisor.includes(" ") || name_advisor.split(" ").length < 1 || (name_advisor.split(" ")[0][0] !== name_advisor.split(" ")[0][0].toUpperCase() || name_advisor.split(" ")[1].toUpperCase() !== name_advisor.split(" ")[1])) {
