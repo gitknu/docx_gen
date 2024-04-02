@@ -656,7 +656,7 @@ if (isNaN(parseInt(postal_code)) || postal_code === "" || postal_code.length !==
   return;
 }
       if (isNaN(parseInt(mobile_num)) || mobile_num.length < 9 || mobile_num.length > 12) {
-  alert("Введіть мобільний номер телефону наукового керівника (формат не принциповий: 0ХХ... або +380...");
+  alert("Введіть мобільний номер телефону наукового керівника (формат не принциповий: 0ХХ... або 380...");
   return;
 }
       loadFile("https://gitknu.github.io/docx_gen/input.docx", function(error, content) {
