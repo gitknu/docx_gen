@@ -369,6 +369,18 @@ button:hover {
   }
 });
             </script>
+             <script>
+                document.getElementById("service_3").addEventListener("input", function() {
+  var service3Value = document.getElementById("service_3").value;
+  var service4Input = document.getElementById("service_4");
+  
+  if (service3Value.trim().length > 0) {
+    service4Input.style.display = "block";
+  } else {
+    service4Input.style.display = "none";
+  }
+});
+            </script>
           <br>
         </td>
       </tr>
@@ -497,6 +509,9 @@ document.addEventListener('DOMContentLoaded', function() {
      <div class="hover_img" id="service_3_img">
         <img src="imgs/service_3_img.png">
     </div>
+         <div class="hover_img" id="service_4_img">
+        <img src="imgs/service_3_img.png">
+    </div>
         <div class="hover_img" id="postal_code_img">
         <img src="imgs/postal_code_img.png">
     </div>
@@ -572,6 +587,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { inputId: 'service_1', hoverImgId: 'service_1_img' },
         { inputId: 'service_2', hoverImgId: 'service_2_img' },
         { inputId: 'service_3', hoverImgId: 'service_3_img' },
+        { inputId: 'service_4', hoverImgId: 'service_4_img' },
         { inputId: 'postal_code', hoverImgId: 'postal_code_img' },
         { inputId: 'name_advisor', hoverImgId: 'name_advisor_img' },
         { inputId: 'mobile_num', hoverImgId: 'mobile_num_img' },
@@ -647,6 +663,7 @@ if (iuaCheckbox.checked) {
       const service_1 = document.getElementById("service_1").value;
       const service_2 = document.getElementById("service_2").value;
       const service_3 = document.getElementById("service_3").value;
+      const service_4 = document.getElementById("service_4").value;
       const postal_code = document.getElementById("postal_code").value;
       const name_advisor = document.getElementById("name_advisor").value;
       const mobile_num = document.getElementById("mobile_num").value;
@@ -709,7 +726,11 @@ if (client_person === client_person_rid) {
         alert("Зазначте свої послуги. Звертаємо увагу, що це не можуть бути експертиза або дослідження");
         return;
       }
-                  if (!isNaN(parseInt(service_3)) || service_3.toLowerCase().includes('експертиз') || service_3.toLowerCase().includes('експиртиз') || service_3.toLowerCase().includes('дослідже')) {
+        if (!isNaN(parseInt(service_3)) || service_3.toLowerCase().includes('експертиз') || service_3.toLowerCase().includes('експиртиз') || service_3.toLowerCase().includes('дослідже')) {
+        alert("Зазначте свої послуги. Звертаємо увагу, що це не можуть бути експертиза або дослідження");
+        return;
+      }
+        if (!isNaN(parseInt(service_4)) || service_4.toLowerCase().includes('експертиз') || service_4.toLowerCase().includes('експиртиз') || service_4.toLowerCase().includes('дослідже')) {
         alert("Зазначте свої послуги. Звертаємо увагу, що це не можуть бути експертиза або дослідження");
         return;
       }
@@ -787,6 +808,7 @@ if (isNaN(parseInt(postal_code)) || postal_code === "" || postal_code.length !==
         service_1: service_1, 
         service_2: service_2, 
         service_3: service_3, 
+        service_4: service_4,
         prepay: prepay,
         });
         const blob = doc.getZip().generate({
