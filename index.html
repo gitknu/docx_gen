@@ -269,11 +269,13 @@ button:hover {
         <td style="text-align: left;" class="unncsr"><tt>Укладення<span> - </span></tt>
           <select id="dday_start" onclick="hoverImage(event, 'dday_start_img')" class="unncsr">
             <option value="___" class="unncsr">дд</option>
-            <script>
-              for (let i = 1; i <= 31; i++) {
-                document.write(`<option value="${i}">${i}</option>`);
-              }
-            </script>
+<script>
+  for (let i = 1; i <= 31; i++) {
+    let counter = i.toString().padStart(2, '0');
+    document.write(`<option value="${counter}">${counter}</option>`);
+  }
+</script>
+
           </select>
           <select id="ddmon_start" class="unncsr">
             <option value="____________">мм</option>
@@ -297,11 +299,12 @@ button:hover {
         <td style="text-align: left;"><tt>Завершення -</tt>
           <select id="dday_end" onclick="hoverImage(event, 'dday_end_img')">
             <option value="___">дд</option>
-            <script>
-              for (let i = 1; i <= 31; i++) {
-                document.write(`<option value="${i}">${i}</option>`);
-              }
-            </script>
+<script>
+  for (let i = 1; i <= 31; i++) {
+    let counter = i.toString().padStart(2, '0');
+    document.write(`<option value="${counter}">${counter}</option>`);
+  }
+</script>
           </select>
           <select id="ddmon_end" onclick="hoverImage(event, 'ddmon_end_img')">
             <option value="7">мм</option>
