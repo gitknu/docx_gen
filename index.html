@@ -443,12 +443,12 @@ document.addEventListener('DOMContentLoaded', function() {
        <tr>
         <td>
         <h3>Вартість послуг та ПДВ (числом і прописом)</h3>
+         <h5><span style="opacity: 0.3;">( <i>поставте пташку, якщо Ваша </i></span> <i>установа бюджетна</i>
+          <input type="checkbox" id="budget">
+          <span style="opacity: 0.3;">)</span></h5>
           <input type="text" id="val_num_large" placeholder="Числом (через кому)" onclick="hoverImage(event, 'client_person_img')">
           <input type="text" id="val_num_small" placeholder="Вартість прописом" onclick="hoverImage(event, 'client_person_rid_img')">
           <input type="text" id="fee_num_small" placeholder="ПДВ прописом" onclick="hoverImage(event, 'client_person_rid_img')">
-          <h5><span style="opacity: 0.3;">( <i>прохання поставити пташку, якщо Ваша </i></span> <i>установа бюджетна</i>
-          <input type="checkbox" id="budget">
-          <span style="opacity: 0.3;">)</span></h5>
             </td>
              <script>
                 const feeNumSmall = document.getElementById('fee_num_small');
@@ -489,7 +489,7 @@ budgetCheckbox.addEventListener('change', function() {
         <td>
           <h3>Науковий керівник і його мобільний номер</h3>
           <input type="text" id="name_advisor" placeholder="Ім'я ПРІЗВИЩЕ" onclick="hoverImage(event, 'name_advisor_img')">
-          <input type="text" id="mobile_num" placeholder="+380..." onclick="hoverImage(event, 'mobile_num_img')">
+          <input type="text" id="mobile_num" placeholder="380..." onclick="hoverImage(event, 'mobile_num_img')">
           <br><br>
         </td>
       </tr>
