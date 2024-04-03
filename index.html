@@ -780,7 +780,7 @@ if (isNaN(parseInt(postal_code)) || postal_code === "" || postal_code.length !==
           linebreaks: true,
         });
         doc.render({
-          agr_num: arg_num,
+          agr_num: arg_num || "_______",
           dday_start: dday_start,
           ddmon_start: ddmon_start,
           ddyr_start: ddyr_start,
