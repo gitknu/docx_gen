@@ -458,6 +458,7 @@ budgetCheckbox.addEventListener('change', function() {
   if (budgetCheckbox.checked) {
     feeNumSmall.style.opacity = '0.5';
     feeNumSmall.disabled = true;
+    feeNumSmall.value = '';
   } else {
     feeNumSmall.style.opacity = '1';
     feeNumSmall.disabled = false;
