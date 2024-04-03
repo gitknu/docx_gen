@@ -667,11 +667,11 @@ if (iuaCheckbox.checked) {
       const client_person = document.getElementById("client_person").value;
       const prepay = document.getElementById("prepay").value;
       if (isNaN(parseInt(arg_num)) && arg_num !== "") {
-        alert("Номер договору повинен бути числом!");
+        alert("Номер договору повинен містити числа");
         return;
       }
       if (isNaN(parseInt(dday_end)) || !isNaN(parseInt(ddmon_end))) {
-        alert("Оберіть дату завершення договору!");
+        alert("Оберіть дату завершення договору");
         return;
       }
       if (isNaN(parseInt(ddyr_end)) || ddyr_end < 24 || ddyr_end > 99) {
