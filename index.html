@@ -336,14 +336,14 @@ button:hover {
       </tr>
        <tr>
         <td>
-        <h3>Назва установи, організації тощо</h3>
+        <h3>Назва установи, організації тощо (Замовник)</h3>
           <input type="text" id="client_company" placeholder="У називному відмінку" onclick="hoverImage(event, 'client_company_img')" class="wide_input">
           <br><br>
             </td>
       </tr>
       <tr>
         <td>
-        <h3>Підписант від замовника<br>(представник, у двох відмінках)</h3>
+        <h3>Підписант від Замовника<br>(представник, у двох відмінках)</h3>
           <input type="text" id="client_person" placeholder="Ім'я ПРІЗВИЩЕ (називний)" onclick="hoverImage(event, 'client_person_img')">
           <input type="text" id="client_person_rid" placeholder="Імені ПРІЗВИЩА (родовий)" onclick="hoverImage(event, 'client_person_rid_img')">
           <br><br>
@@ -439,6 +439,17 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
       </h1>
           </td>
+      </tr>
+       <tr>
+        <td>
+        <h3>Вартість послуг та ПДВ (числом і прописом)</h3>
+          <input type="text" id="val_num_large" placeholder="Числом (через кому)" onclick="hoverImage(event, 'client_person_img')">
+          <input type="text" id="val_num_small" placeholder="Вартість прописом" onclick="hoverImage(event, 'client_person_rid_img')">
+          <input type="text" id="val_num_small" placeholder="ПДВ прописом" onclick="hoverImage(event, 'client_person_rid_img')">
+          <h5><span style="opacity: 0.3;">( <i>ПДВ рахується автоматично, але вказати прописом треба самостійно;<br>прохання поставити пташку, якщо Ваша </i></span> <i>установа бюджетна</i>
+          <input type="checkbox" id="budget">
+          <span style="opacity: 0.3;">)</span></h5>
+            </td>
       </tr>
       <tr>
         <td>
