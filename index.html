@@ -292,7 +292,15 @@ button:hover {
             <option value="листопада">листопада</option>
             <option value="грудня">грудня</option>
           </select>
-          <span class="unncsr"> 2024</span>
+          <span class="unncsr"> 20</span>
+          <select id="ddyr_start" onclick="hoverImage(event, 'ddmon_start_img')">
+            <option value="___">24</option>
+<script>
+              for (let i = 25; i <= 30; i++) {
+                document.write(`<option value="${i}">${i}</option>`);
+              }
+            </script>
+          </select>
         </td>
       </tr>
       <tr>
@@ -774,6 +782,7 @@ if (isNaN(parseInt(postal_code)) || postal_code === "" || postal_code.length !==
           agr_num: arg_num,
           dday_start: dday_start,
           ddmon_start: ddmon_start,
+          ddyr_start: ddyr_start,
           dday_end: dday_end,
           ddmon_end: ddmon_end,
           ddyr_end: ddyr_end,
