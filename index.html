@@ -646,7 +646,7 @@ if (metaCheckbox.checked) {
 if (iuaCheckbox.checked) {
   sendEmailWithReminder("iua", alertMessage);
 }
-      const arg_num = document.getElementById("arg_num_input").value;
+      const arg_num_input = document.getElementById("arg_num_input").value;
       const dday_start = document.getElementById("dday_start").value;
       const ddmon_start = document.getElementById("ddmon_start").value;
       const ddyr_start = document.getElementById("ddyr_start").value;
@@ -675,7 +675,7 @@ if (iuaCheckbox.checked) {
       const client_person_rid = document.getElementById("client_person_rid").value;
       const client_person = document.getElementById("client_person").value;
       const prepay = document.getElementById("prepay").value;
-      if (isNaN(parseInt(arg_num)) && arg_num !== "") {
+      if (isNaN(parseInt(arg_num_input)) && arg_num_input !== "") {
         alert("Номер договору повинен містити числа");
         return;
       }
