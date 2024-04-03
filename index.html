@@ -671,7 +671,7 @@ if (iuaCheckbox.checked) {
         return;
       }
       if (isNaN(parseInt(dday_end)) || !isNaN(parseInt(ddmon_end))) {
-        alert("Оберіть дату завернення договору!");
+        alert("Оберіть дату завершення договору!");
         return;
       }
       if (isNaN(parseInt(ddyr_end)) || ddyr_end < 24 || ddyr_end > 99) {
@@ -701,7 +701,7 @@ if (nameParts.length < 1 || (nameParts[0][0] !== nameParts[0][0].toUpperCase() |
   return;
 }
 if (client_person === client_person_rid) {
-  alert("Текст має бути вказаний у різниї відмінках (а саме - називний та родовий)");
+  alert("Текст має бути вказаний у різних відмінках (а саме - називний та родовий)");
   return
 }
        if (!isNaN(parseInt(doc_reason)) || doc_reason === "") {
@@ -738,7 +738,7 @@ if (isNaN(parseInt(postal_code)) || postal_code === "" || postal_code.length !==
         return;
       }
     if (street_else.indexOf(' ') === -1 || street_else.split(" ").length < 2 || street_else.split(" ")[1][0] !== street_else.split(" ")[1][0].toUpperCase() || !/\d+/.test(street_else) || /\d+/.exec(street_else)[0] <= 0 || !street_else.includes(',')) {
-  alert("Вкажіть повну адресу (із номером будинку та комою)");
+  alert("Вкажіть повну адресу (із номером будинку через кому)");
   return;
 }
       if (isNaN(parseInt(tax_num)) || tax_num === "") {
@@ -754,11 +754,11 @@ if (isNaN(parseInt(postal_code)) || postal_code === "" || postal_code.length !==
         return;
       }
       if (!isNaN(parseInt(name_advisor)) || name_advisor === "" || !name_advisor.includes(" ") || name_advisor.split(" ").length < 1 || (name_advisor.split(" ")[0][0] !== name_advisor.split(" ")[0][0].toUpperCase() || name_advisor.split(" ")[1].toUpperCase() !== name_advisor.split(" ")[1])) {
-  alert("Напишіть як звати наукового керівника відповідно до чинного правопису");
+  alert("Напишіть як звати наукового керівника відповідно до чинного правопису (Ім'я ПРІЗВИЩЕ)");
   return;
 }
       if (isNaN(parseInt(mobile_num)) || mobile_num.length < 9 || mobile_num.length > 12) {
-  alert("Введіть мобільний номер телефону наукового керівника (формат не принциповий: 0ХХ... або 380...");
+  alert("Введіть мобільний номер телефону наукового керівника (формат не принциповий: 380... або 0ХХ...");
   return;
 }
       loadFile("https://gitknu.github.io/docx_gen/input.docx", function(error, content) {
