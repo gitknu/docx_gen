@@ -695,7 +695,8 @@ if (iuaCheckbox.checked) {
       const service_9 = document.getElementById("service_9").value;
       const val_num_count = document.getElementById("val_num_count").value;
       const unround_fee_num_count = val_num_count * 0.2;
-      const fee_num_count = unround_fee_num_count.toFixed(2);
+      const dot_fee_num_count = unround_fee_num_count.toFixed(2);
+      const fee_num_count = dot_fee_num_count.toString().replace('.', ',');
       const val_num_letters = document.getElementById("val_num_letters").value;
       const fee_num_letters = document.getElementById("fee_num_letters").value;
       const postal_code = document.getElementById("postal_code").value;
