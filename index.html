@@ -446,15 +446,15 @@ document.addEventListener('DOMContentLoaded', function() {
          <h5><span style="opacity: 0.3;">( <i>поставте пташку, якщо Ваша </i></span> <i>установа бюджетна</i>
           <input type="checkbox" id="budget">
           <span style="opacity: 0.3;">)</span></h5>
-          <input type="text" id="val_num_large" placeholder="Числом (через кому)" onclick="hoverImage(event, 'client_person_img')" class="wide_input">
+          <input type="text" id="val_num_count" placeholder="Числом (через кому)" onclick="hoverImage(event, 'client_person_img')" class="wide_input">
           <br><br>
-          <input type="text" id="val_num_small" placeholder="Вартість прописом" onclick="hoverImage(event, 'client_person_rid_img')" class="wide_input">
+          <input type="text" id="val_num_letters" placeholder="Вартість прописом" onclick="hoverImage(event, 'client_person_rid_img')" class="wide_input">
           <br><br>
-          <input type="text" id="fee_num_small" placeholder="ПДВ прописом" onclick="hoverImage(event, 'client_person_rid_img')" class="wide_input">
+          <input type="text" id="fee_num_letters" placeholder="ПДВ прописом" onclick="hoverImage(event, 'client_person_rid_img')" class="wide_input">
           <br><br>
             </td>
              <script>
-                const feeNumSmall = document.getElementById('fee_num_small');
+                const feeNumSmall = document.getElementById('fee_num_letters');
 const budgetCheckbox = document.getElementById('budget');
 
 budgetCheckbox.addEventListener('change', function() {
@@ -693,7 +693,7 @@ if (iuaCheckbox.checked) {
       const service_7 = document.getElementById("service_7").value;
       const service_8 = document.getElementById("service_8").value;
       const service_9 = document.getElementById("service_9").value;
-      const val_num_small = document.getElementById("val_num_small").value;
+      const val_num_letters = document.getElementById("val_num_letters").value;
       const postal_code = document.getElementById("postal_code").value;
       const name_advisor = document.getElementById("name_advisor").value;
       const mobile_num = document.getElementById("mobile_num").value;
@@ -763,7 +763,7 @@ if (client_person === client_person_rid) {
 if (checkServices(service_2) || checkServices(service_3) || checkServices(service_4) || checkServices(service_5) || checkServices(service_6) || checkServices(service_7) || checkServices(service_8) || checkServices(service_9)) {
   return;
 }
-      if (!isNaN(parseInt(val_num_small)) || val_num_small === "") {
+      if (!isNaN(parseInt(val_num_letters)) || val_num_letters === "") {
         alert("Напишіть вартість послуг(и) прописом");
         return;
       }
@@ -827,10 +827,10 @@ if (isNaN(parseInt(postal_code)) || postal_code === "" || postal_code.length !==
           client_position: "Директор",
           client_person: client_person,
           doc_reason: doc_reason,
-          val_num_large: "123,000",
-          val_num_small: val_num_small,
-          fee_num_large: "23,000",
-          fee_num_small: "23",
+          val_num_count: "123,000",
+          val_num_letters: val_num_letters,
+          fee_num_count: "23,000",
+          fee_num_letters: "23",
           postal_code: postal_code,
           city_name: city_name,
           street_else: street_else,
