@@ -446,8 +446,7 @@ document.addEventListener('DOMContentLoaded', function() {
          <h5><span style="opacity: 0.3;">( <i>поставте пташку, якщо Ваша </i></span> <i>установа бюджетна</i>
           <input type="checkbox" id="budget">
           <span style="opacity: 0.3;">)</span></h5>
-          <input type="text" id="val_num_count" placeholder="Числом (через кому)" onclick="hoverImage(event, 'client_person_img')" class="wide_input">
-          <script>var fee_num_count = val_num_count * 0.2;</script>
+          <input type="number" id="val_num_count" placeholder="Числом (через кому)" onclick="hoverImage(event, 'client_person_img')" class="wide_input">
           <br><br>
           <input type="text" id="val_num_letters" placeholder="Вартість прописом" onclick="hoverImage(event, 'client_person_rid_img')" class="wide_input">
           <br><br>
@@ -474,7 +473,7 @@ budgetCheckbox.addEventListener('change', function() {
       <tr>
         <td>
           <h3>Індекс, населений пункт і повна адреса</h3>
-          <input type="text" id="postal_code" placeholder="Поштовий індекс" onclick="hoverImage(event, 'postal_code_img')">
+          <input type="number" id="postal_code" placeholder="Поштовий індекс" onclick="hoverImage(event, 'postal_code_img')">
           <input type="text" id="city_name" placeholder="Місто, селище тощо" onclick="hoverImage(event, 'city_name_img')">
           <input type="text" id="street_else" placeholder="Вулиця, проспект тощо" onclick="hoverImage(event, 'street_else_img')">
           <br><br>
@@ -483,9 +482,9 @@ budgetCheckbox.addEventListener('change', function() {
             <tr>
         <td>
        <h3>ІПН, реквізити та код ЄДРПОУ</h3>
-          <input type="text" id="tax_num" placeholder="Податковий номер" onclick="hoverImage(event, 'tax_num_img')">
-        <input type="text" id="bank_info" placeholder="Банківські реквізити" onclick="hoverImage(event, 'bank_info_img')">
-        <input type="text" id="unified_code" placeholder="Код ЄДРПОУ" onclick="hoverImage(event, 'unified_code_img')">
+          <input type="number" id="tax_num" placeholder="Податковий номер" onclick="hoverImage(event, 'tax_num_img')">
+        <input type="number" id="bank_info" placeholder="Банківські реквізити" onclick="hoverImage(event, 'bank_info_img')">
+        <input type="number" id="unified_code" placeholder="Код ЄДРПОУ" onclick="hoverImage(event, 'unified_code_img')">
           <br><br>
            </td>
       </tr>
@@ -493,7 +492,7 @@ budgetCheckbox.addEventListener('change', function() {
         <td>
           <h3>Науковий керівник і його мобільний номер</h3>
           <input type="text" id="name_advisor" placeholder="Ім'я ПРІЗВИЩЕ" onclick="hoverImage(event, 'name_advisor_img')">
-          <input type="text" id="mobile_num" placeholder="380..." onclick="hoverImage(event, 'mobile_num_img')">
+          <input type="number" id="mobile_num" placeholder="380..." onclick="hoverImage(event, 'mobile_num_img')">
           <br><br>
         </td>
       </tr>
@@ -695,6 +694,7 @@ if (iuaCheckbox.checked) {
       const service_8 = document.getElementById("service_8").value;
       const service_9 = document.getElementById("service_9").value;
       const val_num_count = document.getElementById("val_num_count").value;
+      const fee_num_count = val_num_count * 0.2;
       const val_num_letters = document.getElementById("val_num_letters").value;
       const fee_num_letters = document.getElementById("fee_num_letters").value;
       const postal_code = document.getElementById("postal_code").value;
