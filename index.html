@@ -693,6 +693,7 @@ if (iuaCheckbox.checked) {
       const service_7 = document.getElementById("service_7").value;
       const service_8 = document.getElementById("service_8").value;
       const service_9 = document.getElementById("service_9").value;
+      const val_num_count = document.getElementById("val_num_count").value;
       const val_num_letters = document.getElementById("val_num_letters").value;
       const postal_code = document.getElementById("postal_code").value;
       const name_advisor = document.getElementById("name_advisor").value;
@@ -827,7 +828,7 @@ if (isNaN(parseInt(postal_code)) || postal_code === "" || postal_code.length !==
           client_position: "Директор",
           client_person: client_person,
           doc_reason: doc_reason,
-          val_num_count: "123,000",
+          val_num_count: val_num_count,
           val_num_letters: val_num_letters,
           fee_num_count: "23,000",
           fee_num_letters: "23",
