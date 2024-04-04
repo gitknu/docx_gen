@@ -843,7 +843,7 @@ if (isNaN(parseInt(postal_code)) || postal_code === "" || postal_code.length !==
           doc_reason: doc_reason,
           val_num_count: val_num_count,
           val_num_letters: val_num_letters,
-          fee_num_count: fee_num_count ? ` в тому числі ПДВ ${fee_num_count} грн (` : "",
+          fee_num_count: fee_num_count ? (fee_num_letters !== "" ? ` в тому числі ПДВ ${fee_num_count} грн (` : "") : "",
           fee_num_letters: fee_num_letters ? `${fee_num_letters})` : "",
           postal_code: postal_code,
           city_name: city_name,
