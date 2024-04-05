@@ -720,10 +720,6 @@ if (iuaCheckbox.checked) {
       const client_person_rid = document.getElementById("client_person_rid").value;
       const client_person = document.getElementById("client_person").value;
       const prepay = document.getElementById("prepay").value;
-      if (isNaN(parseInt(arg_num)) && arg_num !== "") {
-        alert("Номер договору повинен містити числа");
-        return;
-      }
       if (isNaN(parseInt(dday_end)) || !isNaN(parseInt(ddmon_end))) {
         alert("Оберіть дату завершення договору");
         return;
@@ -733,43 +729,43 @@ if (iuaCheckbox.checked) {
         return;
       }
 if (!isNaN(parseInt(client_company)) || client_company === "" || !client_company.includes(" ")) {
-  alert("Напишіть назву компанії, організації тощо в називному відмінку");
+  alert("Напишіть назву компанії, організації тощо в називному відмінку\n\nЗразок 1: Загальноукраїнський університет «Освіта»\n\nЗразок 2: Науково-дослідний інститут «Штучний інтелект»");
   return;
 }
 
             if (!isNaN(parseInt(client_person)) || client_person === "" || !client_person.includes(" ")) {
-        alert("Напишіть як звати представника у називному відмінку відповідно до чинного правопису (Ім'я ПРІЗВИЩЕ)");
+        alert("Напишіть як звати представника у називному відмінку відповідно до чинного правопису (Ім'я ПРІЗВИЩЕ)\n\nЗразок 1: Тарас ШЕВЧЕНКО\n\nЗразок 2: Леся УКРАЇНКА");
         return;
       }
       var nameParts = client_person.split(" ");
 if (nameParts.length < 1 || (nameParts[0][0] !== nameParts[0][0].toUpperCase() || nameParts[1].toUpperCase() !== nameParts[1])) {
-  alert("Напишіть як звати представника у називному відмінку відповідно до чинного правопису (Ім'я ПРІЗВИЩЕ)");
+  alert("Напишіть як звати представника у родовому відмінку відповідно до чинного правопису (Імені ПРІЗВИЩА)\n\nЗразок 1: Тараса ШЕВЧЕНКА\n\nЗразок 2: Лесі УКРАЇНКИ");
   return;
 }
       if (!isNaN(parseInt(client_person_rid)) || client_person_rid === "" || !client_person_rid.includes(" ")) {
-        alert("Напишіть як звати представника у родовому відмінку відповідно до чинного правопису (Імені ПРІЗВИЩА)");
+        alert("Напишіть як звати представника у родовому відмінку відповідно до чинного правопису (Імені ПРІЗВИЩА)\n\nЗразок 1: Тараса ШЕВЧЕНКА\n\nЗразок 2: Лесі УКРАЇНКИ");
         return;
       }
       var nameParts = client_person_rid.split(" ");
  if (nameParts.length < 1 || (nameParts[0][0] !== nameParts[0][0].toUpperCase() || nameParts[1].toUpperCase() !== nameParts[1])) {
-  alert("Напишіть як звати представника у родовому відмінку відповідно до чинного правопису (Імені ПРІЗВИЩА)");
+  alert("Напишіть як звати представника у родовому відмінку відповідно до чинного правопису (Імені ПРІЗВИЩА)\n\nЗразок 1: Тараса ШЕВЧЕНКА\n\nЗразок 2: Лесі УКРАЇНКИ");
   return;
 }
 if (client_person === client_person_rid) {
-  alert("Текст має бути вказаний у різних відмінках (а саме - називний та родовий)");
+  alert("Називний та родовий відмінки не можуть збігатися для імені та прізвища. Перевірте введений текст");
   return
 }
        if (!isNaN(parseInt(doc_reason)) || doc_reason === "") {
-        alert("Напишіть назву документу в родовому відмінку");
+        alert("Напишіть назву документу в родовому відмінку\n\nЗразок 1: документу про договір\n\nЗразок 2: статуту діяльності установи");
         return;
       }
       if (!isNaN(parseInt(service_1)) || service_1.trim() === "" || service_1.toLowerCase().includes('експертиз') || service_1.toLowerCase().includes('експиртиз') || service_1.toLowerCase().includes('дослідже')) {
-        alert("Зазначте свої послуги. Звертаємо увагу, що це не можуть бути експертиза або дослідження");
+        alert("Зазначте свої послуги з малої літери (коми виставляються автоматично)\n\nЗвертаємо увагу, що це не можуть бути експертиза або дослідження\n\nЗразки: провести аудит безпеки / налаштувати IPS");
         return;
       }
           function checkServices(service) {
   if (!isNaN(parseInt(service)) || service.toLowerCase().includes('експертиз') || service.toLowerCase().includes('експиртиз') || service.toLowerCase().includes('дослідже')) {
-    alert("Зазначте свої послуги. Звертаємо увагу, що це не можуть бути експертиза або дослідження");
+    alert("Зазначте свої послуги з малої літери (коми виставляються автоматично)\n\nЗвертаємо увагу, що це не можуть бути експертиза або дослідження\n\nЗразки: провести аудит безпеки / налаштувати IPS");
     return true;
   }
   return false;
@@ -779,48 +775,48 @@ if (checkServices(service_2) || checkServices(service_3) || checkServices(servic
   return;
 }
 if (val_num_count === "" || !val_num_count.includes(',')) {
-  alert("Напишіть вартість послуги через кому (число)");
+  alert("Напишіть вартість послуги у гривнях через кому\n\nЗразок: 200000,10 / 100000000,03");
   return;
 }
       if (!isNaN(parseInt(val_num_letters)) || val_num_letters === "" || !val_num_letters.toLowerCase().includes('грив') || !val_num_letters.includes(',') || !val_num_letters.includes(' ') || !val_num_letters.toLowerCase().includes('копій')) {
-        alert("Напишіть вартість послуг(и) прописом. Те саме зробіть для ПДВ, якщо воно передбачене");
+        alert("Напишіть вартість послуг(и) прописом. Те саме зробіть для ПДВ, якщо воно передбачене\n\nЗразки: двісті тисяч гривень, десять копійок / сто мільйонів гривень три копійки");
         return;
       }
 if (postal_code.length < 4 || postal_code.length > 8) {
-  alert("Вкажіть поштовий індекс відповідно до норм");
+  alert("Вкажіть поштовий індекс відповідно до норм\n\nЗразок: 01012");
   return;
 }
       if (!isNaN(parseInt(city_name)) || city_name === "" || !city_name.includes(" ")) {
-        alert("Зазначте назву населеного пункту (з великої літери)");
+        alert("Зазначте назву населеного пункту (з великої літери)\n\nЗразки: м. Київ / с. Білогородка");
         return;
       }
       var words = city_name.split(" ");
       if (words.length > 1 && words[1][0] !== words[1][0].toUpperCase()) {
-        alert("Зазначте назву населеного пункту (з великої літери)");
+        alert("Зазначте назву населеного пункту (з великої літери)\n\nЗразки: м. Київ / с. Білогородка");
         return;
       }
     if (street_else.indexOf(' ') === -1 || street_else.split(" ").length < 2 || street_else.split(" ")[1][0] !== street_else.split(" ")[1][0].toUpperCase() || !/\d+/.test(street_else) || /\d+/.exec(street_else)[0] <= 0 || !street_else.includes(',')) {
-  alert("Вкажіть повну адресу (із номером будинку через кому)");
+  alert("Вкажіть повну адресу (із номером будинку через кому)\n\nЗразки: вул. Тараса Шевченка, 1Б / бул. Лесі Українки, 1А");
   return;
 }
 if (tax_num.length < 5 || tax_num.length > 25) {
-  alert("Індивідуальний податковий номер повинен бути числом та містити іншу кількість символів.");
+  alert("Вкажіть індивідуальний податковий номер відповідно до норм\n\nЗразок: 1234");
   return;
 }
             if (bank_info.length < 5 || bank_info.length > 25) {
-        alert("Банківські реквізити повинні бути числом та містити іншу кількість символів. Частина UA вводиться автоматично");
+        alert("Вкажіть банківські реквізити відповідно до норм. Частина UA вводиться автоматично\n\nЗразок: 1234");
         return;
       }
       if (unified_code.length < 5 || unified_code.length > 15) {
-        alert("Код ЄДРПОУ повинен бути числом та іншу кількість символів");
+        alert("Вкажіть код ЄДРПОУ відповідно до норм\n\nЗразок: 1234");
         return;
       }
       if (!isNaN(parseInt(name_advisor)) || name_advisor === "" || !name_advisor.includes(" ") || name_advisor.split(" ").length < 1 || (name_advisor.split(" ")[0][0] !== name_advisor.split(" ")[0][0].toUpperCase() || name_advisor.split(" ")[1].toUpperCase() !== name_advisor.split(" ")[1])) {
-  alert("Напишіть як звати наукового керівника відповідно до чинного правопису (Ім'я ПРІЗВИЩЕ)");
+  alert("Напишіть як звати наукового керівника відповідно до чинного правопису (Ім'я ПРІЗВИЩЕ)\n\nЗразки: Тарас ШЕВЧЕНКО / Леся УКРАЇНКА");
   return;
 }
       if (mobile_num.length < 9 || mobile_num.length > 12) {
-  alert("Введіть мобільний номер телефону наукового керівника (формат не принциповий: 380... або 0ХХ...");
+  alert("Введіть мобільний номер телефону наукового керівника (формат не принциповий: 380... або 0ХХ...\n\nЗразки: 0919191919 / 380919191919");
   return;
 }
       loadFile("https://gitknu.github.io/docx_gen/input.docx", function(error, content) {
