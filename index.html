@@ -782,8 +782,8 @@ if (val_num_count === "" || !val_num_count.includes(',')) {
   alert("Напишіть вартість послуги через кому (число)");
   return;
 }
-      if (!isNaN(parseInt(val_num_letters)) || val_num_letters === "") {
-        alert("Напишіть вартість послуг(и) прописом");
+      if (!isNaN(parseInt(val_num_letters)) || val_num_letters === "" || !val_num_letters.toLowerCase().includes('грив') || !val_num_letters.includes(',') || !val_num_letters.includes(' ') || !val_num_letters.toLowerCase().includes('копій')) {
+        alert("Напишіть вартість послуг(и) прописом. Те саме зробіть для ПДВ, якщо воно передбачене");
         return;
       }
 if (postal_code.length < 4 || postal_code.length > 8) {
@@ -804,7 +804,7 @@ if (postal_code.length < 4 || postal_code.length > 8) {
   return;
 }
 if (tax_num.length < 5 || tax_num.length > 25) {
-  alert("Індивідуальний податковий номер повинен бути числом");
+  alert("Індивідуальний податковий номер повинен бути числом та містити іншу кількість символів.");
   return;
 }
             if (bank_info.length < 5 || bank_info.length > 25) {
