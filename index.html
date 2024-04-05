@@ -364,13 +364,13 @@ button:hover {
         <h3>Посада підписанта<br>(у двох відмінках)</h3>
           <input type="text" id="client_position" placeholder="Посада (називний, велика)" onclick="hoverImage(event, 'client_person_img')">
           <input type="text" id="client_position_rid" placeholder="...посада (родовий, мала)" onclick="hoverImage(event, 'client_person_rid_img')">
-          <h5 style="opacity: 0.3;">( <i>у родовому відмінку написати з малої літери</i> )</h5>
+          <h5 style="opacity: 0.3;">( <i>тут і далі писати з малої літери у полях, де вказано</i> )</h5>
             </td>
       </tr>
       <tr>
         <td>
         <h3>Документ, на підставі якого діє особа<br>(у родовому відмінку)</h3>
-          <input type="text" id="doc_reason" placeholder="У родовому відмінку" onclick="hoverImage(event, 'doc_reason_img')" class="wide_input">
+          <input type="text" id="doc_reason" placeholder="...документ у родовому відмінку (з малої)" onclick="hoverImage(event, 'doc_reason_img')" class="wide_input">
           <br><br>
             </td>
       </tr>
@@ -378,23 +378,23 @@ button:hover {
         <td>
           <div id="container">
             <h3>Назва послуг(и)</h3>
-            <input type="text" id="service_1" placeholder="Назва послуги" onclick="hoverImage(event, 'service_1_img')" class="wide_input">
+            <input type="text" id="service_1" placeholder="...назва послуги (з малої)" onclick="hoverImage(event, 'service_1_img')" class="wide_input">
             <h3 style="display: flex; justify-content: center;">
-            <input type="text" id="service_2" placeholder="Назва послуги #2" class="wide_input" onclick="hoverImage(event, 'service_1_img')" style="display: none">
+            <input type="text" id="service_2" placeholder="...назва послуги #2 (з малої, тут та в наступних)" class="wide_input" onclick="hoverImage(event, 'service_1_img')" style="display: none">
             </h3><h3 style="display: flex; justify-content: center;">
-            <input type="text" id="service_3" placeholder="Назва послуги #3" class="wide_input" onclick="hoverImage(event, 'service_1_img')" style="display: none">
+            <input type="text" id="service_3" placeholder="назва послуги #3" class="wide_input" onclick="hoverImage(event, 'service_1_img')" style="display: none">
             </h3><h3 style="display: flex; justify-content: center;">
-            <input type="text" id="service_4" placeholder="Назва послуги #4" class="wide_input" onclick="hoverImage(event, 'service_1_img')" style="display: none">
+            <input type="text" id="service_4" placeholder="назва послуги #4" class="wide_input" onclick="hoverImage(event, 'service_1_img')" style="display: none">
             </h3><h3 style="display: flex; justify-content: center;">
-            <input type="text" id="service_5" placeholder="Назва послуги #5" class="wide_input" onclick="hoverImage(event, 'service_1_img')" style="display: none">
+            <input type="text" id="service_5" placeholder="назва послуги #5" class="wide_input" onclick="hoverImage(event, 'service_1_img')" style="display: none">
             </h3><h3 style="display: flex; justify-content: center;">
-            <input type="text" id="service_6" placeholder="Назва послуги #6" class="wide_input" onclick="hoverImage(event, 'service_1_img')" style="display: none">
+            <input type="text" id="service_6" placeholder="назва послуги #6" class="wide_input" onclick="hoverImage(event, 'service_1_img')" style="display: none">
             </h3><h3 style="display: flex; justify-content: center;">
-            <input type="text" id="service_7" placeholder="Назва послуги #7" class="wide_input" onclick="hoverImage(event, 'service_1_img')" style="display: none">
+            <input type="text" id="service_7" placeholder="назва послуги #7" class="wide_input" onclick="hoverImage(event, 'service_1_img')" style="display: none">
             </h3><h3 style="display: flex; justify-content: center;">
-            <input type="text" id="service_8" placeholder="Назва послуги #8" class="wide_input" onclick="hoverImage(event, 'service_1_img')" style="display: none">
+            <input type="text" id="service_8" placeholder="назва послуги #8" class="wide_input" onclick="hoverImage(event, 'service_1_img')" style="display: none">
             </h3><h3 style="display: flex; justify-content: center;">
-            <input type="text" id="service_9" placeholder="Назва послуги #9" class="wide_input" onclick="hoverImage(event, 'service_1_img')" style="display: none">
+            <input type="text" id="service_9" placeholder="назва послуги #9" class="wide_input" onclick="hoverImage(event, 'service_1_img')" style="display: none">
             </h3>
           </div>
                     <script>
@@ -464,7 +464,7 @@ document.addEventListener('DOMContentLoaded', function() {
          <h5><span style="opacity: 0.3;">( <i>поставте пташку, якщо Ваша </i></span> <i>установа бюджетна</i>
           <input type="checkbox" id="budget">
           <span style="opacity: 0.3;">)</span></h5>
-          <input type="number" step="any" id="val_num_count" placeholder="Числом (через кому)" onclick="hoverImage(event, 'client_person_img')" class="wide_input">
+          <input type="number" step="any" id="val_num_count" placeholder="Вартість числом (через кому)" onclick="hoverImage(event, 'client_person_img')" class="wide_input">
           <br><br>
           <input type="text" id="val_num_letters" placeholder="Вартість прописом" onclick="hoverImage(event, 'client_person_rid_img')" class="wide_input">
           <br><br>
