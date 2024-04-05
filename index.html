@@ -250,8 +250,8 @@ button:hover {
 }
 .up_button, .down_button {
     right:20px;
-	width:75px;
-	height:75px;
+	width:70px;
+	height:70px;
 	opacity:0,3;
         text-decoration: none;
 	position:fixed;
@@ -396,6 +396,7 @@ button:hover {
         <h3>Підписант від Замовника<br>(представник, у двох відмінках)</h3>
           <input type="text" id="client_person" placeholder="Ім'я ПРІЗВИЩЕ (називний)" onclick="hoverImage(event, 'client_person_img')">
           <input type="text" id="client_person_rid" placeholder="Імені ПРІЗВИЩА (родовий)" onclick="hoverImage(event, 'client_person_rid_img')">
+          <br><br>
             </td>
       </tr>
        <tr>
@@ -482,6 +483,9 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
+<a href="#down" class="down_button">
+<h1><span class="upsidedown" style="color: red;">🛆</span></h1>
+</a>
 <div class="container">
   <div class="row">
     <div class="project">
@@ -573,9 +577,6 @@ budgetCheckbox.addEventListener('change', function() {
         </td>
       </tr>
     </table>
-    <a href="#down" class="down_button">
-<h1 style="color: red;"><span class="upsidedown">🛆</span></h1>
-</a>
            <div class="additional_div" id="additional_div">
            <div class="hover_img" id="arg_num_img">
         <img src="imgs/arg_num.gif">
