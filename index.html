@@ -777,11 +777,15 @@ if (client_person === client_person_rid) {
 if (checkServices(service_2) || checkServices(service_3) || checkServices(service_4) || checkServices(service_5) || checkServices(service_6) || checkServices(service_7) || checkServices(service_8) || checkServices(service_9)) {
   return;
 }
+if (val_num_count === "") {
+  alert("Напишіть вартість послуги через кому (число)");
+  return;
+}
       if (!isNaN(parseInt(val_num_letters)) || val_num_letters === "") {
         alert("Напишіть вартість послуг(и) прописом");
         return;
       }
-if (isNaN(parseInt(postal_code)) || postal_code === "" || postal_code.length !== 5) {
+if (postal_code === "" || postal_code.length !== 5) {
   alert("Вкажіть поштовий індекс відповідно до норм (п'ятизначне число)");
   return;
 }
@@ -798,15 +802,15 @@ if (isNaN(parseInt(postal_code)) || postal_code === "" || postal_code.length !==
   alert("Вкажіть повну адресу (із номером будинку через кому)");
   return;
 }
-      if (isNaN(parseInt(tax_num)) || tax_num === "") {
-        alert("Індивідуальний податковий номер повинен бути числом");
-        return;
-      }
-            if (isNaN(parseInt(bank_info)) || bank_info === "") {
+if (tax_num === "") {
+  alert("Індивідуальний податковий номер повинен бути числом");
+  return;
+}
+            if (bank_info === "") {
         alert("Банківські реквізити повинні бути числом. Частина UA вводиться автоматично");
         return;
       }
-      if (isNaN(parseInt(unified_code)) || unified_code === "" || unified_code.length !== 8) {
+      if (unified_code === "" || unified_code.length !== 8) {
         alert("Код ЄДРПОУ повинен бути числом та містити 8 символів");
         return;
       }
@@ -814,7 +818,7 @@ if (isNaN(parseInt(postal_code)) || postal_code === "" || postal_code.length !==
   alert("Напишіть як звати наукового керівника відповідно до чинного правопису (Ім'я ПРІЗВИЩЕ)");
   return;
 }
-      if (isNaN(parseInt(mobile_num)) || mobile_num.length < 9 || mobile_num.length > 12) {
+      if (mobile_num.length < 9 || mobile_num.length > 12) {
   alert("Введіть мобільний номер телефону наукового керівника (формат не принциповий: 380... або 0ХХ...");
   return;
 }
