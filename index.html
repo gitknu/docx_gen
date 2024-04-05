@@ -344,8 +344,10 @@ button:hover {
       </tr>
        <tr>
         <td>
-        <h3>Назва установи, організації тощо (Замовник)</h3>
+        <h3>Назва установи, організації тощо<br>(Замовник, у двох відмінках)</h3>
           <input type="text" id="client_company" placeholder="У називному відмінку" onclick="hoverImage(event, 'client_company_img')" class="wide_input">
+          <br><br>
+          <input type="text" id="client_company_rid" placeholder="У родовому відмінку" onclick="hoverImage(event, 'client_company_img')" class="wide_input">
           <br><br>
             </td>
       </tr>
@@ -692,6 +694,7 @@ if (iuaCheckbox.checked) {
       const ddmon_end = document.getElementById("ddmon_end").value;
       const ddyr_end = document.getElementById("ddyr_end").value;
       const client_company = document.getElementById("client_company").value;
+      const client_company_rid = document.getElementById("client_company_rid").value;
       const service_1 = document.getElementById("service_1").value;
       const service_2 = document.getElementById("service_2").value;
       const service_3 = document.getElementById("service_3").value;
@@ -732,7 +735,10 @@ if (!isNaN(parseInt(client_company)) || client_company === "" || !client_company
   alert("Напишіть назву компанії, організації тощо в називному відмінку\n\nЗразок 1: Загальноукраїнський університет «Освіта»\n\nЗразок 2: Науково-дослідний інститут «Штучний інтелект»");
   return;
 }
-
+if (!isNaN(parseInt(client_company_rid)) || client_company_rid === "" || !client_company_rid.includes(" ")) {
+  alert("Напишіть назву компанії, організації тощо в родовому відмінку\n\nЗразок 1: Загальноукраїнського університету «Освіта»\n\nЗразок 2: Науково-дослідного інституту «Штучний інтелект»");
+  return;
+}
             if (!isNaN(parseInt(client_person)) || client_person === "" || !client_person.includes(" ")) {
         alert("Напишіть, як звати представника у називному відмінку відповідно до чинного правопису (Ім'я ПРІЗВИЩЕ)\n\nЗразок 1: Тарас ШЕВЧЕНКО\n\nЗразок 2: Леся УКРАЇНКА");
         return;
@@ -837,6 +843,7 @@ if (tax_num.length < 5 || tax_num.length > 25) {
           ddmon_end: ddmon_end,
           ddyr_end: ddyr_end,
           client_company: client_company,
+          client_company_rid: client_company_rid,
           client_position_rid: "директора",
           client_person_rid: client_person_rid,
           client_position: "Директор",
