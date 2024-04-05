@@ -659,13 +659,13 @@ function sendEmailWithReminder(provider, message) {
   var encodedMessage = encodeURIComponent(message);
   var emailLink = "";
   if (provider === "gmail") {
-    emailLink = "https://mail.google.com/mail/?view=cm&fs=1&to=patent.ndch@knu.ua&su=Договір%20про%20надання%20послуг%20(вкажіть%20себе)&body=" + encodedMessage;
+    emailLink = "https://mail.google.com/mail/?view=cm&fs=1&to=patent.ndch@knu.ua&su=Договір%20про%20надання%20послуг%20(вкажіть%20себе%20⬅️)&body=" + encodedMessage;
   } else if (provider === "ukr") {
-    emailLink = "https://mail.ukr.net/desktop#sendmsg?to=patent.ndch@knu.ua&subject=Договір%20про%20надання%20послуг%20(вкажіть%20себе)&body=" + encodedMessage;
+    emailLink = "https://mail.ukr.net/desktop#sendmsg?to=patent.ndch@knu.ua&subject=Договір%20про%20надання%20послуг%20(вкажіть%20себе%20⬅️)&body=" + encodedMessage;
   } else if (provider === "meta") {
-    emailLink = "https://mail.meta.ua/compose?to=patent.ndch@knu.ua&subject=Договір%20про%20надання%20послуг%20(вкажіть%20себе)&body=" + encodedMessage;
+    emailLink = "https://mail.meta.ua/compose?to=patent.ndch@knu.ua&subject=Договір%20про%20надання%20послуг%20(вкажіть%20себе%20⬅️)&body=" + encodedMessage;
   } else if (provider === "iua") {
-    emailLink = "https://mbox2.i.ua/compose?to=patent.ndch@knu.ua&subj=Договір%20про%20надання%20послуг%20(вкажіть%20себе)&body=forget" + encodedMessage;
+    emailLink = "https://mbox2.i.ua/compose?to=patent.ndch@knu.ua&subj=Договір%20про%20надання%20послуг%20(вкажіть%20себе%20⬅️)&body=forget" + encodedMessage;
   }
   setTimeout(function () {
     window.open(emailLink, "_blank");
