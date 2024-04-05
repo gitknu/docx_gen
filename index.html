@@ -248,7 +248,7 @@ button:hover {
 ::-webkit-scrollbar {
   width: 20px;
 }
-.up_button, .down_button {
+#up_button, #down_button {
     right:20px;
 	width:70px;
 	height:70px;
@@ -262,10 +262,10 @@ button:hover {
 	text-align:center;
 	box-shadow: 2px 2px 3px #999;
 }
-.up_button {
+#up_button {
 	bottom:100px;
 }
-.down_button {
+#down_button {
 	bottom:20px;
 }
 .upsidedown {
@@ -274,22 +274,16 @@ button:hover {
   transform: rotateX(180deg); 
 }
 </style>
-<script>
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
-</script>
   </head>
   <body>
-<a href="#top" class="up_button">
+<a href="#top" id="up_button">
 <h1 style="color: red;">🛆</h1>
 </a>
+ <script>
+document.getElementById("up_button").addEventListener("click", function() {
+    document.body.scrollIntoView({ behavior: "smooth", block: "start" });
+});
+</script>
       <canvas id=cvl width=16 height=16 style="opacity: 0;"></canvas>
           <div class="grid">
   <div></div><div></div><div></div>
@@ -483,9 +477,13 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
-<a href="#down" class="down_button">
+<a href="#down" id="down_button">
 <h1><span class="upsidedown" style="color: red;">🛆</span></h1>
 </a>
+<script>
+document.getElementById("down_button").addEventListener("click", function() {document.body.scrollIntoView({ behavior: "smooth", block: "end" });
+});
+</script>
 <div class="container">
   <div class="row">
     <div class="project">
