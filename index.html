@@ -359,6 +359,14 @@ button:hover {
           <br><br>
             </td>
       </tr>
+       <tr>
+        <td>
+        <h3>Посада підписанта<br>(у двох відмінках)</h3>
+          <input type="text" id="client_position" placeholder="Посада (називний, велика)" onclick="hoverImage(event, 'client_person_img')">
+          <input type="text" id="client_position_rid" placeholder="...посада (родовий, мала)" onclick="hoverImage(event, 'client_person_rid_img')">
+          <h5 style="opacity: 0.3;">( <i>у родовому відмінку написати з малої літери</i> )</h5>
+            </td>
+      </tr>
       <tr>
         <td>
         <h3>Документ, на підставі якого діє особа<br>(у родовому відмінку)</h3>
@@ -695,6 +703,8 @@ if (iuaCheckbox.checked) {
       const ddyr_end = document.getElementById("ddyr_end").value;
       const client_company = document.getElementById("client_company").value;
       const client_company_rid = document.getElementById("client_company_rid").value;
+      const client_position_rid = document.getElementById("client_position_rid").value;
+      const client_position = document.getElementById("client_position").value;
       const service_1 = document.getElementById("service_1").value;
       const service_2 = document.getElementById("service_2").value;
       const service_3 = document.getElementById("service_3").value;
@@ -844,9 +854,9 @@ if (tax_num.length < 5 || tax_num.length > 25) {
           ddyr_end: ddyr_end,
           client_company: client_company,
           client_company_rid: client_company_rid,
-          client_position_rid: "директора",
+          client_position_rid: client_position_rid,
           client_person_rid: client_person_rid,
-          client_position: "Директор",
+          client_position: client_position,
           client_person: client_person,
           doc_reason: doc_reason,
           val_num_count: val_num_count,
