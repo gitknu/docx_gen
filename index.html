@@ -261,6 +261,7 @@ button:hover {
       <tr>
         <td>
             <h1>ГЕНЕРАТОР ДОГОВОРУ</h1>
+                      <h5 style="opacity: 0.3;">( <i>звертайте увагу на вимоги, вказані у полях :<br>відмінок, мала / велика літера та інше</i> )</h5>
             <h5 id="mobile" style="color: red; text-shadow: 1px 1px 1px black; background-color: rgba(255, 255, 255, 0.75); border-radius: 12px;
 ">( рекомендуємо використовувати<br>з комп'ютеру, а не смартфону )</h5>
           <h3 class="unncsr">Номер договору</h3>
@@ -356,7 +357,6 @@ button:hover {
         <h3>Підписант від Замовника<br>(представник, у двох відмінках)</h3>
           <input type="text" id="client_person" placeholder="Ім'я ПРІЗВИЩЕ (називний)" onclick="hoverImage(event, 'client_person_img')">
           <input type="text" id="client_person_rid" placeholder="Імені ПРІЗВИЩА (родовий)" onclick="hoverImage(event, 'client_person_rid_img')">
-          <br><br>
             </td>
       </tr>
        <tr>
@@ -364,7 +364,7 @@ button:hover {
         <h3>Посада підписанта<br>(у двох відмінках)</h3>
           <input type="text" id="client_position" placeholder="Посада (називний, велика)" onclick="hoverImage(event, 'client_person_img')">
           <input type="text" id="client_position_rid" placeholder="...посада (родовий, мала)" onclick="hoverImage(event, 'client_person_rid_img')">
-          <h5 style="opacity: 0.3;">( <i>тут і далі писати з малої літери у полях, де вказано</i> )</h5>
+                    <br><br>
             </td>
       </tr>
       <tr>
@@ -468,7 +468,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <br><br>
           <input type="text" id="val_num_letters" placeholder="Вартість прописом" onclick="hoverImage(event, 'client_person_rid_img')" class="wide_input">
           <br><br>
-          <input type="text" id="fee_num_letters" placeholder="ПДВ прописом" onclick="hoverImage(event, 'client_person_rid_img')" class="wide_input">
+          <input type="text" id="fee_num_letters" placeholder="ПДВ прописом (або поставте пташку вище)" onclick="hoverImage(event, 'client_person_rid_img')" class="wide_input">
           <br><br>
             </td>
              <script>
