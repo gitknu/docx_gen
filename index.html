@@ -248,9 +248,48 @@ button:hover {
 ::-webkit-scrollbar {
   width: 20px;
 }
+.up_button, .down_button {
+    right:20px;
+	width:75px;
+	height:75px;
+	opacity:0,3;
+        text-decoration: none;
+	position:fixed;
+        opacity: 0.3;
+	background-color:white;
+	color:red;
+	border-radius:50%;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+}
+.up_button {
+	bottom:100px;
+}
+.down_button {
+	bottom:20px;
+}
+.upsidedown {
+  display: inline-block;
+  -webkit-transform: rotateX(180deg);
+  transform: rotateX(180deg); 
+}
 </style>
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+</script>
   </head>
   <body>
+<a href="#top" class="up_button">
+<h1 style="color: red;">🛆</h1>
+</a>
       <canvas id=cvl width=16 height=16 style="opacity: 0;"></canvas>
           <div class="grid">
   <div></div><div></div><div></div>
@@ -534,6 +573,9 @@ budgetCheckbox.addEventListener('change', function() {
         </td>
       </tr>
     </table>
+    <a href="#down" class="down_button">
+<h1 style="color: red;"><span class="upsidedown">🛆</span></h1>
+</a>
            <div class="additional_div" id="additional_div">
            <div class="hover_img" id="arg_num_img">
         <img src="imgs/arg_num.gif">
