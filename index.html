@@ -1,0 +1,951 @@
+<html>
+  <head>
+      <link rel="shortcut icon" href="https://uc.knu.ua/images/logo.png" width="32px">
+    <script>
+onload = function() {
+    var cv = document.querySelector('#cvl'),
+        ctx = cv.getContext('2d'),
+        tc, pct = 0,
+        lnk = document.querySelector('link[rel*="icon"]');
+    if (!!ctx) {
+        var C3qπ = 1.5 * Math.PI;
+        ctx.lineWidth = 5;
+        ctx.strokeStyle = '#b72026';
+        tc = setInterval(updateLoader, 5);
+    }
+    function updateLoader() {
+        if (!document.hidden) {
+            lnk.href = 'https://uc.knu.ua/images/logo.png';
+        } else {
+            with(ctx) {
+                clearRect(0, 0, 16, 16);
+                beginPath();
+                arc(8, 8, 6, C3qπ, (pct * 2 * Math.PI / 100 + C3qπ));
+                stroke();
+                fillStyle = 'white';
+                fill();
+            }
+            lnk.href = cv.toDataURL('image/png');
+            pct = (pct + 1) % 100;
+
+            if (pct === 0) {
+                clearInterval(tc);
+                setTimeout(function() {
+                    tc = setInterval(updateLoader, 5);
+                }, 1000);
+            }
+        }
+    }
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            tc = setInterval(updateLoader, 5);  
+        } else {
+            clearInterval(tc);  
+            lnk.href = 'https://uc.knu.ua/images/logo.png';
+        }
+    });
+};
+    </script>
+<title>Gen.doc</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Yanone+Kaffeesatz:wght@200..700&display=swap')
+</style>
+    <style>
+          input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+      
+    input, select {
+  border-radius: 15px;
+  border: 1px solid grey;
+  height: 20px;
+}
+    input {
+  padding-left: 5px;
+}
+    select {
+  padding-left: 2px;
+}
+    .wide_input {
+    width: 65%;
+    }
+    #mobile {
+        display: none;
+    }
+      h3, tt, span, h1, label, h5, .percent {
+                  color: white;
+        text-shadow: 1px 1px 3px #000000;
+      }
+            h3, h1, button, label, h5, .percent {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+            }
+          table {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+body {
+  background: linear-gradient(#f75145, #8e9e9e);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+button {
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 12px;
+}
+button {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+  transition: box-shadow 0.75s ease-in-out;
+}
+button:hover {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 1);
+}
+.unncsr {
+}
+.grid {
+  position: absolute;
+  z-index: -999;
+  flex: 0 0 auto;
+  perspective: 900px;
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  grid-gap: 20px;
+  max-width: 100px;
+  transform: rotate(45deg);
+}
+.grid div {
+  border-radius: 15%;
+  background-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 30px 30px 30px -20px rgba(0, 0, 0, 0.35);
+  animation: 3000ms ease-in-out infinite alternate pulse;
+}
+.grid div:nth-child(even) {
+  animation-delay: 3000ms;
+}
+@keyframes pulse {
+  to {
+    transform: translate3d(0px, 0px, -60px);
+    box-shadow: 15px 15px 20px -20px rgba(black, 1);
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
+.additional_div {
+    width: 450px;
+    height: 450px;
+    border-radius: 15%;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    z-index: -999;
+    flex: auto auto 0;
+   display: block;
+}
+    .hover_img {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
+    .hover_img img {
+        position: fixed;
+        opacity: 0;
+        height: 450px;
+        width: 450px;
+        border-radius: 15%;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+    }
+@media screen and (max-width: 1025px) {
+  .additional_div {
+    width: 150px;
+    height: 150px;
+  }
+  .hover_img img {
+    width: 150px;
+    height: 150px;
+  }
+}   
+      
+   @media screen and (max-width: 1281px) {
+  .additional_div {
+    width: 250px;
+    height: 250px;
+  }
+  .hover_img img {
+    height: 250px;
+    width: 250px;
+  }
+}   
+             @media screen and (max-width: 1367px) {
+  .additional_div {
+    width: 350px;
+    height: 350px;
+  }
+  .hover_img img {
+    width: 350px;
+    height: 350px;
+  }
+}     
+    @media screen and (max-width: 1644px) and (orientation: portrait) {
+  #mobile {
+    display: block;
+  }
+      body, table {
+  overflow-x: hidden;
+}
+      .additional_div, #arg_num_img, #dday_start_img, #ddmon_start_img, #dday_end_img, #ddmon_end_img, #ddyr_end_img, #service_1_img, #postal_code_img, #name_advisor_img, #mobile_num_img, #city_name_img, #street_else_img, #tax_num_img, #bank_info_img, #unified_code_img, #client_person_rid_img, #client_person_img, #doc_reason_img, #prepay_img {
+   display: none;
+}
+}
+.percent {
+  border: none;
+  background: none;
+  text-align: center;
+  pointer-events: none;
+  font-size: 0.6em;
+}
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: white;
+  border-radius: 15px;
+  opacity: 35%;
+  width: 70%;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+}
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+}
+::-webkit-scrollbar-track {
+  background: linear-gradient(#ff8b66, #8e9e9e);
+}
+::-webkit-scrollbar {
+  width: 20px;
+}
+#up_button, #down_button {
+    right:20px;
+	width:70px;
+	height:70px;
+	opacity:0,3;
+        text-decoration: none;
+	position:fixed;
+        opacity: 0.3;
+	background-color:white;
+	color:red;
+	border-radius:50%;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+}
+#up_button {
+	bottom:100px;
+}
+#down_button {
+	bottom:20px;
+}
+.upsidedown {
+  display: inline-block;
+  -webkit-transform: rotateX(180deg);
+  transform: rotateX(180deg); 
+}
+</style>
+  </head>
+  <body>
+<a href="#top" id="up_button" style="display: flex; justify-content: center; align-items: center;">
+<h1><span style="color: red;">🛆</span></h1>
+</a>
+ <script>
+document.getElementById("up_button").addEventListener("click", function() {
+    document.body.scrollIntoView({ behavior: "smooth", block: "start" });
+});
+</script>
+      <canvas id=cvl width=16 height=16 style="opacity: 0;"></canvas>
+          <div class="grid">
+  <div></div><div></div><div></div>
+  <div></div><div></div><div></div>
+  <div></div><div></div><div></div>
+</div>
+    <table>
+      <tr>
+        <td>
+            <h1>ГЕНЕРАТОР ДОГОВОРУ</h1>
+                      <h5 style="opacity: 0.3;">( <i>звертайте увагу на вимоги у полях :<br>відмінок, мала / велика літера та інше</i> )</h5>
+            <h5 id="mobile" style="color: red; text-shadow: 1px 1px 1px black; background-color: rgba(255, 255, 255, 0.75); border-radius: 12px;
+">( рекомендуємо використовувати<br>з комп'ютеру, а не смартфону )</h5>
+          <h3 class="unncsr">Номер договору</h3>
+          <input type="text" id="arg_num" class="unncsr" placeholder="Номер договору" onclick="hoverImage(event, 'arg_num_img')">
+          <br><br>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h3 class="unncsr">Строк договору</h3>
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align: left;" class="unncsr"><tt>Укладення<span> - </span></tt>
+          <select id="dday_start" onclick="hoverImage(event, 'dday_start_img')" class="unncsr">
+            <option value="___" class="unncsr">дд</option>
+<script>
+  for (let i = 1; i <= 31; i++) {
+    let counter = i.toString().padStart(2, '0');
+    document.write(`<option value="${counter}">${counter}</option>`);
+  }
+</script>
+
+          </select>
+          <select id="ddmon_start" class="unncsr">
+            <option value="____________">мм</option>
+            <option value="січня">січня</option>
+            <option value="лютого">лютого</option>
+            <option value="березня">березня</option>
+            <option value="квітня">квітня</option>
+            <option value="травня">травня</option>
+            <option value="червня">червня</option>
+            <option value="липня">липня</option>
+            <option value="серпня">серпня</option>
+            <option value="вересня">вересня</option>
+            <option value="жовтня">жовтня</option>
+            <option value="листопада">листопада</option>
+            <option value="грудня">грудня</option>
+          </select>
+          <span class="unncsr"> 20</span>
+          <select id="ddyr_start" onclick="hoverImage(event, 'ddmon_start_img')">
+            <option value="24">24</option>
+<script>
+              for (let i = 25; i <= 30; i++) {
+                document.write(`<option value="${i}">${i}</option>`);
+              }
+            </script>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align: left;"><tt>Завершення -</tt>
+          <select id="dday_end" onclick="hoverImage(event, 'dday_end_img')">
+            <option value="___">дд</option>
+<script>
+  for (let i = 1; i <= 31; i++) {
+    let counter = i.toString().padStart(2, '0');
+    document.write(`<option value="${counter}">${counter}</option>`);
+  }
+</script>
+          </select>
+          <select id="ddmon_end" onclick="hoverImage(event, 'ddmon_end_img')">
+            <option value="7">мм</option>
+            <option value="січня">січня</option>
+            <option value="лютого">лютого</option>
+            <option value="березня">березня</option>
+            <option value="квітня">квітня</option>
+            <option value="травня">травня</option>
+            <option value="червня">червня</option>
+            <option value="липня">липня</option>
+            <option value="серпня">серпня</option>
+            <option value="вересня">вересня</option>
+            <option value="жовтня">жовтня</option>
+            <option value="листопада">листопада</option>
+            <option value="грудня">грудня</option>
+          </select>
+          <span> 20</span>
+          <input type="text" id="ddyr_end" placeholder="Рік" size="1" maxlength="2" onclick="hoverImage(event, 'ddyr_end_img')">
+          <br><br>
+        </td>
+      </tr>
+       <tr>
+        <td>
+        <h3>Назва установи, організації<br>(Замовник, у двох відмінках)</h3>
+          <input type="text" id="client_company" placeholder="У називному (з великої)" onclick="hoverImage(event, 'client_company_img')" class="wide_input">
+          <br><br>
+          <input type="text" id="client_company_rid" placeholder="У родовому (з малої)" onclick="hoverImage(event, 'client_company_img')" class="wide_input">
+          <br><br>
+            </td>
+      </tr>
+      <tr>
+        <td>
+        <h3>Підписант від Замовника<br>(представник, у двох відмінках)</h3>
+          <input type="text" id="client_person" placeholder="Ім'я ПРІЗВИЩЕ (називний)" onclick="hoverImage(event, 'client_person_img')">
+          <input type="text" id="client_person_rid" placeholder="Імені ПРІЗВИЩА (родовий)" onclick="hoverImage(event, 'client_person_rid_img')">
+          <br><br>
+            </td>
+      </tr>
+       <tr>
+        <td>
+        <h3>Посада підписанта<br>(у двох відмінках)</h3>
+          <input type="text" id="client_position" placeholder="Посада (називний, велика)" onclick="hoverImage(event, 'client_person_img')">
+          <input type="text" id="client_position_rid" placeholder="...посада (родовий, мала)" onclick="hoverImage(event, 'client_person_rid_img')">
+                    <br><br>
+            </td>
+      </tr>
+      <tr>
+        <td>
+        <h3>Документ, на підставі якого діє особа<br>(у родовому відмінку)</h3>
+          <input type="text" id="doc_reason" placeholder="...документа (родовий, з малої)" onclick="hoverImage(event, 'doc_reason_img')" class="wide_input">
+          <br><br>
+            </td>
+      </tr>
+      <tr>
+        <td>
+          <div id="container">
+            <h3>Назва послуг(и)</h3>
+            <input type="text" id="service_1" placeholder="...назва послуги (називний, з малої)" onclick="hoverImage(event, 'service_1_img')" class="wide_input">
+            <h3 style="display: flex; justify-content: center;">
+            <input type="text" id="service_2" placeholder="...назва послуги #2 (з малої, тут та в наступних)" class="wide_input" onclick="hoverImage(event, 'service_1_img')" style="display: none">
+            </h3><h3 style="display: flex; justify-content: center;">
+            <input type="text" id="service_3" placeholder="назва послуги #3" class="wide_input" onclick="hoverImage(event, 'service_1_img')" style="display: none">
+            </h3><h3 style="display: flex; justify-content: center;">
+            <input type="text" id="service_4" placeholder="назва послуги #4" class="wide_input" onclick="hoverImage(event, 'service_1_img')" style="display: none">
+            </h3><h3 style="display: flex; justify-content: center;">
+            <input type="text" id="service_5" placeholder="назва послуги #5" class="wide_input" onclick="hoverImage(event, 'service_1_img')" style="display: none">
+            </h3><h3 style="display: flex; justify-content: center;">
+            <input type="text" id="service_6" placeholder="назва послуги #6" class="wide_input" onclick="hoverImage(event, 'service_1_img')" style="display: none">
+            </h3><h3 style="display: flex; justify-content: center;">
+            <input type="text" id="service_7" placeholder="назва послуги #7" class="wide_input" onclick="hoverImage(event, 'service_1_img')" style="display: none">
+            </h3><h3 style="display: flex; justify-content: center;">
+            <input type="text" id="service_8" placeholder="назва послуги #8" class="wide_input" onclick="hoverImage(event, 'service_1_img')" style="display: none">
+            </h3><h3 style="display: flex; justify-content: center;">
+            <input type="text" id="service_9" placeholder="назва послуги #9" class="wide_input" onclick="hoverImage(event, 'service_1_img')" style="display: none">
+            </h3>
+          </div>
+                    <script>
+  function handleInputChange(serviceNumber) {
+    var currentServiceInput = document.getElementById("service_" + serviceNumber);
+    var nextServiceInput = document.getElementById("service_" + (serviceNumber + 1));
+    if (currentServiceInput.value.trim().length > 0) {
+      nextServiceInput.style.display = "block";
+    } else {
+      nextServiceInput.style.display = "none";
+    }
+  }
+  for (var i = 1; i <= 9; i++) {
+    document.getElementById("service_" + i).addEventListener("input", function() {
+      var serviceNumber = parseInt(this.id.split("_")[1]);
+      handleInputChange(serviceNumber);
+    });
+  }
+</script>
+        </td>
+      </tr>
+      <tr>
+          <td>
+              <script>
+document.addEventListener('DOMContentLoaded', function() {
+  var projectBars = document.querySelectorAll('.project .bar');
+  projectBars.forEach(function(projectBar) {
+    var projectPercent = projectBar.parentNode.querySelector('.percent');
+    var projectRange = projectBar.parentNode.querySelector('.ui-slider-range');
+    projectBar.addEventListener('input', function(event) {
+      var value = event.target.value;
+      if (value === "0") {
+        projectPercent.value = "Без передплати";
+      } else if (value === "100") {
+        projectPercent.value = "Із повною передплатою";
+      } else {
+        projectPercent.value = value + "%";
+      }
+    });
+    projectBar.addEventListener('change', function(event) {
+      var value = event.target.value;
+      var projectRange = event.target.parentNode.querySelector('.ui-slider-range');
+      var percent = value;
+    });
+    projectPercent.value = "50%";
+  });
+});
+</script>
+<a href="#down" id="down_button">
+<h1><span class="upsidedown" style="color: red;">🛆</span></h1>
+</a>
+<script>
+document.getElementById("down_button").addEventListener("click", function() {document.body.scrollIntoView({ behavior: "smooth", block: "end" });
+});
+</script>
+<div class="container">
+  <div class="row">
+    <div class="project">
+       <h3>Розмір передплати</h3>
+      <h1>
+        <input class="percent" readonly />
+      <div class="bar">
+        <input type="range" min="0" max="100" value="50" class="slider" step="5" id="prepay" onclick="hoverImage(event, 'prepay_img')">
+      </div>
+    </div>
+  </div>
+</div>
+      </h1>
+          </td>
+      </tr>
+       <tr>
+        <td>
+        <h3>Вартість послуг та ПДВ (числом і прописом)</h3>
+         <h5><span style="opacity: 0.3;">( <i>поставте пташку, якщо Ваша </i></span> <i>установа бюджетна</i>
+          <input type="checkbox" id="budget">
+          <span style="opacity: 0.3;">)</span></h5>
+          <input type="number" step="any" id="val_num_count" placeholder="Вартість числом (через кому)" onclick="hoverImage(event, 'client_person_img')" class="wide_input">
+          <br><br>
+          <input type="text" id="val_num_letters" placeholder="Вартість прописом" onclick="hoverImage(event, 'client_person_rid_img')" class="wide_input">
+          <br><br>
+          <input type="text" id="fee_num_letters" placeholder="ПДВ прописом (чи поставте пташку вище)" onclick="hoverImage(event, 'client_person_rid_img')" class="wide_input">
+          <br><br>
+            </td>
+             <script>
+                const feeNumSmall = document.getElementById('fee_num_letters');
+const budgetCheckbox = document.getElementById('budget');
+
+budgetCheckbox.addEventListener('change', function() {
+  if (budgetCheckbox.checked) {
+    feeNumSmall.style.opacity = '0.5';
+    feeNumSmall.disabled = true;
+    feeNumSmall.value = '';
+  } else {
+    feeNumSmall.style.opacity = '1';
+    feeNumSmall.disabled = false;
+  }
+});
+
+            </script>
+      </tr>
+      <tr>
+        <td>
+          <h3>Індекс, населений пункт і повна адреса</h3>
+          <input type="number" id="postal_code" placeholder="Поштовий індекс" onclick="hoverImage(event, 'postal_code_img')">
+          <input type="text" id="city_name" placeholder="Місто, селище тощо" onclick="hoverImage(event, 'city_name_img')">
+          <input type="text" id="street_else" placeholder="Вулиця, проспект тощо" onclick="hoverImage(event, 'street_else_img')">
+          <br><br>
+        </td>
+      </tr>
+            <tr>
+        <td>
+       <h3>ІПН, реквізити та код ЄДРПОУ</h3>
+          <input type="number" id="tax_num" placeholder="Податковий номер" onclick="hoverImage(event, 'tax_num_img')">
+        <input type="number" id="bank_info" placeholder="Банківські реквізити" onclick="hoverImage(event, 'bank_info_img')">
+        <input type="number" id="unified_code" placeholder="Код ЄДРПОУ" onclick="hoverImage(event, 'unified_code_img')">
+          <br><br>
+           </td>
+      </tr>
+      <tr>
+        <td>
+          <h3>Науковий керівник і його мобільний номер</h3>
+          <input type="text" id="name_advisor" placeholder="Ім'я ПРІЗВИЩЕ" onclick="hoverImage(event, 'name_advisor_img')">
+          <input type="number" id="mobile_num" placeholder="380..." onclick="hoverImage(event, 'mobile_num_img')">
+          <br><br>
+        </td>
+      </tr>
+      <tr>
+          <td>
+                     <h3>Ваша пошта для відправки документа</h3>
+               <input type="checkbox" id="tickField">
+  <label for="tickField">gmail</label>
+  <input type="checkbox" id="ukrTickField">
+  <label for="ukrTickField">ukr.net</label>
+  <input type="checkbox" id="metaTickField">
+  <label for="metaTickField">meta.ua</label>
+  <input type="checkbox" id="iuaTickField">
+  <label for="iuaTickField">i.ua</label>
+  <h5 style="opacity: 0.3;">( <i>для вказаних сервісів є можливість<br>автоматично створити чернетку</i> )</h5>
+          </td>
+      </tr>
+      <tr>
+        <td>
+          <button onclick="generate()"><h2>Завантажити договір</h2></button>
+        </td>
+      </tr>
+    </table>
+           <div class="additional_div" id="additional_div">
+           <div class="hover_img" id="arg_num_img">
+        <img src="imgs/arg_num.gif">
+    </div>
+    <div class="hover_img" id="dday_start_img">
+        <img src="imgs/dday_start.gif">
+    </div>
+    <div class="hover_img" id="ddmon_start_img">
+        <img src="imgs/ddmon_start.gif">
+    </div>
+        <div class="hover_img" id="dday_end_img">
+        <img src="imgs/dday_end.gif">
+    </div>
+        <div class="hover_img" id="ddmon_end_img">
+        <img src="imgs/ddmon_end.gif">
+    </div>
+        <div class="hover_img" id="ddyr_end_img">
+        <img src="imgs/ddyr_end.gif">
+    </div>
+        <div class="hover_img" id="service_1_img">
+        <img src="imgs/service_1_2.gif">
+    </div>
+        <div class="hover_img" id="postal_code_img">
+        <img src="imgs/postal_code_img.png">
+    </div>
+        <div class="hover_img" id="name_advisor_img">
+        <img src="imgs/name_advisor_img.png">
+    </div>
+        <div class="hover_img" id="mobile_num_img">
+        <img src="imgs/mobile_num_img.png">
+    </div>
+        <div class="hover_img" id="city_name_img">
+        <img src="imgs/city_name_img.png">
+    </div>
+        <div class="hover_img" id="street_else_img">
+        <img src="imgs/street_else_img.png">
+    </div>
+    <div class="hover_img" id="tax_num_img">
+        <img src="https://www.bottega7.com/media/filer_public_thumbnails/filer_public/f5/98/f5986e4f-b733-4ab8-aa3b-0d474d257464/copertina_img-theme-park_v2.jpg__1200x700_q100_crop_subsampling-2_upscale.jpg">
+    </div>
+        <div class="hover_img" id="bank_info_img">
+        <img src="https://cdn5.vectorstock.com/i/1000x1000/45/39/local-banks-vector-7404539.jpg">
+    </div>
+    <div class="hover_img" id="unified_code_img">
+        <img src="https://pbs.twimg.com/profile_images/378800000293116108/7d88dc26976e96cf4ca15491d7a38043_400x400.png">
+    </div>
+                <div class="hover_img" id="client_person_rid_img">
+        <img src="imgs/person_name.gif">
+    </div>
+     <div class="hover_img" id="client_person_img">
+        <img src="imgs/person_name.gif">
+    </div>
+    <div class="hover_img" id="doc_reason_img">
+        <img src="imgs/doc_reason.gif">
+    </div>
+            <div class="hover_img" id="prepay_img">
+        <img src="imgs/prepay.gif">
+    </div>
+         <div class="hover_img" id="client_company_img">
+        <img src="imgs/name_company.gif">
+    </div>
+     <div class="hover_img" id="NAME_img">
+        <img src="https://examplecom/img.jpg">
+    </div>
+         <div class="hover_img" id="NAME_img">
+        <img src="https://examplecom/img.jpg">
+    </div>
+    </div>
+<script>
+    let selectedPair = null;
+    function hoverImagePair(inputId, hoverImgId) {
+        const inputField = document.getElementById(inputId);
+        const hoverImg = document.getElementById(hoverImgId);
+        const img = hoverImg.querySelector('img');
+        const additionalDiv = document.getElementById('additional_div');
+        inputField.onclick = function(event) {
+            if (selectedPair !== null) {
+                const prevHoverImg = document.getElementById(selectedPair.hoverImgId);
+                const prevImg = prevHoverImg.querySelector('img');
+                prevImg.style.opacity = 0;
+                prevImg.style.transition = 'opacity 0.75s ease-in-out';
+            }
+            img.style.opacity = 0.5;
+            img.style.transition = 'opacity 0.75s ease-in-out';
+            selectedPair = { inputId, hoverImgId };
+        };
+    }
+    const pairs = [
+        { inputId: 'arg_num', hoverImgId: 'arg_num_img' },
+        { inputId: 'dday_start', hoverImgId: 'dday_start_img' },
+        { inputId: 'ddmon_start', hoverImgId: 'ddmon_start_img' },
+        { inputId: 'dday_end', hoverImgId: 'dday_end_img' },
+        { inputId: 'ddmon_end', hoverImgId: 'ddmon_end_img' },
+        { inputId: 'ddyr_end', hoverImgId: 'ddyr_end_img' },
+        { inputId: 'service_1', hoverImgId: 'service_1_img' },
+        { inputId: 'postal_code', hoverImgId: 'postal_code_img' },
+        { inputId: 'name_advisor', hoverImgId: 'name_advisor_img' },
+        { inputId: 'mobile_num', hoverImgId: 'mobile_num_img' },
+        { inputId: 'city_name', hoverImgId: 'city_name_img' },
+        { inputId: 'street_else', hoverImgId: 'street_else_img' },
+        { inputId: 'tax_num', hoverImgId: 'tax_num_img' },
+        { inputId: 'bank_info', hoverImgId: 'bank_info_img' },
+        { inputId: 'unified_code', hoverImgId: 'unified_code_img' },
+    { inputId: 'client_person_rid', hoverImgId: 'client_person_rid_img' },
+    { inputId: 'client_person', hoverImgId: 'client_person_img' },
+        { inputId: 'doc_reason', hoverImgId: 'doc_reason_img' },
+        { inputId: 'prepay', hoverImgId: 'prepay_img' },
+        { inputId: 'client_company', hoverImgId: 'client_company_img' },
+    ];
+    for (const pair of pairs) {
+        hoverImagePair(pair.inputId, pair.hoverImgId);
+    }
+</script>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.45.0/docxtemplater.js"></script>
+  <script src="https://unpkg.com/pizzip@3.1.6/dist/pizzip.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
+  <script src="https://unpkg.com/pizzip@3.1.6/dist/pizzip-utils.js"></script>
+  <script>
+    function loadFile(url, callback) {
+      PizZipUtils.getBinaryContent(url, callback);
+    }
+    window.generate = function generate() {
+          var gmailCheckbox = document.getElementById("tickField");
+      var ukrCheckbox = document.getElementById("ukrTickField");
+      var metaCheckbox = document.getElementById("metaTickField");
+      var iuaCheckbox = document.getElementById("iuaTickField");
+      if ((gmailCheckbox.checked ? 1 : 0) + (ukrCheckbox.checked ? 1 : 0) + (metaCheckbox.checked ? 1 : 0) + (iuaCheckbox.checked ? 1 : 0) > 1) {
+        alert("Оберіть один поштовий сервіс для створення чернетки повідомлення");
+        return;
+      }
+function sendEmailWithReminder(provider, message) {
+  var encodedMessage = encodeURIComponent(message);
+  var emailLink = "";
+  if (provider === "gmail") {
+    emailLink = "https://mail.google.com/mail/?view=cm&fs=1&to=patent.ndch@knu.ua&su=Договір%20про%20надання%20послуг&body=" + encodedMessage;
+  } else if (provider === "ukr") {
+    emailLink = "https://mail.ukr.net/desktop#sendmsg?to=patent.ndch@knu.ua&subject=Договір%20про%20надання%20послуг&body=" + encodedMessage;
+  } else if (provider === "meta") {
+    emailLink = "https://mail.meta.ua/compose?to=patent.ndch@knu.ua&subject=Договір%20про%20надання%20послуг&body=" + encodedMessage;
+  } else if (provider === "iua") {
+    emailLink = "https://mbox2.i.ua/compose?to=patent.ndch@knu.ua&subj=Договір%20про%20надання%20послуг&body=forget" + encodedMessage;
+  }
+  setTimeout(function () {
+    window.open(emailLink, "_blank");
+  }, 1500);
+}
+var alertMessage = "УВАГА !\n\nНе забудьте:\n- прикріпити файл договору 💾\n- видалити цей текст ❌";
+if (gmailCheckbox.checked) {
+  sendEmailWithReminder("gmail", alertMessage);
+}
+if (ukrCheckbox.checked) {
+  sendEmailWithReminder("ukr", alertMessage);
+}
+if (metaCheckbox.checked) {
+  sendEmailWithReminder("meta", alertMessage);
+}
+if (iuaCheckbox.checked) {
+  sendEmailWithReminder("iua", alertMessage);
+}
+      const arg_num = document.getElementById("arg_num").value;
+      const dday_start = document.getElementById("dday_start").value;
+      const ddmon_start = document.getElementById("ddmon_start").value;
+      const ddyr_start = document.getElementById("ddyr_start").value;
+      const dday_end = document.getElementById("dday_end").value;
+      const ddmon_end = document.getElementById("ddmon_end").value;
+      const ddyr_end = document.getElementById("ddyr_end").value;
+      const client_company = document.getElementById("client_company").value;
+      const client_company_rid = document.getElementById("client_company_rid").value;
+      const client_position_rid = document.getElementById("client_position_rid").value;
+      const client_position = document.getElementById("client_position").value;
+      const service_1 = document.getElementById("service_1").value;
+      const service_2 = document.getElementById("service_2").value;
+      const service_3 = document.getElementById("service_3").value;
+      const service_4 = document.getElementById("service_4").value;
+      const service_5 = document.getElementById("service_5").value;
+      const service_6 = document.getElementById("service_6").value;
+      const service_7 = document.getElementById("service_7").value;
+      const service_8 = document.getElementById("service_8").value;
+      const service_9 = document.getElementById("service_9").value;
+      const dot_val_num_count = document.getElementById("val_num_count").value;
+      const unround_fee_num_count = dot_val_num_count * 0.2;
+      const dot_fee_num_count = unround_fee_num_count.toFixed(2);
+      const fee_num_count = dot_fee_num_count.toString().replace('.', ',');
+      const val_num_count = dot_val_num_count.toString().replace('.', ',');
+      const val_num_letters = document.getElementById("val_num_letters").value;
+      const fee_num_letters = document.getElementById("fee_num_letters").value;
+      const postal_code = document.getElementById("postal_code").value;
+      const name_advisor = document.getElementById("name_advisor").value;
+      const mobile_num = document.getElementById("mobile_num").value;
+      const city_name = document.getElementById("city_name").value;
+      const street_else = document.getElementById("street_else").value;
+      const tax_num = document.getElementById("tax_num").value;
+      const bank_info = document.getElementById("bank_info").value;
+      const unified_code = document.getElementById("unified_code").value;
+      const doc_reason = document.getElementById("doc_reason").value;
+      const client_person_rid = document.getElementById("client_person_rid").value;
+      const client_person = document.getElementById("client_person").value;
+      const prepay = document.getElementById("prepay").value;
+      if (isNaN(parseInt(dday_end)) || !isNaN(parseInt(ddmon_end))) {
+        alert("Оберіть дату завершення договору");
+        return;
+      }
+      if (isNaN(parseInt(ddyr_end)) || ddyr_end < 24 || ddyr_end > 99) {
+        alert("Зазначте актуальний рік - між (20)24 і 20(99)\n\nТакож він має бути не раніше за дату укладення договору");
+        return;
+      }
+if (!isNaN(parseInt(client_company)) || client_company === "" || !client_company.includes(" ")) {
+  alert("Напишіть назву компанії, організації тощо в називному відмінку\n\nЗразок 1: Загальноукраїнський університет «Освіта»\n\nЗразок 2: Науково-дослідний інститут «Штучний інтелект»");
+  return;
+}
+if (!isNaN(parseInt(client_company_rid)) || client_company_rid === "" || !client_company_rid.includes(" ")) {
+  alert("Напишіть назву компанії, організації тощо в родовому відмінку\n\nЗразок 1: Загальноукраїнського університету «Освіта»\n\nЗразок 2: Науково-дослідного інституту «Штучний інтелект»");
+  return;
+}
+if (client_company === client_company_rid) {
+  alert("Називний та родовий відмінки не можуть збігатися для організації. Перевірте введений текст");
+  return
+}
+            if (!isNaN(parseInt(client_person)) || client_person === "" || !client_person.includes(" ")) {
+        alert("Напишіть, як звати представника у називному відмінку відповідно до чинного правопису (Ім'я ПРІЗВИЩЕ)\n\nЗразок 1: Тарас ШЕВЧЕНКО\n\nЗразок 2: Леся УКРАЇНКА");
+        return;
+      }
+      var nameParts = client_person.split(" ");
+if (nameParts.length < 1 || (nameParts[0][0] !== nameParts[0][0].toUpperCase() || nameParts[1].toUpperCase() !== nameParts[1])) {
+  alert("Напишіть, як звати представника у  називному відмінку відповідно до чинного правопису (Ім'я ПРІЗВИЩЕ)\n\nЗразок 1: Тарас ШЕВЧЕНКО\n\nЗразок 2: Леся УКРАЇНКА");
+  return;
+}
+      if (!isNaN(parseInt(client_person_rid)) || client_person_rid === "" || !client_person_rid.includes(" ")) {
+        alert("Напишіть, як звати представника у родовому відмінку відповідно до чинного правопису (Імені ПРІЗВИЩА)\n\nЗразок 1: Тараса ШЕВЧЕНКА\n\nЗразок 2: Лесі УКРАЇНКИ");
+        return;
+      }
+      var nameParts = client_person_rid.split(" ");
+ if (nameParts.length < 1 || (nameParts[0][0] !== nameParts[0][0].toUpperCase() || nameParts[1].toUpperCase() !== nameParts[1])) {
+  alert("Напишіть, як звати представника у родовому відмінку відповідно до чинного правопису (Імені ПРІЗВИЩА)\n\nЗразок 1: Тараса ШЕВЧЕНКА\n\nЗразок 2: Лесі УКРАЇНКИ");
+  return;
+}
+if (client_person === client_person_rid) {
+  alert("Називний та родовий відмінки не можуть збігатися для імені та прізвища. Перевірте введений текст");
+  return
+}
+            if (client_position === "") {
+        alert("Напишіть, посаду представника у називному відмінку з великої літери\n\nЗразок 1: Директор\n\nЗразок 2: Фахівець із кібербезпеки");
+        return;
+      }
+      if (client_position_rid === "") {
+        alert("Напишіть, посаду представника у родовому відмінку з малої літери\n\nЗразок 1: директора\n\nЗразок 2: фахівця з кібербезпеки");
+        return;
+      }
+      if (client_position === client_position_rid) {
+  alert("Називний та родовий відмінки не можуть збігатися для посади. Перевірте введений текст");
+  return
+}
+       if (!isNaN(parseInt(doc_reason)) || doc_reason === "") {
+        alert("Напишіть назву документу в родовому відмінку\n\nЗразок 1: документу про договір\n\nЗразок 2: статуту діяльності установи");
+        return;
+      }
+      if (!isNaN(parseInt(service_1)) || service_1.trim() === "" || service_1.toLowerCase().includes('експертиз') || service_1.toLowerCase().includes('експиртиз') || service_1.toLowerCase().includes('дослідже')) {
+        alert("Зазначте свої послуги з малої літери (коми виставляються автоматично)\n\nЗвертаємо увагу, що ці послуги - НЕ ЕКСПЕРТИЗА або ДОСЛІДЖЕННЯ\n\nЗразок 1: проведення аудиту безпеки\n\nЗразок 2: налаштування IPS");
+        return;
+      }
+          function checkServices(service) {
+  if (!isNaN(parseInt(service)) || service.toLowerCase().includes('експертиз') || service.toLowerCase().includes('експиртиз') || service.toLowerCase().includes('дослідже')) {
+    alert("Зазначте свої послуги з малої літери (коми виставляються автоматично)\n\nЗвертаємо увагу, що ці послуги - НЕ ЕКСПЕРТИЗА або ДОСЛІДЖЕННЯ\n\nЗразок 1: провести аудит безпеки\n\nЗразок 2: налаштувати IPS");
+    return true;
+  }
+  return false;
+}
+
+if (checkServices(service_2) || checkServices(service_3) || checkServices(service_4) || checkServices(service_5) || checkServices(service_6) || checkServices(service_7) || checkServices(service_8) || checkServices(service_9)) {
+  return;
+}
+if (val_num_count === "" || !val_num_count.includes(',')) {
+  alert("Напишіть вартість послуги у гривнях через кому\n\nЗразок 1: 215000,10\n\nЗразок 2: 7000,03");
+  return;
+}
+      if (!isNaN(parseInt(val_num_letters)) || val_num_letters === "" || !val_num_letters.toLowerCase().includes('грив') || !val_num_letters.includes(',') || !val_num_letters.includes(' ') || !val_num_letters.toLowerCase().includes('копій')) {
+        alert("Напишіть вартість послуг(и) прописом. Те саме зробіть для ПДВ, якщо воно передбачене\n\nЗразок 1: двісті п'ятнадцять тисяч гривень, десять копійок \n\nЗразок 2: сім тисяч гривень, три копійки");
+        return;
+      }
+if (postal_code.length < 4 || postal_code.length > 8) {
+  alert("Вкажіть поштовий індекс відповідно до норм\n\nЗразок: 01012");
+  return;
+}
+      if (!isNaN(parseInt(city_name)) || city_name === "" || !city_name.includes(" ")) {
+        alert("Зазначте назву населеного пункту (з великої літери)\n\nЗразок 1: м. Київ\n\nЗразок 2: с. Білогородка");
+        return;
+      }
+      var words = city_name.split(" ");
+      if (words.length > 1 && words[1][0] !== words[1][0].toUpperCase()) {
+        alert("Зазначте назву населеного пункту (з великої літери)\n\nЗразок 1: м. Київ\n\nЗразок 2: с. Білогородка");
+        return;
+      }
+    if (street_else.indexOf(' ') === -1 || street_else.split(" ").length < 2 || street_else.split(" ")[1][0] !== street_else.split(" ")[1][0].toUpperCase() || !/\d+/.test(street_else) || /\d+/.exec(street_else)[0] <= 0 || !street_else.includes(',')) {
+  alert("Вкажіть повну адресу (із номером будинку через кому)\n\nЗразок 1: вул. Тараса Шевченка, 1\n\nЗразок 2: бул. Лесі Українки, 1А");
+  return;
+}
+if (tax_num.length < 5 || tax_num.length > 25) {
+  alert("Вкажіть індивідуальний податковий номер відповідно до норм\n\nЗразок: 12345678");
+  return;
+}
+            if (bank_info.length < 5 || bank_info.length > 25) {
+        alert("Вкажіть банківські реквізити відповідно до норм. Частина UA вводиться автоматично\n\nЗразок: 12345");
+        return;
+      }
+      if (unified_code.length < 5 || unified_code.length > 15) {
+        alert("Вкажіть код ЄДРПОУ відповідно до норм\n\nЗразок: 12345");
+        return;
+      }
+      if (!isNaN(parseInt(name_advisor)) || name_advisor === "" || !name_advisor.includes(" ") || name_advisor.split(" ").length < 1 || (name_advisor.split(" ")[0][0] !== name_advisor.split(" ")[0][0].toUpperCase() || name_advisor.split(" ")[1].toUpperCase() !== name_advisor.split(" ")[1])) {
+  alert("Напишіть, як звати наукового керівника відповідно до чинного правопису (Ім'я ПРІЗВИЩЕ)\n\nЗразок 1: Тарас ШЕВЧЕНКО\n\nЗразок 2: Леся УКРАЇНКА");
+  return;
+}
+      if (mobile_num.length < 9 || mobile_num.length > 12) {
+  alert("Введіть мобільний номер телефону наукового керівника (формат не принциповий: 380... або 0ХХ...\n\nЗразок 1: 0919191919\n\nЗразок 2: 380919191919");
+  return;
+}
+      loadFile("https://gitknu.github.io/docx_gen/input.docx", function(error, content) {
+        if (error) {
+          throw error;
+        }
+        const zip = new PizZip(content);
+        const doc = new window.docxtemplater(zip, {
+          paragraphLoop: true,
+          linebreaks: true,
+        });
+        doc.render({
+          arg_num: arg_num ? arg_num : "_______",
+          dday_start: dday_start,
+          ddmon_start: ddmon_start,
+          ddyr_start: ddyr_start,
+          dday_end: dday_end,
+          ddmon_end: ddmon_end,
+          ddyr_end: ddyr_end,
+          client_company: client_company,
+          client_company_rid: client_company_rid,
+          client_position_rid: client_position_rid,
+          client_person_rid: client_person_rid,
+          client_position: client_position,
+          client_person: client_person,
+          doc_reason: doc_reason,
+          val_num_count: val_num_count,
+          val_num_letters: val_num_letters,
+          fee_num_count: fee_num_count ? (fee_num_letters !== "" ? `, в тому числі ПДВ ${fee_num_count} грн (` : "") : "",
+          fee_num_letters: fee_num_letters ? `${fee_num_letters})` : "",
+          postal_code: postal_code,
+          city_name: city_name,
+          street_else: street_else,
+          tax_num: tax_num,
+          bank_info: bank_info,
+          unified_code: unified_code,
+          name_advisor: name_advisor,
+          mobile_num: mobile_num,
+        service_1: service_1, 
+  service_2: service_2 ? `, ${service_2}` : "",
+  service_3: service_3 ? `, ${service_3}` : "",
+  service_4: service_4 ? `, ${service_4}` : "",
+  service_5: service_5 ? `, ${service_5}` : "",
+  service_6: service_6 ? `, ${service_6}` : "",
+  service_7: service_7 ? `, ${service_7}` : "",
+  service_8: service_8 ? `, ${service_8}` : "",
+  service_9: service_9 ? `, ${service_9}` : "",
+        prepay: prepay !== "0" ? `Оплата послуг за Договором здійснюється Замовником із ${prepay}% передоплатою вартості послуг шляхом перерахування грошових коштів на поточний рахунок Виконавця, визначений у Договорі протягом п’яти банківських днів з дати підписання даного договору згідно з рахунком-фактурою.\n\t3.3. Замовник здійснює сплату решти вартості послуг протягом п’яти банківських днів від дати підписання Сторонами без зауважень Акту приймання-передачі наданих послуг шляхом перерахування грошових коштів на поточний рахунок Виконавця, визначений у Договорі.` : "Замовник здійснює сплату вартості послуг протягом п’яти банківських днів від дати підписання Сторонами без зауважень Акту приймання-передачі наданих послуг шляхом перерахування грошових коштів на поточний рахунок Виконавця, визначений у Договорі.",
+        });
+        const blob = doc.getZip().generate({
+          type: "blob",
+          mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+          compression: "DEFLATE",
+        });
+        saveAs(blob, "Договір.docx");
+      });
+    };
+  </script>
+</html>
