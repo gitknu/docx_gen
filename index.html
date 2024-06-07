@@ -832,12 +832,12 @@ if (client_person === client_person_rid) {
         alert("Напишіть назву документу в родовому відмінку\n\nЗразок 1: документу про договір\n\nЗразок 2: статуту діяльності установи");
         return;
       }
-      if (!isNaN(parseInt(service_1)) || service_1.trim() === "" || service_1.toLowerCase().includes('експертиз') || service_1.toLowerCase().includes('експиртиз') || service_1.toLowerCase().includes('дослідже')) {
+      if (service_1.trim() === "" || service_1.toLowerCase().includes('експертиз') || service_1.toLowerCase().includes('експиртиз') || service_1.toLowerCase().includes('дослідже')) {
         alert("Зазначте свої послуги з малої літери (коми виставляються автоматично)\n\nЗвертаємо увагу, що ці послуги - НЕ ЕКСПЕРТИЗА або ДОСЛІДЖЕННЯ\n\nЗразок 1: проведення аудиту безпеки\n\nЗразок 2: налаштування IPS");
         return;
       }
           function checkServices(service) {
-  if (!isNaN(parseInt(service)) || service.toLowerCase().includes('експертиз') || service.toLowerCase().includes('експиртиз') || service.toLowerCase().includes('дослідже')) {
+  if (service.toLowerCase().includes('експертиз') || service.toLowerCase().includes('експиртиз') || service.toLowerCase().includes('дослідже')) {
     alert("Зазначте свої послуги з малої літери (коми виставляються автоматично)\n\nЗвертаємо увагу, що ці послуги - НЕ ЕКСПЕРТИЗА або ДОСЛІДЖЕННЯ\n\nЗразок 1: провести аудит безпеки\n\nЗразок 2: налаштувати IPS");
     return true;
   }
@@ -851,7 +851,7 @@ if (val_num_count === "" || !val_num_count.includes(',')) {
   alert("Напишіть вартість послуги у гривнях через кому\n\nЗразок 1: 215000,10\n\nЗразок 2: 7000,03");
   return;
 }
-      if (!isNaN(parseInt(val_num_letters)) || val_num_letters === "" || !val_num_letters.toLowerCase().includes('грив') || !val_num_letters.includes(',') || !val_num_letters.includes(' ') || !val_num_letters.toLowerCase().includes('копій')) {
+      if (val_num_letters === "" || !val_num_letters.toLowerCase().includes('грив') || !val_num_letters.includes(',') || !val_num_letters.includes(' ') || !val_num_letters.toLowerCase().includes('копій')) {
         alert("Напишіть вартість послуг(и) прописом. Те саме зробіть для ПДВ, якщо воно передбачене\n\nЗразок 1: двісті п'ятнадцять тисяч гривень, 00 копійок \n\nЗразок 2: сім тисяч гривень, 93 копійки");
         return;
       }
