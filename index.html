@@ -851,8 +851,8 @@ if (val_num_count === "" || !val_num_count.includes(',')) {
   alert("Напишіть вартість послуги у гривнях через кому\n\nЗразок 1: 215000,10\n\nЗразок 2: 7000,03");
   return;
 }
-      if (val_num_letters === "" || !val_num_letters.toLowerCase().includes('грив') || !val_num_letters.includes(',') || !val_num_letters.includes(' ') || !val_num_letters.toLowerCase().includes('копій')) {
-        alert("Напишіть вартість послуг(и) прописом. Те саме зробіть для ПДВ, якщо воно передбачене\n\nЗразок 1: двісті п'ятнадцять тисяч гривень, 00 копійок \n\nЗразок 2: сім тисяч гривень, 93 копійки");
+      if (val_num_letters === "" || !val_num_letters.toLowerCase().includes('грив') || !val_num_letters.includes(' ') || !val_num_letters.toLowerCase().includes('копій')) {
+        alert("Напишіть вартість послуг(и) прописом. Те саме зробіть для ПДВ, якщо воно передбачене\n\nЗразок 1: двісті п'ятнадцять тисяч гривень 00 копійок \n\nЗразок 2: сім тисяч гривень 93 копійки");
         return;
       }
 if (postal_code.length < 4 || postal_code.length > 8) {
