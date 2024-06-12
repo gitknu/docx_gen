@@ -758,7 +758,7 @@ function sendEmailWithReminder(provider, message) {
     window.open(emailLink, "_blank");
   }, 1500);
 }
-var alertMessage = "УВАГА !\n\nНе забудьте:\n- прикріпити файл договору 💾\n- видалити цей текст ❌";
+var alertMessage = "Лист від " + client_person + "\n\nУВАГА !\n\nНе забудьте:\n- прикріпити файл договору 💾\n- видалити цей текст ❌";
 if (gmailCheckbox.checked) {
   sendEmailWithReminder("gmail", alertMessage);
 }
