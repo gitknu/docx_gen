@@ -205,7 +205,7 @@ button:hover {
       body, table {
   overflow-x: hidden;
 }
-      .additional_div, #arg_num_img, #dday_start_img, #ddmon_start_img, #ddyr_start_img, #dday_end_img, #ddmon_end_img, #ddyr_end_img, #service_1_img, #postal_code_img, #name_advisor_img, #mobile_num_img, #city_name_img, #street_else_img, #tax_num_img, #bank_info_img, #unified_code_img, #client_person_rid_img, #client_person_img, #position_name_img, #position_rod_img, #doc_reason_img, #prepay_img {
+      .additional_div, #arg_num_img, #dday_start_img, #ddmon_start_img, #dday_end_img, #ddmon_end_img, #ddyr_end_img, #service_1_img, #postal_code_img, #name_advisor_img, #mobile_num_img, #city_name_img, #street_else_img, #tax_num_img, #bank_info_img, #unified_code_img, #client_person_rid_img, #client_person_img, #doc_reason_img, #prepay_img {
    display: none;
 }
 }
@@ -381,7 +381,7 @@ document.getElementById("up_button").addEventListener("click", function() {
         <h3>Назва установи, організації<br>(Замовник, у двох відмінках)</h3>
           <input type="text" id="client_company" placeholder="У називному (з великої)" onclick="hoverImage(event, 'client_company_img')" class="wide_input">
           <br><br>
-          <input type="text" id="client_company_rid" placeholder="У знахідному (з малої)" onclick="hoverImage(event, 'client_company_img')" class="wide_input">
+          <input type="text" id="client_company_rid" placeholder="У родовому (з малої)" onclick="hoverImage(event, 'client_company_img')" class="wide_input">
           <br><br>
             </td>
       </tr>
@@ -403,7 +403,7 @@ document.getElementById("up_button").addEventListener("click", function() {
       </tr>
       <tr>
         <td>
-        <h3>Документ, на підставі якого діє підписант<br>(у родовому відмінку)</h3>
+        <h3>Документ, на підставі якого діє особа<br>(у родовому відмінку)</h3>
           <input type="text" id="doc_reason" placeholder="...документа (родовий, з малої)" onclick="hoverImage(event, 'doc_reason_img')" class="wide_input">
           <br><br>
             </td>
@@ -531,7 +531,7 @@ budgetCheckbox.addEventListener('change', function() {
       </tr>
       <tr>
         <td>
-          <h3>Індекс, населений пункт і повна адреса Замовника</h3>
+          <h3>Індекс, населений пункт і повна адреса</h3>
           <input type="number" id="postal_code" placeholder="Поштовий індекс" onclick="hoverImage(event, 'postal_code_img')">
           <input type="text" id="city_name" placeholder="Місто, селище тощо" onclick="hoverImage(event, 'city_name_img')">
           <input type="text" id="street_else" placeholder="Вулиця, проспект тощо" onclick="hoverImage(event, 'street_else_img')">
@@ -540,7 +540,7 @@ budgetCheckbox.addEventListener('change', function() {
       </tr>
             <tr>
         <td>
-       <h3>ІПН, реквізити та код ЄДРПОУ Замовника</h3>
+       <h3>ІПН, реквізити та код ЄДРПОУ</h3>
           <input type="number" id="tax_num" placeholder="Податковий номер" onclick="hoverImage(event, 'tax_num_img')">
         <input type="number" id="bank_info" placeholder="Банківські реквізити" onclick="hoverImage(event, 'bank_info_img')">
         <input type="number" id="unified_code" placeholder="Код ЄДРПОУ" onclick="hoverImage(event, 'unified_code_img')">
@@ -549,7 +549,7 @@ budgetCheckbox.addEventListener('change', function() {
       </tr>
       <tr>
         <td>
-          <h3>Науковий керівник КНУТШ і його мобільний номер</h3>
+          <h3>Науковий керівник і його мобільний номер</h3>
           <input type="text" id="name_advisor" placeholder="Ім'я ПРІЗВИЩЕ" onclick="hoverImage(event, 'name_advisor_img')">
           <input type="number" id="mobile_num" placeholder="380..." onclick="hoverImage(event, 'mobile_num_img')">
           <br><br>
@@ -585,9 +585,6 @@ budgetCheckbox.addEventListener('change', function() {
     <div class="hover_img" id="ddmon_start_img">
         <img src="imgs/ddmon_start.gif">
     </div>
-	<div class="hover_img" id="ddyr_start_img">
-        <img src="imgs/ddyr_start.gif">
-    </div>
         <div class="hover_img" id="dday_end_img">
         <img src="imgs/dday_end.gif">
     </div>
@@ -598,43 +595,37 @@ budgetCheckbox.addEventListener('change', function() {
         <img src="imgs/ddyr_end.gif">
     </div>
         <div class="hover_img" id="service_1_img">
-        <img src="imgs/service_1.gif">
+        <img src="imgs/service_1_2.gif">
     </div>
         <div class="hover_img" id="postal_code_img">
-        <img src="imgs/postal_code.gif">
+        <img src="imgs/postal_code_img.png">
     </div>
         <div class="hover_img" id="name_advisor_img">
-        <img src="imgs/name_advisor.gif">
+        <img src="imgs/name_advisor_img.png">
     </div>
         <div class="hover_img" id="mobile_num_img">
-        <img src="imgs/mobile_num.gif">
+        <img src="imgs/mobile_num_img.png">
     </div>
         <div class="hover_img" id="city_name_img">
-        <img src="imgs/city_name.gif">
+        <img src="imgs/city_name_img.png">
     </div>
         <div class="hover_img" id="street_else_img">
-        <img src="imgs/street_name.gif">
+        <img src="imgs/street_else_img.png">
     </div>
     <div class="hover_img" id="tax_num_img">
-        <img src="imgs/tax_num.gif">
+        <img src="https://www.bottega7.com/media/filer_public_thumbnails/filer_public/f5/98/f5986e4f-b733-4ab8-aa3b-0d474d257464/copertina_img-theme-park_v2.jpg__1200x700_q100_crop_subsampling-2_upscale.jpg">
     </div>
         <div class="hover_img" id="bank_info_img">
-        <img src="imgs/bank_info.gif">
+        <img src="https://cdn5.vectorstock.com/i/1000x1000/45/39/local-banks-vector-7404539.jpg">
     </div>
     <div class="hover_img" id="unified_code_img">
-        <img src="imgs/unified_code.gif">
+        <img src="https://pbs.twimg.com/profile_images/378800000293116108/7d88dc26976e96cf4ca15491d7a38043_400x400.png">
     </div>
                 <div class="hover_img" id="client_person_rid_img">
-        <img src="imgs/person_name_rid.gif">
+        <img src="imgs/person_name.gif">
     </div>
      <div class="hover_img" id="client_person_img">
         <img src="imgs/person_name.gif">
-    </div>
-	<div class="hover_img" id="position_name_img">
-        <img src="imgs/position_name.gif">
-    </div>
-		   <div class="hover_img" id="position_rod_img">
-        <img src="imgs/position_rod.gif">
     </div>
     <div class="hover_img" id="doc_reason_img">
         <img src="imgs/doc_reason.gif">
@@ -649,9 +640,6 @@ budgetCheckbox.addEventListener('change', function() {
         <img src="https://examplecom/img.jpg">
     </div>
          <div class="hover_img" id="NAME_img">
-        <img src="https://examplecom/img.jpg">
-    </div>
-	<div class="hover_img" id="NAME_img">
         <img src="https://examplecom/img.jpg">
     </div>
     </div>
@@ -678,7 +666,6 @@ budgetCheckbox.addEventListener('change', function() {
         { inputId: 'arg_num', hoverImgId: 'arg_num_img' },
         { inputId: 'dday_start', hoverImgId: 'dday_start_img' },
         { inputId: 'ddmon_start', hoverImgId: 'ddmon_start_img' },
-	{ inputId: 'ddyr_start', hoverImgId: 'ddyr_start_img' },
         { inputId: 'dday_end', hoverImgId: 'dday_end_img' },
         { inputId: 'ddmon_end', hoverImgId: 'ddmon_end_img' },
         { inputId: 'ddyr_end', hoverImgId: 'ddyr_end_img' },
@@ -693,8 +680,6 @@ budgetCheckbox.addEventListener('change', function() {
         { inputId: 'unified_code', hoverImgId: 'unified_code_img' },
     { inputId: 'client_person_rid', hoverImgId: 'client_person_rid_img' },
     { inputId: 'client_person', hoverImgId: 'client_person_img' },
-	{ inputId: 'position_name', hoverImgId: 'postion_name_img' },
-	{ inputId: 'position_rod', hoverImgId: 'position_rod_img' },
         { inputId: 'doc_reason', hoverImgId: 'doc_reason_img' },
         { inputId: 'prepay', hoverImgId: 'prepay_img' },
         { inputId: 'client_company', hoverImgId: 'client_company_img' },
@@ -785,8 +770,6 @@ if (iuaCheckbox.checked) {
       const tax_num = document.getElementById("tax_num").value;
       const bank_info = document.getElementById("bank_info").value;
       const unified_code = document.getElementById("unified_code").value;
-      const position_name = document.getElementById("position_name").value;
-      const position_rod = document.getElementById("position_rod").value;
       const doc_reason = document.getElementById("doc_reason").value;
       const client_person_rid = document.getElementById("client_person_rid").value;
       const client_person = document.getElementById("client_person").value;
