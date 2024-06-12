@@ -396,8 +396,8 @@ document.getElementById("up_button").addEventListener("click", function() {
        <tr>
         <td>
         <h3>Посада підписанта<br>(у двох відмінках)</h3>
-          <input type="text" id="client_position" placeholder="Посада (називний, велика)" onclick="hoverImage(event, 'client_person_img')">
-          <input type="text" id="client_position_rid" placeholder="...посада (родовий, мала)" onclick="hoverImage(event, 'client_person_rid_img')">
+          <input type="text" id="client_position" placeholder="Посада (називний, велика)" onclick="hoverImage(event, 'client_position_img')">
+          <input type="text" id="client_position_rid" placeholder="...посада (родовий, мала)" onclick="hoverImage(event, 'client_position_rid_img')">
                     <br><br>
             </td>
       </tr>
@@ -639,10 +639,10 @@ budgetCheckbox.addEventListener('change', function() {
 	<div class="hover_img" id="client_company_rid_img">
         <img src="imgs/name_company_rid.gif">
     </div>
-	<div class="hover_img" id="name_position_img">
+	<div class="hover_img" id="client_position_img">
         <img src="imgs/name_position.gif">
     </div>
-	<div class="hover_img" id="name_position_rid_img">
+	<div class="hover_img" id="client_position_rid_img">
         <img src="imgs/name_position_rid.gif">
     </div>
      <div class="hover_img" id="NAME_img">
@@ -691,8 +691,8 @@ budgetCheckbox.addEventListener('change', function() {
     { inputId: 'client_person', hoverImgId: 'client_person_img' },
         { inputId: 'doc_reason', hoverImgId: 'doc_reason_img' },
         { inputId: 'prepay', hoverImgId: 'prepay_img' },
-        { inputId: 'name_position', hoverImgId: 'name_position_img' },
-	{ inputId: 'name_position_rid', hoverImgId: 'name_position_rid_img' },
+        { inputId: 'client_position', hoverImgId: 'client_position_img' },
+	{ inputId: 'client_position_rid', hoverImgId: 'client_position_rid_img' },
         { inputId: 'client_company', hoverImgId: 'client_company_img' },
 	{ inputId: 'client_company_rid', hoverImgId: 'client_company_rid_img' },
     ];
