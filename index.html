@@ -205,7 +205,7 @@ button:hover {
       body, table {
   overflow-x: hidden;
 }
-      .additional_div, #arg_num_img, #dday_start_img, #ddmon_start_img, #dday_end_img, #ddmon_end_img, #ddyr_end_img, #service_1_img, #postal_code_img, #name_advisor_img, #mobile_num_img, #city_name_img, #street_else_img, #tax_num_img, #bank_info_img, #unified_code_img, #client_person_rid_img, #client_person_img, #doc_reason_img, #prepay_img {
+      .additional_div, #arg_num_img, #dday_start_img, #ddmon_start_img, #ddyr_start_img, #dday_end_img, #ddmon_end_img, #ddyr_end_img, #service_1_img, #postal_code_img, #name_advisor_img, #mobile_num_img, #city_name_img, #street_else_img, #tax_num_img, #bank_info_img, #unified_code_img, #client_person_rid_img, #client_person_img, #doc_reason_img, #prepay_img {
    display: none;
 }
 }
@@ -585,6 +585,9 @@ budgetCheckbox.addEventListener('change', function() {
     <div class="hover_img" id="ddmon_start_img">
         <img src="imgs/ddmon_start.gif">
     </div>
+	<div class="hover_img" id="ddyr_start_img">
+        <img src="imgs/ddyr_start.gif">
+    </div>
         <div class="hover_img" id="dday_end_img">
         <img src="imgs/dday_end.gif">
     </div>
@@ -622,7 +625,7 @@ budgetCheckbox.addEventListener('change', function() {
         <img src="imgs/unified_code.gif">
     </div>
                 <div class="hover_img" id="client_person_rid_img">
-        <img src="imgs/person_name.gif">
+        <img src="imgs/person_name_rid.gif">
     </div>
      <div class="hover_img" id="client_person_img">
         <img src="imgs/person_name.gif">
@@ -640,6 +643,9 @@ budgetCheckbox.addEventListener('change', function() {
         <img src="https://examplecom/img.jpg">
     </div>
          <div class="hover_img" id="NAME_img">
+        <img src="https://examplecom/img.jpg">
+    </div>
+	<div class="hover_img" id="NAME_img">
         <img src="https://examplecom/img.jpg">
     </div>
     </div>
@@ -666,6 +672,7 @@ budgetCheckbox.addEventListener('change', function() {
         { inputId: 'arg_num', hoverImgId: 'arg_num_img' },
         { inputId: 'dday_start', hoverImgId: 'dday_start_img' },
         { inputId: 'ddmon_start', hoverImgId: 'ddmon_start_img' },
+	{ inputId: 'ddyr_start', hoverImgId: 'ddyr_start_img' },
         { inputId: 'dday_end', hoverImgId: 'dday_end_img' },
         { inputId: 'ddmon_end', hoverImgId: 'ddmon_end_img' },
         { inputId: 'ddyr_end', hoverImgId: 'ddyr_end_img' },
