@@ -505,11 +505,11 @@ document.getElementById("down_button").addEventListener("click", function() {doc
          <h5><span style="opacity: 0.3;">( <i>поставте пташку, якщо Ваша </i></span> <i>установа бюджетна</i>
           <input type="checkbox" id="budget">
           <span style="opacity: 0.3;">)</span></h5>
-          <input type="number" step="any" id="val_num_count" placeholder="Вартість числом (через кому)" onclick="hoverImage(event, 'client_person_img')" class="wide_input">
+          <input type="number" step="any" id="val_num_count" placeholder="Вартість числом (через кому)" onclick="hoverImage(event, 'val_num_count_img')" class="wide_input">
           <br><br>
-          <input type="text" id="val_num_letters" placeholder="Вартість прописом" onclick="hoverImage(event, 'client_person_rid_img')" class="wide_input">
+          <input type="text" id="val_num_letters" placeholder="Вартість прописом" onclick="hoverImage(event, 'val_num_letters_img')" class="wide_input">
           <br><br>
-          <input type="text" id="fee_num_letters" placeholder="ПДВ прописом (чи поставте пташку вище)" onclick="hoverImage(event, 'client_person_rid_img')" class="wide_input">
+          <input type="text" id="fee_num_letters" placeholder="ПДВ прописом (чи поставте пташку вище)" onclick="hoverImage(event, 'fee_num_letters_img')" class="wide_input">
           <br><br>
             </td>
              <script>
@@ -633,6 +633,15 @@ budgetCheckbox.addEventListener('change', function() {
             <div class="hover_img" id="prepay_img">
         <img src="imgs/prepay.gif">
     </div>
+	<div class="hover_img" id="val_num_count_img">
+        <img src="imgs/val_num_count.gif">
+    </div>
+	<div class="hover_img" id="val_num_letters_img">
+        <img src="imgs/val_num_letters.gif">
+    </div>
+	<div class="hover_img" id="fee_num_letters_img">
+        <img src="imgs/fee_num_letters.gif">
+    </div>
          <div class="hover_img" id="client_company_img">
         <img src="imgs/name_company.gif">
     </div>
@@ -691,6 +700,9 @@ budgetCheckbox.addEventListener('change', function() {
     { inputId: 'client_person', hoverImgId: 'client_person_img' },
         { inputId: 'doc_reason', hoverImgId: 'doc_reason_img' },
         { inputId: 'prepay', hoverImgId: 'prepay_img' },
+	{ inputId: 'val_num_count', hoverImgId: 'val_num_count_img' },
+	{ inputId: 'val_num_letters', hoverImgId: 'val_num_letters_img' },
+	{ inputId: 'fee_num_letters', hoverImgId: 'fee_num_letters_img' },
         { inputId: 'client_position', hoverImgId: 'client_position_img' },
 	{ inputId: 'client_position_rid', hoverImgId: 'client_position_rid_img' },
         { inputId: 'client_company', hoverImgId: 'client_company_img' },
