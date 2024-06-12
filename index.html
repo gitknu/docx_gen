@@ -205,7 +205,7 @@ button:hover {
       body, table {
   overflow-x: hidden;
 }
-      .additional_div, #arg_num_img, #dday_start_img, #ddmon_start_img, #ddyr_start_img, #dday_end_img, #ddmon_end_img, #ddyr_end_img, #service_1_img, #postal_code_img, #name_advisor_img, #mobile_num_img, #city_name_img, #street_else_img, #tax_num_img, #bank_info_img, #unified_code_img, #client_person_rid_img, #client_person_img, #doc_reason_img, #prepay_img {
+      .additional_div, #arg_num_img, #dday_start_img, #ddmon_start_img, #ddyr_start_img, #dday_end_img, #ddmon_end_img, #ddyr_end_img, #service_1_img, #postal_code_img, #name_advisor_img, #mobile_num_img, #city_name_img, #street_else_img, #tax_num_img, #bank_info_img, #unified_code_img, #client_person_rid_img, #client_person_img, #position_name_img, #position_rod_img, #doc_reason_img, #prepay_img {
    display: none;
 }
 }
@@ -630,6 +630,12 @@ budgetCheckbox.addEventListener('change', function() {
      <div class="hover_img" id="client_person_img">
         <img src="imgs/person_name.gif">
     </div>
+	<div class="hover_img" id="position_name_img">
+        <img src="imgs/position_name.gif">
+    </div>
+		   <div class="hover_img" id="position_rod_img">
+        <img src="imgs/position_rod.gif">
+    </div>
     <div class="hover_img" id="doc_reason_img">
         <img src="imgs/doc_reason.gif">
     </div>
@@ -687,6 +693,8 @@ budgetCheckbox.addEventListener('change', function() {
         { inputId: 'unified_code', hoverImgId: 'unified_code_img' },
     { inputId: 'client_person_rid', hoverImgId: 'client_person_rid_img' },
     { inputId: 'client_person', hoverImgId: 'client_person_img' },
+	{ inputId: 'position_name', hoverImgId: 'postion_name_img' },
+	{ inputId: 'position_rod', hoverImgId: 'position_rod_img' },
         { inputId: 'doc_reason', hoverImgId: 'doc_reason_img' },
         { inputId: 'prepay', hoverImgId: 'prepay_img' },
         { inputId: 'client_company', hoverImgId: 'client_company_img' },
@@ -777,6 +785,8 @@ if (iuaCheckbox.checked) {
       const tax_num = document.getElementById("tax_num").value;
       const bank_info = document.getElementById("bank_info").value;
       const unified_code = document.getElementById("unified_code").value;
+      const position_name = document.getElementById("position_name").value;
+      const position_rod = document.getElementById("position_rod").value;
       const doc_reason = document.getElementById("doc_reason").value;
       const client_person_rid = document.getElementById("client_person_rid").value;
       const client_person = document.getElementById("client_person").value;
